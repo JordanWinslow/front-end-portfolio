@@ -1,27 +1,39 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway:400,400i,500,700&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,400i,500,700&display=swap");
+/*
+THESE GLOBAL VARIABLES CAN BE ACCESSED INSIDE OF ANY
+STYLED-COMPONENT
+*/
 :root {
-  --black: #1F1F25;
-  --white: #FCFCFC;
+  --black: #1f1f25;
+  --white: #fcfcfc;
   --primaryLight: #239494;
-  --primaryDark: #265B63;
-  --secondaryLight: #AA4B6B;
+  --primaryDark: #265b63;
+  --secondaryLight: #aa4b6b;
   --secondaryDark: #582838;
 }
 .bgPrimaryLight {
   background-color: var(--primaryLight);
   color: var(--white);
+  padding: 1rem;
+  margin-bottom: 1rem;
 }
 .bgPrimaryDark {
   background-color: var(--primaryDark);
   color: var(--white);
+  padding: 1rem;
+  margin-bottom: 1rem;
 }
 .bgSecondaryLight {
   background-color: var(--secondaryLight);
   color: var(--white);
+  padding: 1rem;
+  margin-bottom: 1rem;
 }
 .bgSecondaryDark {
   background-color: var(--secondaryDark);
   color: var(--white);
+  padding: 1rem;
+  margin-bottom: 1rem;
 }
 html {
   font-family: "Raleway", sans-serif;
@@ -34,6 +46,7 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 body {
+  overflow: hidden;
   margin: 0;
   color: var(--white);
   background-color: var(--black);
@@ -666,7 +679,7 @@ pre tt:before,
 pre tt:after {
   content: "";
 }
-@media(max-width: 700px){
+@media (max-width: 700px) {
   h1 {
     font-size: 8vw;
   }
