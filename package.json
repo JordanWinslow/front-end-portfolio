@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "react-graphql-front-end-development-blog",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "A blog about modern Front-End web development techniques in 2020 and beyond. By Jordan Winslow.",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Jordan Winslow <admin@jordanwinslow.me>",
   "dependencies": {
     "gatsby": "^2.15.28",
     "gatsby-image": "^2.2.23",
@@ -22,9 +22,9 @@
     "prettier": "^1.18.2"
   },
   "keywords": [
-    "gatsby"
+    "gatsby", "react", "front end", "devblog", "dev blog", "jordan winslow", "web design"
   ],
-  "license": "MIT",
+  "license": "Attribution-NonCommercial 4.0 International",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
@@ -35,9 +35,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/jordanwinslow/react-graphql-gatsby-blog"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/jordanwinslow/react-graphql-gatsby-blog/issues"
   }
 }
