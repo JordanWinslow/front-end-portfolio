@@ -4,8 +4,8 @@ THESE GLOBAL VARIABLES CAN BE ACCESSED INSIDE OF ANY
 STYLED-COMPONENT
 */
 :root {
-  --black: #1f1f25;
-  --white: #fcfcfc;
+  --dark: #1f1f25;
+  --light: #fcfcfc;
   --primaryLight: #239494;
   --primaryDark: #265b63;
   --secondaryLight: #aa4b6b;
@@ -13,29 +13,31 @@ STYLED-COMPONENT
 }
 .bgPrimaryLight {
   background-color: var(--primaryLight);
-  color: var(--white);
+  color: var(--light);
   padding: 1rem;
   margin-bottom: 1rem;
 }
 .bgPrimaryDark {
   background-color: var(--primaryDark);
-  color: var(--white);
+  color: var(--light);
   padding: 1rem;
   margin-bottom: 1rem;
 }
 .bgSecondaryLight {
   background-color: var(--secondaryLight);
-  color: var(--white);
+  color: var(--light);
   padding: 1rem;
   margin-bottom: 1rem;
 }
 .bgSecondaryDark {
   background-color: var(--secondaryDark);
-  color: var(--white);
+  color: var(--light);
   padding: 1rem;
   margin-bottom: 1rem;
 }
 html {
+  height: 100%;
+  margin: 0;
   font-family: "Raleway", sans-serif;
   font-style: normal;
   font-weight: normal;
@@ -46,10 +48,11 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 body {
+  position: relative;
+  min-height: 100%;
+  padding-bottom: 6rem;
   overflow: hidden;
   margin: 0;
-  color: var(--white);
-  background-color: var(--black);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -679,6 +682,22 @@ pre tt:before,
 pre tt:after {
   content: "";
 }
+.fadeIn{
+  -webkit-animation: fadeIn ease-in;
+  -webkit-animation-duration: 1.5s;
+  -webkit-animation-fill-mode: both;
+  animation: fadeIn ease-in;
+  animation-duration: 1.5s;
+  animation-fill-mode: both;
+}
+.fadeOutIn{
+  -webkit-animation: fadeOutIn ease-out;
+  -webkit-animation-duration: 1.5s;
+  -webkit-animation-fill-mode: both;
+  animation: fadeOutIn ease-out;
+  animation-duration: 1.5s;
+  animation-fill-mode: both;
+}
 @media (max-width: 700px) {
   h1 {
     font-size: 8vw;
@@ -690,5 +709,22 @@ pre tt:after {
 @media only screen and (max-width: 480px) {
   html {
     font-size: 100%;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+ 
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeOutIn {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
   }
 }

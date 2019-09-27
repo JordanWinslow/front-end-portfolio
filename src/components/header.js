@@ -1,10 +1,8 @@
 import { Link } from "gatsby"
 import React from "react"
 import styled from "styled-components"
-import headerSvg from "../images/BlogHeaderDark.svg"
-//import spaceshipAndCow from "../images/SpaceshipAndCow.svg"
-//import mountainsDark from "../images/MountainsDark.svg"
-//import svgBackground from "../images/SVGBackground.svg"
+import headerSvgDark from "../images/BlogHeaderDark.svg"
+import headerSvgLight from "../images/BlogHeaderLight.svg"
 
 const ResponsiveNavLinks = styled.div`
   position: absolute;
@@ -47,11 +45,10 @@ const ResponsiveNavLinks = styled.div`
     padding: 0;
   }
 `
-
-const Header = () => (
-  <header style={{ overflow: "hidden" }}>
-    <img
-      src={headerSvg}
+const Header = ({ colorMode }) => (
+  <header>
+    <img className={colorMode === "dark" ? "fadeOutIn" : "fadeIn"}
+      src={colorMode === "dark" ? headerSvgDark : headerSvgLight}
       alt="Hand-drawn city at night with stars and ufo abducting a cow"
     />
     <ResponsiveNavLinks>
