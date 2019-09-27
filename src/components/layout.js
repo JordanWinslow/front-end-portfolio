@@ -21,7 +21,7 @@ const Layout = ({ children }) => {
           © {new Date().getFullYear()}, Built with love by Jordan Winslow
           <br />
           Powered by
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
+          <a href="https://www.gatsbyjs.org">&nbsp;Gatsby</a>
         </footer>
       </div>
     </>
