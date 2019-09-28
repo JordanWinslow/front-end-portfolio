@@ -1,6 +1,7 @@
 <svg width="720" height="351" viewBox="0 0 720 351" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g id="BlogHeaderMobile" clip-path="url(#clip0)">
-<rect id="background" x="-1277" width="1997" height="351" fill="#1F1F25"/>
+<rect width="720" height="351" fill="#FCFCFC"/>
+<rect id="background" x="-1277" width="1997" height="351" fill="url(#paint0_linear)"/>
 <g id="Stars">
 <path id="Star" d="M-1.76847 17L-0.80287 19.7639H2.32189L-0.206095 21.4721L0.759509 24.2361L-1.76847 22.5279L-4.29646 24.2361L-3.33085 21.4721L-5.85884 19.7639H-2.73408L-1.76847 17Z" fill="#3B8D99"/>
 <path id="Star_2" d="M16.5098 29L17.4755 31.7639H20.6002L18.0722 33.4721L19.0378 36.2361L16.5098 34.5279L13.9819 36.2361L14.9475 33.4721L12.4195 31.7639H15.5442L16.5098 29Z" fill="#3B8D99"/>
@@ -172,7 +173,7 @@
 <path id="Top_4" d="M22.4461 85.001H125.893L116.109 105.745H0L22.4461 85.001Z" fill="#535353"/>
 </g>
 <g id="MountainsFG" filter="url(#filter5_d)">
-<path d="M720 351V205.469C549.34 238.653 375.193 250.307 201.633 240.158L177.5 238.747L-87 202.461C-107.042 200.3 -117.064 199.219 -126.743 198.295C-227.35 188.691 -328.646 188.719 -429.248 198.38C-438.925 199.309 -448.616 200.36 -467.995 202.46L-468 202.461L-738.5 238.747L-770.4 240.568C-942.415 250.384 -1114.66 225.711 -1277 168V351H720Z" fill="#FCFCFC"/>
+<path d="M722 351V205.469C551.168 238.653 376.852 250.307 203.122 240.159L178.957 238.747L-85.8081 202.461L-85.8136 202.46C-106.212 200.263 -116.412 199.164 -126.269 198.226C-226.528 188.689 -327.467 188.718 -427.721 198.311C-437.578 199.254 -447.448 200.323 -467.188 202.461L-467.19 202.461L-737.961 238.747L-769.921 240.569C-942.093 250.385 -1114.49 225.712 -1277 168V351H722Z" fill="#FCFCFC"/>
 </g>
 </g>
 <defs>
@@ -203,7 +204,7 @@
 <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
 <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
 </filter>
-<filter id="filter3_d" x="-1292.87" y="-4.07673" width="1996.53" height="188.033" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<filter id="filter3_d" x="-1292.88" y="-4.5467" width="1996.63" height="189.834" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
 <feOffset dy="-44.0066"/>
@@ -221,7 +222,7 @@
 <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
 <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
 </filter>
-<filter id="filter5_d" x="-1294.6" y="106.391" width="2032.21" height="244.609" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<filter id="filter5_d" x="-1294.6" y="106.391" width="2034.21" height="244.609" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
 <feOffset dy="-44.0066"/>
@@ -230,6 +231,10 @@
 <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
 <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
 </filter>
+<linearGradient id="paint0_linear" x1="-278.5" y1="0" x2="-278.5" y2="351" gradientUnits="userSpaceOnUse">
+<stop offset="0.791567" stop-color="#1F1F25"/>
+<stop offset="0.791667" stop-color="#FCFCFC"/>
+</linearGradient>
 <clipPath id="clip0">
 <rect width="720" height="351" fill="white"/>
 </clipPath>

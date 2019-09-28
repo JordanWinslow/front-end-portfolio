@@ -1,6 +1,7 @@
 <svg width="1997" height="351" viewBox="0 0 1997 351" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g id="BlogHeader" clip-path="url(#clip0)">
-<rect id="background" width="1997" height="351" fill="#1F1F25"/>
+<rect width="1997" height="351" fill="#FCFCFC"/>
+<rect id="background" width="1997" height="351" fill="url(#paint0_linear)"/>
 <g id="Stars">
 <path id="Star" d="M1275.23 17L1276.2 19.7639H1279.32L1276.79 21.4721L1277.76 24.2361L1275.23 22.5279L1272.7 24.2361L1273.67 21.4721L1271.14 19.7639H1274.27L1275.23 17Z" fill="#3B8D99"/>
 <path id="Star_2" d="M1293.51 29L1294.48 31.7639H1297.6L1295.07 33.4721L1296.04 36.2361L1293.51 34.5279L1290.98 36.2361L1291.95 33.4721L1289.42 31.7639H1292.54L1293.51 29Z" fill="#3B8D99"/>
@@ -155,7 +156,6 @@
 <path id="Star_147" d="M284.804 61.42L282.609 59.3515L279.816 60.6538L281.253 58.0731L279.058 56.0046L282.141 56.4782L283.578 53.8976L284.046 56.7709L287.129 57.2445L284.336 58.5467L284.804 61.42Z" fill="#3B8D99"/>
 <path id="Star_148" d="M322.743 15.7697L320.548 13.7011L317.755 15.0034L319.192 12.4227L316.997 10.3542L320.08 10.8278L321.517 8.24717L321.985 11.1205L325.068 11.5941L322.275 12.8963L322.743 15.7697Z" fill="#265B63"/>
 </g>
-<g id="Frame">
 <g id="LightBeam" filter="url(#filter0_d)">
 <path d="M1446.5 214.414L1618.51 110.889L1751.61 41.7865L1642.43 243.117L1547.88 236.635L1446.5 214.414Z" fill="#FCFCFC"/>
 </g>
@@ -198,7 +198,6 @@
 <ellipse cx="1743.97" cy="34.0032" rx="33.8851" ry="14.0821" fill="#AA4B6B"/>
 </g>
 <path id="Ellipse 3.1" d="M1761.13 28.7518C1761.13 33.5964 1753.25 37.5238 1743.53 37.5238C1733.81 37.5238 1725.93 33.5964 1725.93 28.7518C1725.93 23.9072 1733.81 17.2808 1743.53 17.2808C1753.25 17.2808 1761.13 23.9072 1761.13 28.7518Z" fill="#1F1F25"/>
-</g>
 </g>
 <g id="Fog" opacity="0.06" filter="url(#filter3_d)">
 <path d="M1.73266 171.313L212.214 140.014C239.728 135.922 267.567 134.431 295.361 135.561L493.2 143.6L730.366 172.206L863.269 183.38C873.569 184.246 883.929 184.136 894.209 183.052L1170.73 153.89L1426.2 135.3L1748.09 145.055C1750.01 145.113 1751.92 145.332 1753.8 145.711L1909.29 177.033C1945.28 184.283 1974.25 147.557 1958.81 114.245C1956.57 109.421 1951.84 106.243 1946.53 106.001L1590.23 89.7908L1314.1 89.6278L1168.47 76.1103C1110.8 70.7575 1052.74 71.2988 995.179 77.726L913.29 86.8698L744.838 105.679L477.977 64.6512C433.779 57.8561 388.971 55.9175 344.351 58.87L213.22 67.5472L1.83372 88.8528L1.73266 171.313Z" fill="#B8B8B8"/>
@@ -340,7 +339,7 @@
 <path id="Top_7" d="M765.446 77.001H868.893L859.109 97.7447H743L765.446 77.001Z" fill="#535353"/>
 </g>
 <g id="MountainsFG" filter="url(#filter5_d)">
-<path d="M1997 351V167.296C1826.73 209.089 1650.94 223.803 1476.09 210.898L1454.5 209.304L1190 163.5C1063.91 146.335 935.082 146.247 809 163.5L538.5 209.304L514.877 211.006C338.366 223.721 161.458 192.452 0 120V351H1997Z" fill="#FCFCFC"/>
+<path d="M1999 351V167.296C1828.38 209.09 1652.26 223.804 1477.07 210.9L1455.41 209.304L1190.38 163.5C1064.03 146.335 934.958 146.246 808.62 163.5L537.579 209.304L513.821 211.012C337.004 223.724 159.79 192.456 -2 120V351H1999Z" fill="#FCFCFC"/>
 </g>
 </g>
 <defs>
@@ -389,7 +388,7 @@
 <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
 <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
 </filter>
-<filter id="filter5_d" x="-17.6026" y="58.3908" width="2032.21" height="292.609" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<filter id="filter5_d" x="-19.6026" y="58.3908" width="2036.21" height="292.609" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
 <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
 <feOffset dy="-44.0066"/>
@@ -398,6 +397,10 @@
 <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
 <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
 </filter>
+<linearGradient id="paint0_linear" x1="998.5" y1="0" x2="998.5" y2="351" gradientUnits="userSpaceOnUse">
+<stop offset="0.786458" stop-color="#1F1F25"/>
+<stop offset="0.822917" stop-color="#FCFCFC"/>
+</linearGradient>
 <clipPath id="clip0">
 <rect width="1997" height="351" fill="white"/>
 </clipPath>

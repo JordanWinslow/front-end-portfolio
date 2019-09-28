@@ -691,10 +691,10 @@ pre tt:after {
   animation-fill-mode: both;
 }
 .fadeOutIn{
-  -webkit-animation: fadeOutIn ease-out;
+  -webkit-animation: fadeOutIn ease-in;
   -webkit-animation-duration: 1.5s;
   -webkit-animation-fill-mode: both;
-  animation: fadeOutIn ease-out;
+  animation: fadeOutIn ease-in;
   animation-duration: 1.5s;
   animation-fill-mode: both;
 }
@@ -721,10 +721,14 @@ pre tt:after {
   }
 }
 @keyframes fadeOutIn {
+  /*
+  somewhat hacky but gets the job done
+  with less code
+  */
   0%, 100% {
     opacity: 1;
   }
-  50% {
+  1% {
     opacity: 0;
   }
 }

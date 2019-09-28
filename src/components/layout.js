@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { createGlobalStyle } from "styled-components"
 import Header from "./header"
+import LightBulb from "./LightBulb"
 import "./layout.css"
 
 // DARK MODE IMPLEMENTATION
@@ -20,18 +21,14 @@ const Layout = ({ children }) => {
     <>
       <Color theme={colorMode} />
       <Header colorMode={colorMode} />
-      <button
-        onClick={e => setColorMode(colorMode === "dark" ? "light" : "dark")}
-      >
-        💡
-      </button>
+      <LightBulb colorMode={colorMode} setColorMode={setColorMode} />
       <div
         style={{
           margin: "0 auto",
           maxWidth: 700,
           padding: "0 1.5rem",
         }}
-        id="Content"
+        id="PageContent"
       >
         <main>{children}</main>
         <footer
@@ -45,7 +42,8 @@ const Layout = ({ children }) => {
             left: 0,
           }}
         >
-          © {new Date().getFullYear()}, Built with love by Jordan Winslow
+          © {new Date().getFullYear()}, All code, vector graphics & assets
+          designed by Jordan Winslow (except the cow)
           <br />
           Powered by React, GraphQL &
           <a href="https://www.gatsbyjs.org">&nbsp;Gatsby</a>
