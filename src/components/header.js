@@ -3,6 +3,8 @@ import React from "react"
 import styled from "styled-components"
 import headerSvgDark from "../images/BlogHeaderDark.svg"
 import headerSvgLight from "../images/BlogHeaderLight.svg"
+import headerSvgMobileDark from "../images/BlogHeaderMobileDark.svg"
+import headerSvgMobileLight from "../images/BlogHeaderMobileLight.svg"
 
 const ResponsiveNavLinks = styled.div`
   position: absolute;
@@ -45,25 +47,39 @@ const ResponsiveNavLinks = styled.div`
     padding: 0;
   }
 `
-const Header = ({ colorMode }) => (
-  <header>
-    <img className={colorMode === "dark" ? "fadeOutIn" : "fadeIn"}
-      src={colorMode === "dark" ? headerSvgDark : headerSvgLight}
-      alt="Hand-drawn city at night with stars and ufo abducting a cow"
-    />
-    <ResponsiveNavLinks>
-      <h4>
-        <Link to="/" className="link-item">
-          Blog Home
-        </Link>
-      </h4>
-      <h4>
-        <a href="#" className="link-item">
-          Portfolio
-        </a>
-      </h4>
-    </ResponsiveNavLinks>
-  </header>
-)
+
+const Header = ({ colorMode }) => {
+  const largeScreen = () => {
+    return window.innerWidth > 700
+  }
+  const getSvg = () => {
+    if (largeScreen()) {
+      return colorMode === "dark" ? headerSvgDark : headerSvgLight
+    } else {
+      return colorMode === "dark" ? headerSvgMobileDark : headerSvgMobileLight
+    }
+  }
+  return (
+    <header>
+      <img
+        className={colorMode === "dark" ? "fadeOutIn" : "fadeIn"}
+        src={getSvg()}
+        alt="Hand-drawn city at night with stars and ufo abducting a cow"
+      />
+      <ResponsiveNavLinks>
+        <h4>
+          <Link to="/" className="link-item">
+            Blog Home
+          </Link>
+        </h4>
+        <h4>
+          <a href="#" className="link-item">
+            Portfolio
+          </a>
+        </h4>
+      </ResponsiveNavLinks>
+    </header>
+  )
+}
 
 export default Header

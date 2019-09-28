@@ -50,7 +50,7 @@ html {
 body {
   position: relative;
   min-height: 100%;
-  padding-bottom: 6rem;
+  padding-bottom: 10rem;
   overflow: hidden;
   margin: 0;
   -webkit-font-smoothing: antialiased;

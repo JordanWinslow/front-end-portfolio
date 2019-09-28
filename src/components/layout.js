@@ -4,6 +4,7 @@ import { createGlobalStyle } from "styled-components"
 import Header from "./header"
 import "./layout.css"
 
+// DARK MODE IMPLEMENTATION
 const Color = createGlobalStyle`
   body {
     color: ${props =>
@@ -13,9 +14,8 @@ const Color = createGlobalStyle`
       transition: .8s ease-out;
   }
   `
-
 const Layout = ({ children }) => {
-  const [colorMode, setColorMode] = useState("light")
+  const [colorMode, setColorMode] = useState("light") // SET PAGE THEME TO LIGHT MODE ON FIRST LOAD.
   return (
     <>
       <Color theme={colorMode} />
