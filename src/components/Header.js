@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import { window } from "browser-monads" // fallback for Gatsby SSR
 import headerSvgDark from "../images/BlogHeaderDark.svg"
 import headerSvgLight from "../images/BlogHeaderLight.svg"
@@ -14,12 +14,12 @@ const Header = ({ colorMode }) => {
   when it reaches 720px in width. The following code accomplishes that.
   */
   const [width, setWidth] = useState(window.innerWidth)
-  useEffect(() => {
-    function handleResize() {
-      setWidth(window.innerWidth)
-    }
-    window.addEventListener("resize", handleResize)
-  }, [])
+  window.onload = setWidth(window.innerWidth)
+  function handleResize() {
+    setWidth(window.innerWidth)
+  }
+  window.addEventListener("resize", handleResize)
+  
   const getSvg = () => {
     // 720 is the Width of the mobile SVG image
     if (width >= 720) {
