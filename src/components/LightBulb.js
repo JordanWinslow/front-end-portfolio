@@ -6,6 +6,7 @@ const LightBulb = ({ colorMode, setColorMode }) => {
   return (
     <Fragment>
       <img
+        style={{ position: "fixed", bottom: 0, right: 0 }}
         className={colorMode === "dark" ? "fadeOutIn" : "fadeIn"}
         src={colorMode === "dark" ? lightBulbDark : lightBulbLight}
         width="25px"

@@ -27,7 +27,7 @@ module.exports = {
         background_color: `#1F1F25`,
         theme_color: `#239494`,
         display: `minimal-ui`,
-        icon: `src/images/JWLogo.svg`, // This path is relative to the root of the site.
+        icon: `src/images/JWIcon.svg`, // This path is relative to the root of the site.
       },
     },
   ],

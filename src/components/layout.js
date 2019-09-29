@@ -26,7 +26,7 @@ const Layout = ({ children }) => {
         style={{
           margin: "0 auto",
           maxWidth: 700,
-          padding: "0 1.5rem",
+          padding: "0 1.5rem 3rem 1.5rem",
         }}
         id="PageContent"
       >

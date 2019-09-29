@@ -11,7 +11,7 @@ const ResponsiveNavLinks = styled.div`
   top: 13vw;
   left: 0;
   right: 0;
-  padding: 0 13rem;
+  padding: 0 20rem;
   /* 
   This is an interesting way of center aligning, 
   but seems overly complex so I'm not using it.
@@ -37,12 +37,15 @@ const ResponsiveNavLinks = styled.div`
       box-shadow: 0px 4px 5px black;
     }
   }
+  @media (max-width: 1500px) {
+    padding: 0 9rem;
+  }
   @media (max-width: 1000px) {
     top: 12vw;
     left: 0;
     transform: none;
     width: 100%;
-    padding: 0 7rem;
+    padding: 0 6rem;
   }
   @media (max-width: 720px) {
     padding: 0 2rem;
@@ -53,6 +56,12 @@ const ResponsiveNavLinks = styled.div`
   }
   @media (max-width: 500px) {
     padding: 0;
+  }
+  @media (max-width: 350px) {
+    h4 {
+      font-size: 1rem;
+      padding: 3px 8px;
+    }
   }
 `
 
