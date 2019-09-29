@@ -4,17 +4,18 @@ import headerSvgDark from "../images/BlogHeaderDark.svg"
 import headerSvgLight from "../images/BlogHeaderLight.svg"
 import headerSvgMobileDark from "../images/BlogHeaderMobileDark.svg"
 import headerSvgMobileLight from "../images/BlogHeaderMobileLight.svg"
-
 import Navigation from "./Navigation"
-
+let firstPageLoad = true
 const Header = ({ colorMode }) => {
   /*
   React components re-render when the state changes. I want
   this header to swap out the image with a mobile sized version
   when it reaches 720px in width. The following code accomplishes that.
   */
+
   const [width, setWidth] = useState(window.innerWidth)
   useEffect(() => {
+    firstPageLoad = false
     function handleResize() {
       setWidth(window.innerWidth)
     }
@@ -32,7 +33,13 @@ const Header = ({ colorMode }) => {
     <header>
       <img
         className={colorMode === "dark" ? "fadeOutIn" : "fadeIn"}
-        src={getSvg()}
+        src={
+          firstPageLoad
+            ? window.innerWidth > 720
+              ? headerSvgLight
+              : headerSvgMobileLight
+            : getSvg()
+        }
         alt="Hand-drawn city at night with stars and ufo abducting a cow"
       />
       <Navigation />
