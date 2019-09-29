@@ -1,9 +1,10 @@
 import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { createGlobalStyle } from "styled-components"
-import Header from "./header"
+import Header from "./Header"
+import Footer from "./Footer"
 import LightBulb from "./LightBulb"
-import "./layout.css"
+import "./Layout.css"
 
 // DARK MODE IMPLEMENTATION
 const Color = createGlobalStyle`
@@ -31,23 +32,7 @@ const Layout = ({ children }) => {
         id="PageContent"
       >
         <main>{children}</main>
-        <footer
-          className="bgSecondaryDark"
-          style={{
-            marginBottom: 0,
-            textAlign: "center",
-            position: "absolute",
-            bottom: 0,
-            right: 0,
-            left: 0,
-          }}
-        >
-          © {new Date().getFullYear()}, All code, vector graphics & assets
-          designed by Jordan Winslow (except the cow)
-          <br />
-          Powered by React, GraphQL &
-          <a href="https://www.gatsbyjs.org">&nbsp;Gatsby</a>
-        </footer>
+        <Footer />
       </div>
     </>
   )

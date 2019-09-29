@@ -1,69 +1,12 @@
-import { Link } from "gatsby"
 import React, { useEffect, useState } from "react"
 import styled from "styled-components"
+import Loading from "../images/Loading.svg"
 import headerSvgDark from "../images/BlogHeaderDark.svg"
 import headerSvgLight from "../images/BlogHeaderLight.svg"
 import headerSvgMobileDark from "../images/BlogHeaderMobileDark.svg"
 import headerSvgMobileLight from "../images/BlogHeaderMobileLight.svg"
 
-const ResponsiveNavLinks = styled.div`
-  position: absolute;
-  top: 13vw;
-  left: 0;
-  right: 0;
-  padding: 0 20rem;
-  /* 
-  This is an interesting way of center aligning, 
-  but seems overly complex so I'm not using it.
-  width: 50%;
-  left: 50%;
-  transform: translateX(-50%);
-  */
-  background: linear-gradient(90deg, #d54274 0%, #33dada 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
-  h4 {
-    margin: auto;
-    padding: 5px 1.3rem;
-    border-radius: 50px;
-    text-transform: uppercase;
-    box-shadow: 0px 0px 4px black;
-    transition-duration: 1s;
-    :hover {
-      box-shadow: 0px 4px 5px black;
-    }
-  }
-  @media (max-width: 1500px) {
-    padding: 0 9rem;
-  }
-  @media (max-width: 1000px) {
-    top: 12vw;
-    left: 0;
-    transform: none;
-    width: 100%;
-    padding: 0 6rem;
-  }
-  @media (max-width: 720px) {
-    padding: 0 2rem;
-    top: 40vw;
-    h4 {
-      font-size: 1.2rem;
-    }
-  }
-  @media (max-width: 500px) {
-    padding: 0;
-  }
-  @media (max-width: 350px) {
-    h4 {
-      font-size: 1rem;
-      padding: 3px 8px;
-    }
-  }
-`
+import Navigation from "./Navigation"
 
 const Header = ({ colorMode }) => {
   /*
@@ -93,18 +36,7 @@ const Header = ({ colorMode }) => {
         src={getSvg()}
         alt="Hand-drawn city at night with stars and ufo abducting a cow"
       />
-      <ResponsiveNavLinks>
-        <h4>
-          <Link to="/" className="link-item">
-            Blog Home
-          </Link>
-        </h4>
-        <h4>
-          <a href="http://localhost:8000" className="link-item">
-            Portfolio
-          </a>
-        </h4>
-      </ResponsiveNavLinks>
+      <Navigation />
     </header>
   )
 }

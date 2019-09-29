@@ -6,10 +6,22 @@ const LightBulb = ({ colorMode, setColorMode }) => {
   return (
     <Fragment>
       <img
-        style={{ position: "fixed", bottom: 0, right: 0 }}
+        style={{
+          backgroundColor:
+            colorMode === "dark" ? "var(--dark)" : "var(--light)",
+          border: `5px solid ${
+            colorMode === "dark" ? "var(--dark)" : "var(--light)"
+          }`,
+          boxShadow: "0px 0px 3px var(--dark)",
+          borderRadius: 10,
+          position: "fixed",
+          width: 40,
+          zIndex: 300,
+          bottom: 0,
+          right: 3,
+        }}
         className={colorMode === "dark" ? "fadeOutIn" : "fadeIn"}
         src={colorMode === "dark" ? lightBulbDark : lightBulbLight}
-        width="25px"
         onClick={e => setColorMode(colorMode === "dark" ? "light" : "dark")}
       />
     </Fragment>
