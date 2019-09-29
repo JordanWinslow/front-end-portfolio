@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react"
+import { window } from "browser-monads" // fallback for Gatsby SSR
 import headerSvgDark from "../images/BlogHeaderDark.svg"
 import headerSvgLight from "../images/BlogHeaderLight.svg"
 import headerSvgMobileDark from "../images/BlogHeaderMobileDark.svg"
