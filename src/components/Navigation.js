@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 
 const ResponsiveNavLinks = styled.div`
   position: absolute;
-  top: 14vw;
+  top: 13vw;
   left: 0;
   right: 0;
   padding: 0 30vw;
@@ -34,11 +34,16 @@ const ResponsiveNavLinks = styled.div`
     }
   }
   @media (max-width: 1500px) {
+    top: 14vw;
+    padding: 0 24vw;
+  }
+  @media (max-width: 1300px) {
+    top: 16vw;
     padding: 0 20vw;
   }
   @media (max-width: 1000px) {
-    top: 15vw;
-    padding: 0 10vw;
+    top: 17vw;
+    padding: 0 12vw;
   }
   @media (max-width: 720px) {
     padding: 0 3vw;

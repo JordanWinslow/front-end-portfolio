@@ -1,21 +1,55 @@
-import React, { useEffect, useState } from "react"
-import { window } from "browser-monads" // fallback for Gatsby SSR
+import React from "react"
+import styled from "styled-components"
 import headerSvgDark from "../images/BlogHeaderDark.svg"
 import headerSvgLight from "../images/BlogHeaderLight.svg"
 import headerSvgMobileDark from "../images/BlogHeaderMobileDark.svg"
 import headerSvgMobileLight from "../images/BlogHeaderMobileLight.svg"
 import Navigation from "./Navigation"
-let firstPageLoad = true
-const Header = ({ colorMode }) => {
-  /*
-  React components re-render when the state changes. I want
-  this header to swap out the image with a mobile sized version
-  when it reaches 720px in width. The following code accomplishes that.
-  */
 
+const ImageWrapper = styled.div`
+  background-image: url(${props => props.colorMode === "dark" ? headerSvgDark : headerSvgLight});
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 17vw;
+  @media (max-width: 1500px) {
+    height: 19vw;
+    margin-bottom: 3vw;
+  }
+  @media (max-width: 1300px) {
+    height: 20vw;
+    margin-bottom: 5vw;
+  }
+  @media (max-width: 1000px) {
+    height: 21vw;
+    margin-bottom: 7vw;
+  }
+  @media (max-width: 720px) {
+    background-image: url(${props => props.colorMode === "dark" ? headerSvgMobileDark : headerSvgMobileLight});
+    height: 48vw;
+    margin-bottom: 10vw;
+  }
+`
+const Header = ({ colorMode }) => {
+  return (
+    <header>
+      <ImageWrapper
+        colorMode={colorMode}
+        className={colorMode === "dark" ? "fadeOutIn" : "fadeIn"}
+      />
+      <Navigation />
+    </header>
+  )
+}
+
+export default Header
+
+/*
+THIS CODE ACCOMPLISHES THE SAME FEAT AS ABOVE BUT WITH JAVASCRIPT INSTEAD OF CSS MEDIA QUERIES.
+THE ONLY PROBLEM IS, THIS CODE DOES NOT WORK WITH GATSBY SINCE GATSBY RENDERS ON THE SERVER SIDE.
+const Header = ({ colorMode }) => {
   const [width, setWidth] = useState(window.innerWidth)
   useEffect(() => {
-    firstPageLoad = false
     function handleResize() {
       setWidth(window.innerWidth)
     }
@@ -33,18 +67,11 @@ const Header = ({ colorMode }) => {
     <header>
       <img
         className={colorMode === "dark" ? "fadeOutIn" : "fadeIn"}
-        src={
-          firstPageLoad
-            ? window.innerWidth > 720
-              ? headerSvgLight
-              : headerSvgMobileLight
-            : getSvg()
-        }
+        src={getSvg()}
         alt="Hand-drawn city at night with stars and ufo abducting a cow"
       />
       <Navigation />
     </header>
   )
 }
-
-export default Header
+*/
