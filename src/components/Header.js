@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react"
-import styled from "styled-components"
-import Loading from "../images/Loading.svg"
 import headerSvgDark from "../images/BlogHeaderDark.svg"
 import headerSvgLight from "../images/BlogHeaderLight.svg"
 import headerSvgMobileDark from "../images/BlogHeaderMobileDark.svg"
