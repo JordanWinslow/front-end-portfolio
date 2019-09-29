@@ -10,7 +10,7 @@ const IndexPage = () => {
   const isServerRendered = typeof window === "undefined"
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title="Jordan Winslow | Front-End Responsive Web & UI Designer Specializing in React" />
       {!isServerRendered && (
         <Suspense
           fallback={

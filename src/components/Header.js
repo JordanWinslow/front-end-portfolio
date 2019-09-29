@@ -47,6 +47,15 @@ export default Header
 /*
 THIS CODE ACCOMPLISHES THE SAME FEAT AS ABOVE BUT WITH JAVASCRIPT INSTEAD OF CSS MEDIA QUERIES.
 THE ONLY PROBLEM IS, THIS CODE DOES NOT WORK WITH GATSBY SINCE GATSBY RENDERS ON THE SERVER SIDE.
+
+import React, { useEffect, useState } from "react"
+import { window } from "browser-monads" // fallback for Gatsby SSR
+import headerSvgDark from "../images/BlogHeaderDark.svg"
+import headerSvgLight from "../images/BlogHeaderLight.svg"
+import headerSvgMobileDark from "../images/BlogHeaderMobileDark.svg"
+import headerSvgMobileLight from "../images/BlogHeaderMobileLight.svg"
+import Navigation from "./Navigation"
+
 const Header = ({ colorMode }) => {
   const [width, setWidth] = useState(window.innerWidth)
   useEffect(() => {
@@ -74,4 +83,6 @@ const Header = ({ colorMode }) => {
     </header>
   )
 }
+
+export default Header
 */
