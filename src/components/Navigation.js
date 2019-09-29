@@ -72,7 +72,7 @@ const Navigation = () => {
         </Link>
       </h4>
       <h4>
-        <a href="http://localhost:8000" className="link-item">
+        <a href="https://jordans-blog.netlify.com" className="link-item">
           Portfolio
         </a>
       </h4>
