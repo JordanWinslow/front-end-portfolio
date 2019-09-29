@@ -10,13 +10,24 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" />
-      <Suspense fallback={<img src={Loading} />}>
+      <Suspense
+        fallback={
+          <div
+            style={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+            }}
+          >
+            <img src={Loading} />
+          </div>
+        }
+      >
         <PostTitle
           heading="FRONT-END WEB DEVELOPMENT BLOG"
           subHeading="JavaScript, React, GraphQL & Friends"
         />
-      </Suspense>
-      <Suspense fallback={<img src={Loading} />}>
         {/*<BlogList />*/}
         <BlogPost
           content={
