@@ -4,7 +4,7 @@ import { createGlobalStyle } from "styled-components"
 import Header from "./Header"
 import Footer from "./Footer"
 import LightBulb from "./LightBulb"
-import "./Layout.css"
+import "./layout.css"
 
 // DARK MODE IMPLEMENTATION
 const Color = createGlobalStyle`

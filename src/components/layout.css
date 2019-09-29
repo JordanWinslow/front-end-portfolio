@@ -682,7 +682,7 @@ pre tt:before,
 pre tt:after {
   content: "";
 }
-.fadeIn{
+.fadeIn {
   -webkit-animation: fadeIn ease-in;
   -webkit-animation-duration: 1.5s;
   -webkit-animation-fill-mode: both;
@@ -690,7 +690,7 @@ pre tt:after {
   animation-duration: 1.5s;
   animation-fill-mode: both;
 }
-.fadeOutIn{
+.fadeOutIn {
   -webkit-animation: fadeOutIn ease-in;
   -webkit-animation-duration: 1.5s;
   -webkit-animation-fill-mode: both;
@@ -715,7 +715,7 @@ pre tt:after {
   from {
     opacity: 0;
   }
- 
+
   to {
     opacity: 1;
   }
@@ -725,7 +725,8 @@ pre tt:after {
   somewhat hacky but gets the job done
   with less code
   */
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
   }
   1% {
