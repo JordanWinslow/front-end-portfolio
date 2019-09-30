@@ -10,7 +10,7 @@ const ResponsiveNavLinks = styled.div`
   padding: 0 30vw;
   /* 
   This is an interesting way of center aligning, 
-  but seems overly complex so I'm not using it.
+  but seems overly complex for these particular links so I'm not using it here.
   width: 50%;
   left: 50%;
   transform: translateX(-50%);
