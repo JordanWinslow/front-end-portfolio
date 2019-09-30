@@ -1,35 +1,46 @@
 import React, { useState, useEffect } from "react"
 import styled from "styled-components"
-import TweenLite from "gsap"
-import playIcon from "../images/icons/PlayButton.svg"
-import githubIcon from "../images/icons/GithubIcon.svg"
+import { TweenLite, Power3 } from "gsap"
+import playIcon from "../images/portfolio/PlayIcon.svg"
+import githubIcon from "../images/portfolio/GithubIcon.svg"
 
 const Card = styled.div`
-  background-image: ${props => props.bgImage};
+  position: relative;
+  width: 466px;
+  height: 275px;
   border-radius: 30px;
+  overflow: hidden;
   transition: 1s ease-out;
-  :hover {
-    transform: scale(1.3);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
+  .bgImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 `
 const CardPopup = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 25px;
+  height: 100%;
+  pointer-events: none;
   background-color: ${props =>
     props.colorMode === "dark" ? "var(--dark)" : "var(--light)"};
   color: ${props =>
     props.colorMode === "dark" ? "var(--light)" : "var(--dark)"};
-  border-radius: 30px;
-  padding: 25px;
   display: grid;
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
 `
 const Title = styled.div`
-  /*TODO: Determine styling, if any*/
+  text-transform: uppercase;
 `
 const Description = styled.div`
-  /*TODO: Determine styling, if any*/
+  margin-top: -15px;
 `
 const Line = styled.hr`
   background: linear-gradient(90deg, #d54274 0%, #33dada 100%);
+  margin-top: 15px;
 `
 const IconBox = styled.div`
   display: grid;
@@ -46,9 +57,17 @@ const ViewCode = styled.div`
 `
 const Icon = styled.img`
   width: 40px;
+  margin-top: -10px;
+  margin-left: 25px;
+  pointer-events: all;
+  transition: 0.3s;
+  :hover {
+    transform: translateY(-3px);
+    filter: drop-shadow(0 3px 1px var(--dark));
+  }
 `
 const IconLabel = styled.p`
-  /*TODO: Determine styling, if any*/
+  margin-top: -25px;
 `
 
 const PortfolioItem = ({
@@ -60,24 +79,20 @@ const PortfolioItem = ({
   colorMode,
 }) => {
   const [popup, setPopup] = useState(false)
-  useEffect(() => {
-    TweenLite.from(".PortfolioItem", 2, {
-      y: "80px",
-      opacity: 0,
-      ease: Power3.easeInOut,
-    })
-  })
-  const animatePopup = () => {
-   setPopup(true)
-   TweenLite.from(".Popup", 2, {
-     opacity: 0,
-     ease: Power3.easeInOut,
-   })
-  }
+
   return (
-    <Card bgImage={bgImage} onMouseOver={animatePopup}>
+    <Card
+      onMouseOver={() => setPopup(true)}
+      onMouseLeave={() => setPopup(false)}
+      className="fadeIn"
+    >
+      <img
+        className="bgImage"
+        src={bgImage}
+        alt="Front End Web Development Portfolio by Jordan Winslow"
+      />
       {popup && (
-        <CardPopup colorMode={colorMode} className="Popup">
+        <CardPopup colorMode={colorMode}>
           <Title>
             <h2>{title}</h2>
           </Title>

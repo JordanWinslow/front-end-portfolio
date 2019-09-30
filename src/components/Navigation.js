@@ -72,9 +72,9 @@ const Navigation = () => {
         </Link>
       </h4>
       <h4>
-        <a href="https://jordans-blog.netlify.com" className="link-item">
+        <Link to="/portfolio" className="link-item">
           Portfolio
-        </a>
+        </Link>
       </h4>
     </ResponsiveNavLinks>
   )

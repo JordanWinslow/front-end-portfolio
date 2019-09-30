@@ -1,0 +1,22 @@
+{
+  "item1": [
+    {
+      "id": 1,
+      "bgImage": "../images/portfolio/Gitfinder1.jpg",
+      "title": "Git Finder",
+      "description": "Axios, Promises, Async/Await, React Router, CSS Grid, Functional OOP, Context, Styled-Components.",
+      "demoLink": "https://functional-react-gitfinder.netlify.com/",
+      "codeLink": "https://github.com/JordanWinslow/functional-react-github-user-finder"
+    }
+  ],
+  "item2": [
+    {
+      "id": 2,
+      "bgImage": "src/images/portfolio/ModernReact1.jpg",
+      "title": "Modern Front End",
+      "description": "Styled-components, yada yada yada, lots of stuff, it does good shit dude. DAMN FUCK HOILY SHIEET",
+      "demoLink": "https://functional-react-gitfinder.netlify.com/",
+      "codeLink": "https://github.com/JordanWinslow/functional-react-github-user-finder"
+    }
+  ]
+}
