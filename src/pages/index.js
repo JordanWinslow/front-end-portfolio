@@ -1,4 +1,6 @@
 import React, { Suspense } from "react"
+import { graphql } from "gatsby"
+import Img from "gatsby-image"
 import Layout from "../components/Layout"
 import SEO from "../components/Seo"
 import Loading from "../images/Loading.svg"
@@ -6,7 +8,8 @@ import Loading from "../images/Loading.svg"
 const PostTitle = React.lazy(() => import("../components/PostTitle"))
 const BlogPost = React.lazy(() => import("../components/BlogPost"))
 
-const IndexPage = () => {
+export default ({ data }) => {
+  console.log("data: ", data)
   const isServerRendered = typeof window === "undefined"
   return (
     <Layout>
@@ -35,11 +38,16 @@ const IndexPage = () => {
             content={
               /*TODO: Replace content with dynamically loaded markdown files */
               <div>
-                BOOM. Dark mode toggle implemented. Now you can click the
-                lightbulb to switch color schemes along with a fading animation.
+                <Img
+                  fluid={
+                    data.allMarkdownRemark.nodes[0].frontmatter.image
+                      .childImageSharp.fluid
+                  }
+                />
                 <br />
                 <br />
-                I'm balling out of control.
+                This image was dynamically rendered from a markdown file at
+                build-time with a GraphQL query!
               </div>
             }
           />
@@ -51,4 +59,25 @@ const IndexPage = () => {
   )
 }
 
-export default IndexPage
+export const query = graphql`
+  query MyQuery {
+    allMarkdownRemark {
+      nodes {
+        html
+        excerpt
+        frontmatter {
+          date
+          title
+          keywords
+          image {
+            childImageSharp {
+              fluid {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`
