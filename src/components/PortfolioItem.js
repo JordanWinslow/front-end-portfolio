@@ -22,6 +22,7 @@ const Card = styled.div`
   }
 `
 const CardPopup = styled.div`
+  opacity: 0; /* for animation */
   position: absolute;
   top: 0;
   left: 0;
@@ -98,15 +99,31 @@ const PortfolioItem = ({
   colorMode,
 }) => {
   const [popup, setPopup] = useState(false)
-
+  useEffect(() => {
+    popup
+      ? TweenLite.fromTo(
+          ".popup",
+          2,
+          {
+            x: 200,
+            opacity: 0,
+            ease: Power3.easeOut,
+          },
+          { x: 0, opacity: 1, ease: Power3.easeOut }
+        )
+      : TweenLite.to(".popup", 2, { x: 100, opacity: 1, ease: Power3.easeIn })
+  })
+  const animateIn = () => {
+    setPopup(true)
+  }
+  const animateOut = () => {
+    setPopup(false)
+  }
   return (
-    <Card
-      onMouseOver={() => setPopup(true)}
-      onMouseLeave={() => setPopup(false)}
-    >
+    <Card onMouseOver={() => animateIn()} onMouseLeave={() => animateOut()}>
       <Img className="bgImage" fluid={image} alt={imageAlt} />
       {popup && (
-        <CardPopup colorMode={colorMode}>
+        <CardPopup colorMode={colorMode} className="popup">
           <Title>
             <h2>{title}</h2>
           </Title>
