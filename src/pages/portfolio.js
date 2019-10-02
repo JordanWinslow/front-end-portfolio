@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import styled from "styled-components"
 import PortfolioItem from "../components/PortfolioItem"
 
-const PortfolioGrid = styled.div`
+const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr 1fr;
@@ -44,7 +44,7 @@ export const query = graphql`
     }
   }
 `
-export default ({ data }) => {
+const PortfolioGrid = ({ data }) => {
   const portfolioItems = data.allMarkdownRemark.nodes.map(item => {
     return (
       <PortfolioItem
@@ -58,5 +58,7 @@ export default ({ data }) => {
       />
     )
   })
-  return <PortfolioGrid>{portfolioItems}</PortfolioGrid>
+  return <Grid>{portfolioItems}</Grid>
 }
+
+export default PortfolioGrid
