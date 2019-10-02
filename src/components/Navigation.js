@@ -8,21 +8,25 @@ const ResponsiveNavLinks = styled.div`
   left: 0;
   right: 0;
   padding: 0 30vw;
-  /* 
-  This is an interesting way of center aligning, 
-  but seems overly complex for these particular links so I'm not using it here.
-  width: 50%;
-  left: 50%;
-  transform: translateX(-50%);
-  */
-  background: linear-gradient(90deg, #d54274 0%, #33dada 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
   h4 {
+    /* Implementing the gradient this way because on safari browser,
+    using a background gradient on a div across 2 elements breaks
+    the code. */
+    .first {
+      background: linear-gradient(90deg, #d54274 0%, #838fa7 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .second {
+      background: linear-gradient(90deg, #838fa7 0%, #33dada 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
     margin: auto;
     padding: 5px 1.3rem;
     border-radius: 50px;
@@ -67,12 +71,12 @@ const Navigation = () => {
   return (
     <ResponsiveNavLinks className="fadeIn">
       <h4>
-        <Link to="/" className="link-item">
+        <Link to="/" className="first">
           Blog Home
         </Link>
       </h4>
       <h4>
-        <Link to="/portfolio" className="link-item">
+        <Link to="/portfolio" className="second">
           Portfolio
         </Link>
       </h4>
