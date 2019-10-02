@@ -8,27 +8,24 @@ import githubIcon from "../images/portfolio/GithubIcon.svg"
 const Card = styled.div`
   position: relative;
   width: 466px;
-  height: 275px;
-  border-radius: 30px;
+  height: 300px;
+  border-radius: 20px;
   overflow: hidden;
   transition: 1s ease-out;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
-
   .bgImage {
-    width: 100%;
     height: 100%;
     object-fit: cover;
   }
   @media (max-width: 500px) {
     width: 90vw;
-    height: 300px;
   }
 `
 const CardPopup = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  padding: 25px;
+  padding: 10px 20px;
   height: 100%;
   pointer-events: none;
   background-color: ${props =>
@@ -40,16 +37,20 @@ const CardPopup = styled.div`
   justify-content: space-around;
 `
 const Title = styled.div`
-  /*Control Margin with Div instead of h2*/
   h2 {
     margin-bottom: 0;
     text-transform: uppercase;
+    @media (max-width: 700px) {
+      font-size: 1.6rem;
+    }
+    @media (max-width: 390px) {
+      font-size: 1.4rem;
+      line-height: 1.4;
+    }
   }
-  margin-bottom: 10px;
 `
 const Description = styled.div``
 const Line = styled.hr`
-  margin: 15px 0;
   background: linear-gradient(90deg, #d54274 0%, #33dada 100%);
 `
 const IconBox = styled.div`
@@ -62,24 +63,30 @@ const IconBox = styled.div`
   p {
     margin-bottom: 0;
   }
-  /*Implement Space Between Alignment*/
 `
 const LiveDemo = styled.div`
   justify-self: left;
+  transition-duration: 0.3s;
+  :hover {
+    transform: translateY(-3px);
+    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.5));
+  }
 `
 const ViewCode = styled.div`
   justify-self: right;
+  transition-duration: 0.3s;
+  :hover {
+    transform: translateY(-3px);
+    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.5));
+  }
 `
 const Icon = styled.img`
   width: 40px;
   pointer-events: all;
-  transition: 0.3s;
-  :hover {
-    transform: translateY(-3px);
-    filter: drop-shadow(0 3px 1px var(--dark));
-  }
 `
-const IconLabel = styled.p``
+const IconLabel = styled.p`
+  pointer-events: all;
+`
 
 const PortfolioItem = ({
   image,

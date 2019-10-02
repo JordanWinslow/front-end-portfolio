@@ -706,7 +706,7 @@ pre tt:after {
     font-size: 5.5vw;
   }
 }
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 430px) {
   html {
     font-size: 100%;
   }

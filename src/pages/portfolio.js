@@ -9,8 +9,11 @@ const PortfolioGrid = styled.div`
   grid-template-rows: 1fr 1fr;
   row-gap: 30px;
   justify-items: center;
+  max-width: 1500px;
   @media (max-width: 1500px) {
     grid-template-columns: 1fr 1fr;
+    max-width: 1000px;
+    margin: 0 auto;
   }
   @media (max-width: 1000px) {
     grid-template-columns: 1fr;
