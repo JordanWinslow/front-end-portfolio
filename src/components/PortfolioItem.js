@@ -100,27 +100,31 @@ const PortfolioItem = ({
 }) => {
   const [popup, setPopup] = useState(false)
   useEffect(() => {
-    popup
-      ? TweenLite.fromTo(
-          ".popup",
-          2,
-          {
-            x: 200,
-            opacity: 0,
-            ease: Power3.easeOut,
-          },
-          { x: 0, opacity: 1, ease: Power3.easeOut }
-        )
-      : TweenLite.to(".popup", 2, { x: 100, opacity: 1, ease: Power3.easeIn })
+    TweenLite.fromTo(
+      ".popup",
+      0.4,
+      {
+        scale: 0.01,
+        opacity: 0,
+        ease: Power3.easeOut,
+        borderRadius: "100%",
+      },
+      { scale: 1, opacity: 1, borderRadius: 0 }
+    )
   })
   const animateIn = () => {
     setPopup(true)
+    // triggers a re-render and therefore the useEffect hook.
   }
   const animateOut = () => {
-    setPopup(false)
+    TweenLite.to(".popup", 2, {
+      x: 100,
+      opacity: 1,
+      ease: Power3.easeIn,
+    })
   }
   return (
-    <Card onMouseOver={() => animateIn()} onMouseLeave={() => animateOut()}>
+    <Card onMouseOver={() => animateIn()} onMouseLeave={() => setPopup(false)}>
       <Img className="bgImage" fluid={image} alt={imageAlt} />
       {popup && (
         <CardPopup colorMode={colorMode} className="popup">
