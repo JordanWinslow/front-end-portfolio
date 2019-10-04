@@ -1,5 +1,5 @@
 import React from 'react'
-import NavBox from "../components/MobileNav"
+import NavBox from "../components/DesktopNav"
 
 const navtest = () => {
     return (

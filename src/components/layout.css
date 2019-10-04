@@ -698,6 +698,20 @@ pre tt:after {
   animation-duration: 1.5s;
   animation-fill-mode: both;
 }
+#DesktopNav {
+  display: unset;
+}
+#MobileNav {
+  display: none;
+}
+@media (max-width: 1200px) {
+  #DesktopNav {
+    display: none;
+  }
+  #MobileNav {
+    display: unset;
+  }
+}
 @media (max-width: 700px) {
   h1 {
     font-size: 8vw;

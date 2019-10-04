@@ -4,17 +4,25 @@ import { TweenLite } from "gsap"
 import JWLogo from "../images/JWLogo.svg"
 import MobileNavClosed from "../images/MobileNavClosed.svg"
 import MobileNavOpened from "../images/MobileNavOpened.svg"
-import Diamond from "../images/Diamond.svg"
+import DiamondLight from "../images/DiamondLight.svg"
+import DiamondDark from "../images/DiamondDark.svg"
 
 const OpenButton = styled.div`
-  background-image: url(${MobileNavClosed});
+  background-color: var(
+    ${props => (props.colorMode === "dark" ? "--dark" : "--light")}
+  );
+  mask-image: url(${MobileNavClosed});
   width: 70px;
   height: 70px;
 `
 const CloseButton = styled.div`
-  background-image: url(${MobileNavOpened});
+  background-color: var(
+    ${props => (props.colorMode === "dark" ? "--dark" : "--light")}
+  );
+  mask-image: url(${MobileNavOpened});
   width: 70px;
   height: 70px;
+  fill: var(${props => (props.colorMode === "dark" ? "--light" : "--dark")});
 `
 const Logo = styled.div`
   background-image: url(${JWLogo});
@@ -29,7 +37,9 @@ const MobileNavHeader = styled.div`
   z-index: 999;
   width: 100vw;
   padding: 10px 8px;
-  background-color: var(--dark);
+  background-color: var(
+    ${props => (props.colorMode === "dark" ? "--light" : "--dark")}
+  );
   display: flex;
   justify-content: space-between;
 `
@@ -38,7 +48,9 @@ const NavigationContainer = styled.div`
   transform: translateY(-100vh);
   /*---------------------------*/
   position: fixed;
-  background-color: var(--dark);
+  background-color: var(
+    ${props => (props.colorMode === "dark" ? "--light" : "--dark")}
+  );
   display: flex;
   flex-direction: column;
   width: 100vw;
@@ -66,7 +78,7 @@ const NavLink = styled.h4`
     margin: 0 8px;
   }
 `
-const MobileNav = () => {
+const MobileNav = ({ colorMode }) => {
   const [open, setOpen] = useState(false) // navigation is closed on page load
   const rotateOut = e => {
     TweenLite.to(e.target, 0.2, {
@@ -90,31 +102,34 @@ const MobileNav = () => {
       setOpen(false)
     }, 200)
   }
+  const getDiamond = () => {
+    return colorMode === "dark" ? DiamondDark : DiamondLight
+  }
   return (
-    <div>
-      <MobileNavHeader>
+    <div id="MobileNav">
+      <MobileNavHeader colorMode={colorMode}>
         <Logo />
-        {!open && <OpenButton onClick={rotateOut} />}
-        {open && <CloseButton onClick={rotateOut} />}
+        {!open && <OpenButton colorMode={colorMode} onClick={rotateOut} />}
+        {open && <CloseButton colorMode={colorMode} onClick={rotateOut} />}
       </MobileNavHeader>
       {open && (
-        <NavigationContainer id="LinkContainer">
+        <NavigationContainer colorMode={colorMode} id="LinkContainer">
           <LinkContainer>
             <NavLink>
               Portfolio
-              <img src={Diamond} />
+              <img src={getDiamond()} />
             </NavLink>
             <NavLink>
               Contact
-              <img src={Diamond} />
+              <img src={getDiamond()} />
             </NavLink>
             <NavLink>
               About
-              <img src={Diamond} />
+              <img src={getDiamond()} />
             </NavLink>
             <NavLink>
               Blog
-              <img src={Diamond} />
+              <img src={getDiamond()} />
             </NavLink>
           </LinkContainer>
         </NavigationContainer>
