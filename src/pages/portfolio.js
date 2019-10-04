@@ -48,13 +48,13 @@ const PortfolioGrid = ({ data }) => {
   const portfolioItems = data.allMarkdownRemark.nodes.map(item => {
     return (
       <PortfolioItem
+        key={item.frontmatter.id}
         image={item.frontmatter.image.childImageSharp.fluid}
         imageAlt={item.frontmatter.imageAlt}
         title={item.frontmatter.title}
         description={item.frontmatter.description}
         demoLink={item.frontmatter.demoLink}
         codeLink={item.frontmatter.codeLink}
-        key={item.frontmatter.id}
       />
     )
   })
