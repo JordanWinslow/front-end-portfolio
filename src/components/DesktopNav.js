@@ -24,12 +24,14 @@ const NavigationContainer = styled.div`
   transform: translateX(100vw);
   /*---------------------------*/
   position: fixed;
+  z-index: 3;
   display: flex;
   flex-direction: column;
   width: 100vw;
   height: 100vh;
   justify-content: center;
   padding-top: 15vh;
+  pointer-events: none;
 `
 const LinkContainer = styled.div`
   height: 70%;
@@ -52,6 +54,7 @@ const NavLink = styled.h4`
   transition-duration: 0.3s;
   margin: 0 auto;
   cursor: pointer;
+  pointer-events: all;
   img {
     margin: 0 8px;
   }

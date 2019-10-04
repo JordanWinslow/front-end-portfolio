@@ -50,7 +50,7 @@ html {
 body {
   position: relative;
   min-height: 100%;
-  padding-bottom: 10rem;
+  /*padding-bottom: 10rem;*/
   overflow: hidden;
   margin: 0;
   -webkit-font-smoothing: antialiased;
@@ -705,6 +705,9 @@ pre tt:after {
   display: none;
 }
 @media (max-width: 1200px) {
+  body {
+    margin-top: 80px; /*To Compensate for Mobile Header*/
+  }
   #DesktopNav {
     display: none;
   }
