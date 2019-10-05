@@ -1,19 +1,24 @@
 import React, { Suspense } from "react"
-import { graphql } from "gatsby"
-import Img from "gatsby-image"
-import Layout from "../components/Layout"
-import SEO from "../components/Seo"
+import MainLayout from "../components/MainLayout"
+import ControlModal from "../components/ControlModal"
 import Loading from "../images/Loading.svg"
+const BokehBackground = React.lazy(() =>
+  import("../components/BokehBackground")
+)
+const BokehText = React.lazy(() => import("../components/BokehText"))
 
-const PostTitle = React.lazy(() => import("../components/PostTitle"))
-const BlogPost = React.lazy(() => import("../components/BlogPost"))
-
-export default ({ data }) => {
-  console.log("data: ", data)
+const HomePage = () => {
+  const phrases = [
+      "Evoking Emotion Through Front-End Design",
+      "I Create Elegant & Interactive Websites",
+      "Driving Engagement With Inspiring Design",
+      "Making First Impressions into Lifelong Memories"
+    ]
+    let randomPhrase = Math.floor(Math.random() * Math.floor(4))
+    let phrase = phrases[randomPhrase]
   const isServerRendered = typeof window === "undefined"
   return (
-    <Layout>
-      <SEO title="Jordan Winslow | Front-End Responsive Web & UI Designer Specializing in React" />
+    <MainLayout theme="dark" isHomePage="true">
       {!isServerRendered && (
         <Suspense
           fallback={
@@ -29,55 +34,14 @@ export default ({ data }) => {
             </div>
           }
         >
-          <PostTitle
-            heading="FRONT-END WEB DEVELOPMENT BLOG"
-            subHeading="JavaScript, React, GraphQL & Friends"
-          />
-          {/*<BlogList />*/}
-          <BlogPost
-            content={
-              /*TODO: Replace content with dynamically loaded markdown files */
-              <div>
-                <Img
-                  fluid={
-                    data.allMarkdownRemark.nodes[0].frontmatter.image
-                      .childImageSharp.fluid
-                  }
-                />
-                <br />
-                <br />
-                This image was dynamically rendered from a markdown file at
-                build-time with a GraphQL query!
-              </div>
-            }
-          />
+          <BokehBackground>
+            <BokehText bokehText={phrase} />
+          </BokehBackground>
+          <ControlModal text="move your mouse to control the background" />
         </Suspense>
       )}
-      {/*<div className="bgPrimaryLight">This is a success message</div>
-    <div className="bgSecondaryLight">This is a warning message</div>*/}
-    </Layout>
+    </MainLayout>
   )
 }
 
-export const query = graphql`
-  query MyQuery {
-    allMarkdownRemark {
-      nodes {
-        html
-        excerpt
-        frontmatter {
-          date
-          title
-          keywords
-          image {
-            childImageSharp {
-              fluid {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`
+export default HomePage

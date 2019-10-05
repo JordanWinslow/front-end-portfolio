@@ -1,4 +1,4 @@
-import React, {useEffect} from "react"
+import React, { useEffect } from "react"
 import styled from "styled-components"
 import MouseIcon from "../images/MouseIcon.svg"
 import TweenLite from "gsap"
@@ -9,6 +9,7 @@ const TransparentBox = styled.div`
   background-color: rgba(0, 0, 0, 0.6);
   color: var(--light);
   position: absolute;
+  z-index: 2;
   bottom: 0;
   left: 0;
   width: 215px;
@@ -37,13 +38,13 @@ const ModalText = styled.p`
 `
 
 const ControlModal = ({ text }) => {
- useEffect(()=>{
-  TweenLite.to("#MouseIcon", 1, {
-   rotation: 10,
-   x: 10,
-   delay: 3,
+  useEffect(() => {
+    TweenLite.to("#MouseIcon", 1, {
+      rotation: 10,
+      x: 10,
+      delay: 3,
+    })
   })
- })
   return (
     <TransparentBox>
       <ModalText>{text}</ModalText>

@@ -50,7 +50,7 @@ const NavigationContainer = styled.div`
   transform: translateY(-100vh);
   /*---------------------------*/
   position: fixed;
-  z-index: 3;
+  z-index: 4;
   background-color: var(
     ${props => (props.colorMode === "dark" ? "--light" : "--dark")}
   );

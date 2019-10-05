@@ -133,7 +133,11 @@ const getPointPos = (width, height, length) => {
   const grid = new GridLayout(150, width, height)
   const posArray = []
   const num = 20
-  const radiusArray = [40, 35, 60]
+  const radiusArray = [
+    100,
+    35,
+    60,
+  ] /*The first number in this array sets the size of the diamonds*/
   for (let i = 0; i < length; i += 1) {
     let radius
     let pos
@@ -218,17 +222,18 @@ class Point extends React.PureComponent {
     )
   }
 }
-
+let screenSize
+typeof window ===
+"undefined" /*If SSR, window is undefined since I'm using Gatsby, so I put placeholder values below*/
+  ? (screenSize = { width: 1920, height: 1080 })
+  : (screenSize = { width: window.innerWidth, height: window.innerHeight })
+/*Ensure the background diamonds are rendered at the user's initial screensize.
+    I could implement a "onResize" handler here but to be honest I think that's overkill
+    for this project.*/
 class LinkedAnimate extends React.Component {
-  num = 20 // NUMBER OF BOKEHS
+  num = screenSize.width < 900 ? 10 : 20 // NUMBER OF BOKEHS
   constructor(props) {
     super(props)
-
-    let screenSize
-    typeof window ===
-    "undefined" /*If SSR, window is undefined so I put placeholder values below*/
-      ? (screenSize = { width: 1920, height: 1080 })
-      : (screenSize = { width: window.innerWidth, height: window.innerHeight })
     this.state = {
       data: getPointPos(screenSize.width, screenSize.height, this.num).map(
         item => ({

@@ -14,8 +14,8 @@ const Logo = styled.div`
 `
 const DesktopNavHeader = styled.div`
   position: absolute;
-  top: 0;
-  left: 14px;
+  top: 3vh;
+  left: 3vw;
   z-index: 999;
   width: 80px;
 `
@@ -24,14 +24,14 @@ const NavigationContainer = styled.div`
   transform: translateX(100vw);
   /*---------------------------*/
   position: fixed;
-  z-index: 3;
+  z-index: 4;
   display: flex;
   flex-direction: column;
   width: 100vw;
   height: 100vh;
   justify-content: center;
   /*padding-top: 10vh;*/
-  padding-right: 20px;
+  padding-right: 2.4vw;
   pointer-events: none;
 `
 const LinkContainer = styled.div`
