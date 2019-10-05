@@ -35,6 +35,7 @@ const NavigationContainer = styled.div`
   pointer-events: none;
 `
 const LinkContainer = styled.div`
+  color: var(${props => (props.colorMode === "dark" ? "--light" : "--dark")});
   height: 70%;
   width: 250px;
   margin-left: auto;
@@ -45,7 +46,6 @@ const LinkContainer = styled.div`
 const NavLink = styled.h4`
   width: 100%;
   margin-right: 1rem;
-  color: var(--light);
   ${props =>
     props.isHomePage
       ? ``
@@ -95,7 +95,7 @@ const DesktopNav = ({ colorMode, isHomePage }) => {
         <Logo />
       </DesktopNavHeader>
       <NavigationContainer id="LinkContainer">
-        <LinkContainer>
+        <LinkContainer colorMode={colorMode}>
           <NavLink
             isHomePage={isHomePage}
             onMouseEnter={() => rotateDiamond(1)}
