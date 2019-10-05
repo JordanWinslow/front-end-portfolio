@@ -11,8 +11,9 @@ const ContentBox = styled.div`
   position: relative;
   z-index: 2;
   height: inherit;
-  width: 70vw;
+  width: 65vw;
   margin: auto;
+  padding: 0 5vw;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -21,12 +22,14 @@ const ContentBox = styled.div`
 `
 
 const Text = styled.h1`
-  @import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
-  font-family: "Raleway", sans-serif;
-  color: white;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: var(--light);
   text-transform: uppercase;
-  letter-spacing: 1rem;
-  padding: 10vw;
+  letter-spacing: 0.8rem;
+  padding: 0 5vw;
+  @media (max-width: 1200px) {
+    margin-bottom: 80px; /* To compensate for mobile header*/
+  }
   @keyframes fadeIn {
     0% {
       opacity: 0;
@@ -46,10 +49,10 @@ const LetterBox = styled.span`
 `
 
 const BokehText = props => {
-  let text = props.bokehText
-  let letters = text.split("")
-  let content = letters.map(letter => {
-    let delay = Math.floor(Math.random() * 1000 + 1)
+  const text = props.bokehText
+  const letters = text.split("")
+  const content = letters.map(letter => {
+    const delay = Math.floor(Math.random() * 1000 + 1)
     return <LetterBox delay={delay}>{letter}</LetterBox>
   })
   return (

@@ -4,9 +4,17 @@ import Loading from "../images/Loading.svg"
 const BokehBackground = React.lazy(() =>
   import("../components/BokehBackground")
 )
-const BokehText = React.lazy(() => import("../components/BokehText")) 
+const BokehText = React.lazy(() => import("../components/BokehText"))
 
 const HomePage = () => {
+  const phrases = [
+      "Evoking Emotion Through Front-End Design",
+      "I Create Elegant & Interactive Websites",
+      "Driving Engagement With Inspiring Design",
+      "Making First Impressions into Lifelong Memories"
+    ]
+    let randomPhrase = Math.floor(Math.random() * Math.floor(4))
+    let phrase = phrases[randomPhrase]
   const isServerRendered = typeof window === "undefined"
   return (
     <MainLayout theme="dark" isHomePage="true">
@@ -26,7 +34,7 @@ const HomePage = () => {
           }
         >
           <BokehBackground>
-            <BokehText bokehText="Front-End Web Developer" />
+            <BokehText bokehText={phrase} />
           </BokehBackground>
         </Suspense>
       )}

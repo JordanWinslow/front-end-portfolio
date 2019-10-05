@@ -173,10 +173,11 @@ class Point extends React.PureComponent {
     let zIndex = 0
     let animation = {
       x: (Math.random() * 2 - 1) * 70 || 55,
-      duration: 4000,
-      delay: Math.random() * 2000,
+      duration: 10000,
+      delay: Math.random() * 5000,
       yoyo: true,
       repeat: -1,
+      ease: "easeInOutQuad",
     }
     if (tx && ty) {
       if (tx !== x && ty !== y) {

@@ -30,7 +30,7 @@ const NavigationContainer = styled.div`
   width: 100vw;
   height: 100vh;
   justify-content: center;
-  padding-top: 15vh;
+  /*padding-top: 10vh;*/
   padding-right: 20px;
   pointer-events: none;
 `
@@ -69,7 +69,7 @@ const NavLink = styled.h4`
 `
 const DesktopNav = ({ colorMode, isHomePage }) => {
   useEffect(() => {
-    TweenMax.to("#LinkContainer", 1, {
+    TweenMax.to("#LinkContainerDesktop", 1, {
       x: 0,
     })
   })
@@ -94,7 +94,7 @@ const DesktopNav = ({ colorMode, isHomePage }) => {
       <DesktopNavHeader>
         <Logo />
       </DesktopNavHeader>
-      <NavigationContainer id="LinkContainer">
+      <NavigationContainer id="LinkContainerDesktop">
         <LinkContainer colorMode={colorMode}>
           <NavLink
             isHomePage={isHomePage}

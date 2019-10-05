@@ -17,7 +17,7 @@ const LightBulb = ({ colorMode, setColorMode }) => {
           position: "fixed",
           width: 40,
           zIndex: 2,
-          bottom: 0,
+          bottom: -20,
           right: 3,
         }}
         className={colorMode === "dark" ? "fadeOutIn" : "fadeIn"}
