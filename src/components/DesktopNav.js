@@ -31,6 +31,7 @@ const NavigationContainer = styled.div`
   height: 100vh;
   justify-content: center;
   padding-top: 15vh;
+  padding-right: 20px;
   pointer-events: none;
 `
 const LinkContainer = styled.div`
@@ -45,10 +46,13 @@ const NavLink = styled.h4`
   width: 100%;
   margin-right: 1rem;
   color: var(--light);
-  background: linear-gradient(90deg, #d54274 10%, #33dada 100%);
+  ${props =>
+    props.isHomePage
+      ? ``
+      : `background: linear-gradient(90deg, #d54274 10%, #33dada 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text;
+  background-clip: text;`}
   text-transform: uppercase;
   text-align: right;
   transition-duration: 0.3s;
@@ -63,7 +67,7 @@ const NavLink = styled.h4`
     text-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
   }
 `
-const DesktopNav = ({ colorMode }) => {
+const DesktopNav = ({ colorMode, isHomePage }) => {
   useEffect(() => {
     TweenMax.to("#LinkContainer", 1, {
       x: 0,
@@ -93,6 +97,7 @@ const DesktopNav = ({ colorMode }) => {
       <NavigationContainer id="LinkContainer">
         <LinkContainer>
           <NavLink
+            isHomePage={isHomePage}
             onMouseEnter={() => rotateDiamond(1)}
             onMouseLeave={() => stopRotation(1)}
           >
@@ -100,6 +105,7 @@ const DesktopNav = ({ colorMode }) => {
             <img id="diamond1" src={getDiamond()} />
           </NavLink>
           <NavLink
+            isHomePage={isHomePage}
             onMouseEnter={() => rotateDiamond(2)}
             onMouseLeave={() => stopRotation(2)}
           >
@@ -107,6 +113,7 @@ const DesktopNav = ({ colorMode }) => {
             <img id="diamond2" src={getDiamond()} />
           </NavLink>
           <NavLink
+            isHomePage={isHomePage}
             onMouseEnter={() => rotateDiamond(3)}
             onMouseLeave={() => stopRotation(3)}
           >
@@ -114,6 +121,7 @@ const DesktopNav = ({ colorMode }) => {
             <img id="diamond3" src={getDiamond()} />
           </NavLink>
           <NavLink
+            isHomePage={isHomePage}
             onMouseEnter={() => rotateDiamond(4)}
             onMouseLeave={() => stopRotation(4)}
           >

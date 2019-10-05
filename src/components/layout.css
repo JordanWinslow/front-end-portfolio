@@ -705,9 +705,6 @@ pre tt:after {
   display: none;
 }
 @media (max-width: 1200px) {
-  body {
-    margin-top: 80px; /*To Compensate for Mobile Header*/
-  }
   #DesktopNav {
     display: none;
   }

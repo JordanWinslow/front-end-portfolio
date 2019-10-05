@@ -18,6 +18,10 @@ const BokehBackground = styled.div`
   -moz-animation: GradientAnimation 20s ease infinite;
   animation: GradientAnimation 20s ease infinite;
   position: relative;
+  @media (max-width: 1200px) {
+    margin-top: 80px; /*To Compensate for Mobile Header*/
+    margin-bottom: -80px;
+  }
   /* GRADIENT BACKGROUND ANIMATION */
   @-webkit-keyframes GradientAnimation {
     0% {

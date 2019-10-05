@@ -17,12 +17,12 @@ const Color = createGlobalStyle`
       transition: .8s ease-out;
   }
   `
-const Layout = ({ children, theme = "light" }) => {
+const Layout = ({ children, isHomePage, theme = "light" }) => {
   const [colorMode, setColorMode] = useState(theme) // SET PAGE THEME TO LIGHT MODE ON FIRST LOAD.
   return (
     <>
       <Color theme={colorMode} />
-      <DesktopNav colorMode={colorMode} />
+      <DesktopNav colorMode={colorMode} isHomePage={isHomePage} />
       <MobileNav colorMode={colorMode} />
       <LightBulb colorMode={colorMode} setColorMode={setColorMode} />
       <div id="PageContent">

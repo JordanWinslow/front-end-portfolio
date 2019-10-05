@@ -9,7 +9,7 @@ const BokehBackground = React.lazy(() =>
 const HomePage = () => {
   const isServerRendered = typeof window === "undefined"
   return (
-    <MainLayout theme="dark">
+    <MainLayout theme="dark" isHomePage="true">
       {!isServerRendered && (
         <Suspense
           fallback={
