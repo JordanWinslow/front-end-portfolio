@@ -9,7 +9,7 @@ import styled from "styled-components"
 
 const ContentBox = styled.div`
   position: relative;
-  z-index: 3;
+  z-index: 2;
   height: inherit;
   width: 70vw;
   margin: auto;
@@ -24,7 +24,6 @@ const Text = styled.h1`
   @import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
   font-family: "Raleway", sans-serif;
   color: white;
-  font-size: 1.5rem;
   text-transform: uppercase;
   letter-spacing: 1rem;
   padding: 10vw;

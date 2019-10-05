@@ -36,7 +36,7 @@ const MobileNavHeader = styled.div`
   top: 0;
   z-index: 999;
   width: 100vw;
-  padding: 10px 8px;
+  padding: 10px 20px;
   background-color: var(
     ${props => (props.colorMode === "dark" ? "--light" : "--dark")}
   );
@@ -57,11 +57,11 @@ const NavigationContainer = styled.div`
   width: 100vw;
   height: 100vh;
   justify-content: center;
-  padding-top: 80px;
 `
 const LinkContainer = styled.div`
   height: 70%;
   width: 100%;
+  padding-bottom: 50px; /*To avoid overlap with Lightbulb*/
   display: flex;
   flex-direction: column;
   justify-content: space-between;

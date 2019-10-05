@@ -16,7 +16,7 @@ const LightBulb = ({ colorMode, setColorMode }) => {
           borderRadius: 10,
           position: "fixed",
           width: 40,
-          zIndex: 300,
+          zIndex: 2,
           bottom: 0,
           right: 3,
         }}

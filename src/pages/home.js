@@ -26,7 +26,7 @@ const HomePage = () => {
           }
         >
           <BokehBackground>
-            <BokehText bokehText="Front End Web Developer" />
+            <BokehText bokehText="Front-End Web Developer" />
           </BokehBackground>
         </Suspense>
       )}
