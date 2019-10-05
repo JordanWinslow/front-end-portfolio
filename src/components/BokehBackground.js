@@ -7,11 +7,12 @@ License Link: https://creativecommons.org/licenses/by-nc/4.0/legalcode
 import React from "react"
 import TweenOne from "rc-tween-one"
 import styled from "styled-components"
+import { window } from "browser-monads"
 
 const BokehBackground = styled.div`
   overflow: hidden;
   height: 100vh;
-  width: auto;
+  width: 100vw;
   background: linear-gradient(270deg, #582838, #1f1f25, #265b63);
   background-size: 600% 600%;
   -webkit-animation: GradientAnimation 20s ease infinite;
@@ -63,9 +64,9 @@ const BokehBackground = styled.div`
 `
 const BokehFlare = styled.div`
   position: absolute;
-  width: 1280px;
-  height: 600px;
-  margin: auto;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
   .outside {
     position: absolute;
     transition: transform 1s ease-out;
@@ -131,8 +132,8 @@ class GridLayout {
 const getPointPos = (width, height, length) => {
   const grid = new GridLayout(150, width, height)
   const posArray = []
-  const num = 500
-  const radiusArray = [20, 35, 60]
+  const num = 20
+  const radiusArray = [40, 35, 60]
   for (let i = 0; i < length; i += 1) {
     let radius
     let pos
@@ -219,19 +220,26 @@ class Point extends React.PureComponent {
 }
 
 class LinkedAnimate extends React.Component {
-  num = 15 // NUMBER OF BOKEHS
+  num = 20 // NUMBER OF BOKEHS
   constructor(props) {
     super(props)
+
+    let screenSize
+    typeof window ===
+    "undefined" /*If SSR, window is undefined so I put placeholder values below*/
+      ? (screenSize = { width: 1920, height: 1080 })
+      : (screenSize = { width: window.innerWidth, height: window.innerHeight })
     this.state = {
-      data: getPointPos(1280, 600, this.num).map(item => ({
-        ...item,
-        opacity: Math.random() * 0.7 + 0.3,
-        backgroundColor: `
+      data: getPointPos(screenSize.width, screenSize.height, this.num).map(
+        item => ({
+          ...item,
+          opacity: Math.random() * 0.7 + 0.3,
+          backgroundColor: `
         rgb(${Math.round(Math.random() * 30 + 170)},
         ${Math.round(Math.random() * 30 + 75)},
         ${Math.round(Math.random() * 30 + 107)})
         `,
-        boxShadow: `
+          boxShadow: `
         ${Math.random() * 200}px
         ${Math.random() * 300}px 
         ${Math.random() * 1}px 
@@ -239,7 +247,8 @@ class LinkedAnimate extends React.Component {
         ${Math.round(Math.random() * 30 + 141)},
         ${Math.round(Math.random() * 30 + 153)})
         `,
-      })),
+        })
+      ),
     }
   }
   onMouseMove = e => {
@@ -268,16 +277,15 @@ class LinkedAnimate extends React.Component {
         tx: pos.x,
         ty: pos.y,
       })
-    }  else {
+    } else {
       this.onMouseLeave()
-    } 
+    }
   }
 
-  
   onMouseLeave = () => {
     this.setState({
       tx: 0,
-      ty: 0
+      ty: 0,
     })
   }
 

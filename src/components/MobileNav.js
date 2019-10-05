@@ -120,19 +120,31 @@ const MobileNav = ({ colorMode }) => {
           <LinkContainer>
             <NavLink>
               Portfolio
-              <img src={getDiamond()} />
+              <img
+                src={getDiamond()}
+                alt="rotating diamond graphic during mouse hover"
+              />
             </NavLink>
             <NavLink>
               Contact
-              <img src={getDiamond()} />
+              <img
+                src={getDiamond()}
+                alt="rotating diamond graphic during mouse hover"
+              />
             </NavLink>
             <NavLink>
               About
-              <img src={getDiamond()} />
+              <img
+                src={getDiamond()}
+                alt="rotating diamond graphic during mouse hover"
+              />
             </NavLink>
             <NavLink>
               Blog
-              <img src={getDiamond()} />
+              <img
+                src={getDiamond()}
+                alt="rotating diamond graphic during mouse hover"
+              />
             </NavLink>
           </LinkContainer>
         </NavigationContainer>

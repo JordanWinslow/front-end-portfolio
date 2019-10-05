@@ -26,9 +26,13 @@ const Text = styled.h1`
   color: var(--light);
   text-transform: uppercase;
   letter-spacing: 0.8rem;
-  padding: 0 5vw;
+  padding: 5vh 3vw;
   @media (max-width: 1200px) {
     margin-bottom: 80px; /* To compensate for mobile header*/
+    padding: 5vh 10vw;
+  }
+  @media (max-width: 500px) {
+    padding: 2vh 5vw;
   }
   @keyframes fadeIn {
     0% {

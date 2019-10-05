@@ -59,7 +59,7 @@ const NavLink = styled.h4`
   margin: 0 auto;
   cursor: pointer;
   pointer-events: all;
-  text-shadow: 0 3px 3px rgba(0,0,0,.8);
+  text-shadow: 0 3px 3px rgba(0, 0, 0, 0.8);
   img {
     margin: 0 8px;
   }
@@ -103,7 +103,11 @@ const DesktopNav = ({ colorMode, isHomePage }) => {
             onMouseLeave={() => stopRotation(1)}
           >
             Portfolio
-            <img id="diamond1" src={getDiamond()} />
+            <img
+              id="diamond1"
+              src={getDiamond()}
+              alt="rotating diamond graphic during mouse hover"
+            />
           </NavLink>
           <NavLink
             isHomePage={isHomePage}
@@ -111,7 +115,11 @@ const DesktopNav = ({ colorMode, isHomePage }) => {
             onMouseLeave={() => stopRotation(2)}
           >
             Contact
-            <img id="diamond2" src={getDiamond()} />
+            <img
+              id="diamond2"
+              src={getDiamond()}
+              alt="rotating diamond graphic during mouse hover"
+            />
           </NavLink>
           <NavLink
             isHomePage={isHomePage}
@@ -119,7 +127,11 @@ const DesktopNav = ({ colorMode, isHomePage }) => {
             onMouseLeave={() => stopRotation(3)}
           >
             About
-            <img id="diamond3" src={getDiamond()} />
+            <img
+              id="diamond3"
+              src={getDiamond()}
+              alt="rotating diamond graphic during mouse hover"
+            />
           </NavLink>
           <NavLink
             isHomePage={isHomePage}
@@ -127,7 +139,11 @@ const DesktopNav = ({ colorMode, isHomePage }) => {
             onMouseLeave={() => stopRotation(4)}
           >
             Blog
-            <img id="diamond4" src={getDiamond()} />
+            <img
+              id="diamond4"
+              src={getDiamond()}
+              alt="rotating diamond graphic during mouse hover"
+            />
           </NavLink>
         </LinkContainer>
       </NavigationContainer>
