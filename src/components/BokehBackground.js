@@ -65,20 +65,15 @@ const BokehFlare = styled.div`
   position: absolute;
   width: 1280px;
   height: 600px;
-  display: block;
-  left: -100%;
-  top: 0;
-  bottom: 0;
-  right: -100%;
   margin: auto;
   .outside {
     position: absolute;
     transition: transform 1s ease-out;
   }
   .inside {
-    filter: blur(24px);
-    /*box-shadow: 80px -80px 0px rgba(255, 255, 255, 1);*/
-    border-radius: 100%;
+    /*filter: blur(24px); ONLY USE ON HIGH END CPUS!*/
+    /*border-radius: 100%;*/
+    transform: rotate(45deg);
     width: 100%;
     height: 100%;
   }
@@ -177,9 +172,9 @@ class Point extends React.PureComponent {
     let transform
     let zIndex = 0
     let animation = {
-      y: (Math.random() * 2 - 1) * 20 || 15,
-      duration: 3000,
-      delay: Math.random() * 1000,
+      x: (Math.random() * 2 - 1) * 70 || 55,
+      duration: 4000,
+      delay: Math.random() * 2000,
       yoyo: true,
       repeat: -1,
     }
@@ -272,19 +267,19 @@ class LinkedAnimate extends React.Component {
         tx: pos.x,
         ty: pos.y,
       })
-    } /* else {
+    }  else {
       this.onMouseLeave()
-    } */
+    } 
   }
 
-  /*
+  
   onMouseLeave = () => {
     this.setState({
       tx: 0,
       ty: 0
     })
   }
-*/
+
   render() {
     const { data, tx, ty } = this.state
     return (

@@ -1,10 +1,10 @@
 import React, { Suspense } from "react"
 import MainLayout from "../components/MainLayout"
-import BokehText from "../components/BokehText"
 import Loading from "../images/Loading.svg"
 const BokehBackground = React.lazy(() =>
   import("../components/BokehBackground")
 )
+const BokehText = React.lazy(() => import("../components/BokehText")) 
 
 const HomePage = () => {
   const isServerRendered = typeof window === "undefined"
