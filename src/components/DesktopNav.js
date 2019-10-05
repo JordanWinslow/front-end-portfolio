@@ -59,12 +59,13 @@ const NavLink = styled.h4`
   margin: 0 auto;
   cursor: pointer;
   pointer-events: all;
+  text-shadow: 0 3px 3px rgba(0,0,0,.8);
   img {
     margin: 0 8px;
   }
   :hover {
     transform: translateY(-3px);
-    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+    text-shadow: 0 5px 5px black;
   }
 `
 const DesktopNav = ({ colorMode, isHomePage }) => {

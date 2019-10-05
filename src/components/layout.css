@@ -698,6 +698,7 @@ pre tt:after {
   animation-duration: 1.5s;
   animation-fill-mode: both;
 }
+
 #DesktopNav {
   display: unset;
 }
@@ -705,6 +706,7 @@ pre tt:after {
   display: none;
 }
 @media (max-width: 1200px) {
+  
   #DesktopNav {
     display: none;
   }

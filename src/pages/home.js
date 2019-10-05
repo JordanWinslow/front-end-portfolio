@@ -1,5 +1,6 @@
 import React, { Suspense } from "react"
 import MainLayout from "../components/MainLayout"
+import ControlModal from "../components/ControlModal"
 import Loading from "../images/Loading.svg"
 const BokehBackground = React.lazy(() =>
   import("../components/BokehBackground")
@@ -36,6 +37,7 @@ const HomePage = () => {
           <BokehBackground>
             <BokehText bokehText={phrase} />
           </BokehBackground>
+          <ControlModal text="move your mouse to control the background" />
         </Suspense>
       )}
     </MainLayout>

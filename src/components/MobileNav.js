@@ -14,6 +14,7 @@ const OpenButton = styled.div`
   mask-image: url(${MobileNavClosed});
   width: 70px;
   height: 70px;
+  cursor: pointer;
 `
 const CloseButton = styled.div`
   background-color: var(
@@ -23,6 +24,7 @@ const CloseButton = styled.div`
   width: 70px;
   height: 70px;
   fill: var(${props => (props.colorMode === "dark" ? "--light" : "--dark")});
+  cursor: pointer;
 `
 const Logo = styled.div`
   background-image: url(${JWLogo});
