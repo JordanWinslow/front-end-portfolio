@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import styled from "styled-components"
+import { Link } from "gatsby"
 import { TweenLite } from "gsap"
 import JWLogo from "../images/JWLogo.svg"
 import MobileNavClosed from "../images/MobileNavClosed.svg"
@@ -151,11 +152,13 @@ const MobileNav = ({ colorMode }) => {
               />
             </NavLink>
             <NavLink>
-              Blog
-              <img
-                src={getDiamond()}
-                alt="rotating diamond graphic during mouse hover"
-              />
+              <Link to="/blog" style={{cursor: "pointer"}}>
+                Blog
+                <img
+                  src={getDiamond()}
+                  alt="rotating diamond graphic during mouse hover"
+                />
+              </Link>
             </NavLink>
           </LinkContainer>
         </NavigationContainer>
