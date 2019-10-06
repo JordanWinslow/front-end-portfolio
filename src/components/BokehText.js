@@ -16,7 +16,6 @@ const ContentBox = styled.div`
   padding: 0 5vw;
   text-align: center;
   display: flex;
-  justify-content: center;
   align-items: center;
   pointer-events: none;
   @media (max-width: 1200px) {
