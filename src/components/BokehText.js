@@ -12,13 +12,16 @@ const ContentBox = styled.div`
   z-index: 2;
   height: inherit;
   width: 65vw;
-  margin: auto;
+  margin: 0 12vw;
   padding: 0 5vw;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
   pointer-events: none;
+  @media (max-width: 1200px) {
+    margin: auto;
+  }
 `
 
 const Text = styled.h1`
@@ -27,8 +30,9 @@ const Text = styled.h1`
   text-transform: uppercase;
   letter-spacing: 0.8rem;
   padding: 5vh 3vw;
+  margin-bottom: 0;
   @media (max-width: 1200px) {
-    margin-bottom: 80px; /* To compensate for mobile header*/
+    margin-bottom: 40px; /* To compensate for mobile header*/
     padding: 5vh 10vw;
   }
   @media (max-width: 500px) {

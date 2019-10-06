@@ -45,7 +45,7 @@ const MobileNavHeader = styled.div`
   top: 0;
   z-index: 999;
   width: 100vw;
-  padding: 10px 20px;
+  padding: 20px 20px;
   background-color: var(
     ${props => (props.colorMode === "dark" ? "--light" : "--dark")}
   );
@@ -56,7 +56,8 @@ const NavigationContainer = styled.div`
   /*Set Animation Initial State*/
   transform: translateY(-100vh);
   /*---------------------------*/
-  position: absolute;
+  position: fixed; /*to prevent page scrolling while nav is open*/
+  top: 0;
   z-index: 4;
   background-color: var(
     ${props => (props.colorMode === "dark" ? "--light" : "--dark")}
@@ -66,12 +67,12 @@ const NavigationContainer = styled.div`
   flex-direction: column;
   width: 100vw;
   height: 100vh;
-  justify-content: center;
+  justify-content: flex-end;
 `
 const LinkContainer = styled.div`
   height: 70%;
   width: 100%;
-  padding-bottom: 10vh;
+  padding-bottom: 15vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
