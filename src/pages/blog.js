@@ -25,7 +25,10 @@ export default ({ data }) => {
                 transform: "translate(-50%, -50%)",
               }}
             >
-              <img src={Loading} />
+              <img
+                src={Loading}
+                alt="Animated Dark Pink Square Grid Loading Animation"
+              />
             </div>
           }
         >
@@ -39,6 +42,7 @@ export default ({ data }) => {
               /*TODO: Replace content with dynamically loaded markdown files */
               <div>
                 <Img
+                  alt="Dynamically-Loaded Random Image From Jordan's Blog"
                   fluid={
                     data.allMarkdownRemark.nodes[0].frontmatter.image
                       .childImageSharp.fluid

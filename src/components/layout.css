@@ -684,18 +684,18 @@ pre tt:after {
 }
 .fadeIn {
   -webkit-animation: fadeIn ease-in;
-  -webkit-animation-duration: 1.5s;
+  -webkit-animation-duration: 1s;
   -webkit-animation-fill-mode: both;
   animation: fadeIn ease-in;
-  animation-duration: 1.5s;
+  animation-duration: 1s;
   animation-fill-mode: both;
 }
 .fadeOutIn {
   -webkit-animation: fadeOutIn ease-in;
-  -webkit-animation-duration: 1.5s;
+  -webkit-animation-duration: 1s;
   -webkit-animation-fill-mode: both;
   animation: fadeOutIn ease-in;
-  animation-duration: 1.5s;
+  animation-duration: 1s;
   animation-fill-mode: both;
 }
 

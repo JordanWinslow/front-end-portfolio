@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { createGlobalStyle } from "styled-components"
 import MobileNav from "./MobileNav"
 import DesktopNav from "./DesktopNav"
-import Footer from "./Footer"
+// import Footer from "./Footer"
 import LightBulb from "./LightBulb"
 import "./layout.css"
 

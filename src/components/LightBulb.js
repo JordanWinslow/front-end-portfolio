@@ -5,7 +5,9 @@ import lightBulbDark from "../images/LightBulbDark.svg"
 const LightBulb = ({ colorMode, setColorMode }) => {
   return (
     <Fragment>
-      <img id="LightBulb"
+      <img
+        alt="Hand Drawn Lightbulb Icon Which Turns on Night / Dark Mode"
+        id="LightBulb"
         style={{
           backgroundColor:
             colorMode === "dark" ? "var(--dark)" : "var(--light)",

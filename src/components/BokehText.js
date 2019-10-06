@@ -57,7 +57,11 @@ const BokehText = props => {
   const letters = text.split("")
   const content = letters.map(letter => {
     const delay = Math.floor(Math.random() * 1000 + 1)
-    return <LetterBox delay={delay}>{letter}</LetterBox>
+    return (
+      <LetterBox key={letter + delay} delay={delay}>
+        {letter}
+      </LetterBox>
+    )
   })
   return (
     <ContentBox>
