@@ -1,5 +1,6 @@
 import React, { useEffect } from "react"
 import styled from "styled-components"
+import { Link } from "gatsby"
 import { TweenMax, Linear } from "gsap"
 import JWLogo from "../images/JWLogo.svg"
 import DiamondLight from "../images/DiamondLight.svg"
@@ -133,18 +134,20 @@ const DesktopNav = ({ colorMode, isHomePage }) => {
               alt="rotating diamond graphic during mouse hover"
             />
           </NavLink>
-          <NavLink
-            isHomePage={isHomePage}
-            onMouseEnter={() => rotateDiamond(4)}
-            onMouseLeave={() => stopRotation(4)}
-          >
-            Blog
-            <img
-              id="diamond4"
-              src={getDiamond()}
-              alt="rotating diamond graphic during mouse hover"
-            />
-          </NavLink>
+          <Link to="/blog">
+            <NavLink
+              isHomePage={isHomePage}
+              onMouseEnter={() => rotateDiamond(4)}
+              onMouseLeave={() => stopRotation(4)}
+            >
+              Blog
+              <img
+                id="diamond4"
+                src={getDiamond()}
+                alt="rotating diamond graphic during mouse hover"
+              />
+            </NavLink>
+          </Link>
         </LinkContainer>
       </NavigationContainer>
     </div>
