@@ -111,7 +111,7 @@ dfn {
   font-style: italic;
 }
 h1 {
-  font-weight: 500;
+  font-weight: 700;
   font-size: 3.125rem;
   line-height: 3.6875rem;
   margin: 0.67em 0;
@@ -331,7 +331,6 @@ h4 {
   font-weight: normal;
   font-size: 1.5rem;
   line-height: 140%;
-  text-align: center;
   letter-spacing: 0.115em;
   text-rendering: optimizeLegibility;
 }

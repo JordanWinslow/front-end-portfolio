@@ -1,9 +1,12 @@
-import React from "react"
+import React, {Suspense} from "react"
 import { graphql } from "gatsby"
 import styled from "styled-components"
+import MainLayout from "../components/MainLayout"
 import PortfolioItem from "../components/PortfolioItem"
+import Loading from "../images/Loading.svg"
 
 const Grid = styled.div`
+position: relative;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr 1fr;
@@ -19,7 +22,11 @@ const Grid = styled.div`
     grid-template-columns: 1fr;
   }
 `
-
+const PageHeader = styled.div`
+position: relative;
+left: 1vw;
+top: 5vw;
+`
 export const query = graphql`
   query getPortfolio {
     allMarkdownRemark(
@@ -58,7 +65,34 @@ const PortfolioGrid = ({ data }) => {
       />
     )
   })
-  return <Grid>{portfolioItems}</Grid>
+  const isServerRendered = typeof window === "undefined"
+  return (
+    <MainLayout>
+    <PageHeader>
+      <h3>Code</h3>
+      <h4>Responsive Websites, Web Apps & Programs</h4>
+    </PageHeader>
+      {!isServerRendered && (
+        <Suspense
+          fallback={
+            <div
+              style={{
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+              }}>
+              <img
+                src={Loading}
+                alt="Animated Dark Pink Square Grid Loading Animation"
+              />
+            </div>
+          }>
+          <Grid>{portfolioItems}</Grid>
+        </Suspense>
+      )}
+    </MainLayout>
+  )
 }
 
 export default PortfolioGrid
