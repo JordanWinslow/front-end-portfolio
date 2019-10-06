@@ -231,7 +231,7 @@ typeof window ===
     I could implement a "onResize" handler here but to be honest I think that's overkill
     for this project.*/
 class LinkedAnimate extends React.Component {
-  num = screenSize.width < 900 ? 10 : 20 // NUMBER OF BOKEHS
+  num = screenSize.width < 900 ? 8 : 16 // NUMBER OF BOKEHS
   constructor(props) {
     super(props)
     this.state = {

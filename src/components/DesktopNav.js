@@ -47,29 +47,22 @@ const LinkContainer = styled.div`
 const NavLink = styled.h4`
   width: 100%;
   margin-right: 1rem;
-  ${props =>
-    props.isHomePage
-      ? ``
-      : `background: linear-gradient(90deg, #d54274 10%, #33dada 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;`}
   text-transform: uppercase;
   text-align: right;
   transition-duration: 0.3s;
   margin: 0 auto;
   cursor: pointer;
   pointer-events: all;
-  text-shadow: 0 3px 3px rgba(0, 0, 0, 0.8);
+  font-weight: 500;
   img {
     margin: 0 8px;
   }
   :hover {
     transform: translateY(-3px);
-    text-shadow: 0 5px 5px black;
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
   }
 `
-const DesktopNav = ({ colorMode, isHomePage }) => {
+const DesktopNav = ({ colorMode }) => {
   useEffect(() => {
     TweenMax.to("#LinkContainerDesktop", 1, {
       x: 0,
@@ -99,7 +92,6 @@ const DesktopNav = ({ colorMode, isHomePage }) => {
       <NavigationContainer id="LinkContainerDesktop">
         <LinkContainer colorMode={colorMode}>
           <NavLink
-            isHomePage={isHomePage}
             onMouseEnter={() => rotateDiamond(1)}
             onMouseLeave={() => stopRotation(1)}
           >
@@ -111,7 +103,6 @@ const DesktopNav = ({ colorMode, isHomePage }) => {
             />
           </NavLink>
           <NavLink
-            isHomePage={isHomePage}
             onMouseEnter={() => rotateDiamond(2)}
             onMouseLeave={() => stopRotation(2)}
           >
@@ -123,7 +114,6 @@ const DesktopNav = ({ colorMode, isHomePage }) => {
             />
           </NavLink>
           <NavLink
-            isHomePage={isHomePage}
             onMouseEnter={() => rotateDiamond(3)}
             onMouseLeave={() => stopRotation(3)}
           >
@@ -136,7 +126,6 @@ const DesktopNav = ({ colorMode, isHomePage }) => {
           </NavLink>
           <Link to="/blog">
             <NavLink
-              isHomePage={isHomePage}
               onMouseEnter={() => rotateDiamond(4)}
               onMouseLeave={() => stopRotation(4)}
             >

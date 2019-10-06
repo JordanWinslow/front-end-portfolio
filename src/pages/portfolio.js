@@ -16,7 +16,7 @@ position: relative;
   @media (max-width: 1500px) {
     grid-template-columns: 1fr 1fr;
     max-width: 1000px;
-    margin: 0 auto;
+    margin: 0 4vw;
   }
   @media (max-width: 1000px) {
     grid-template-columns: 1fr;
@@ -24,8 +24,6 @@ position: relative;
 `
 const PageHeader = styled.div`
 position: relative;
-left: 1vw;
-top: 5vw;
 `
 export const query = graphql`
   query getPortfolio {
