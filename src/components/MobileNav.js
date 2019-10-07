@@ -59,9 +59,7 @@ const NavigationContainer = styled.div`
   position: fixed; /*to prevent page scrolling while nav is open*/
   top: 0;
   z-index: 4;
-  background-color: var(
-    ${props => (props.colorMode === "dark" ? "--light" : "--dark")}
-  );
+  background-color: var(${props => (props.colorMode === "dark" ? "--light" : "--dark")});
   background-image: url("${props => props.colorMode === "dark" ? lightPatternSvg : darkPatternSvg}");
   display: flex;
   flex-direction: column;
@@ -132,13 +130,15 @@ const MobileNav = ({ colorMode }) => {
       {open && (
         <NavigationContainer colorMode={colorMode} id="LinkContainer">
           <LinkContainer>
-            <NavLink>
-              Portfolio
-              <img
-                src={getDiamond()}
-                alt="rotating diamond graphic during mouse hover"
-              />
-            </NavLink>
+            <Link to="/portfolio" style={{ cursor: "pointer" }}>
+              <NavLink>
+                Portfolio
+                <img
+                  src={getDiamond()}
+                  alt="rotating diamond graphic during mouse hover"
+                />
+              </NavLink>
+            </Link>
             <NavLink>
               Contact
               <img
