@@ -21,7 +21,7 @@ const PageContent = styled.div`
     width: 100vw;
     margin: 15vh 0;
   }
-  @media (max-height: 700px) {
+  @media (max-width: 1200px) and (max-height: 700px) {
     margin: 25vh 0;
   }
 `
