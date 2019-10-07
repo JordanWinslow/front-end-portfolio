@@ -22,7 +22,7 @@ const PageContent = styled.div`
     margin: 15vh 0;
   }
   @media (max-width: 1200px) and (max-height: 700px) {
-    margin: 25vh 0;
+    margin: 20vh 0;
   }
 `
 const PageHeader = styled.div`
@@ -30,8 +30,9 @@ const PageHeader = styled.div`
   align-self: flex-end;
   width: 86%;
   margin: 4vh 0;
-  h3 {
-    margin: 0;
+  cursor: default;
+  h1 {
+    margin-bottom: 0;
     text-transform: uppercase;
   }
   @media (max-width: 1720px) {
@@ -43,9 +44,30 @@ const PageHeader = styled.div`
     align-self: flex-end;
   }
   @media (max-width: 1200px) {
-    margin: 5vh 0;
+    margin: 10vh 0 5vh 0;
     width: 100%;
     text-align: center;
+  }
+  @media (max-width: 600px) {
+    h1 {
+      font-size: 10vw;
+    }
+  }
+`
+const DescriptionBox = styled.div`
+  padding: 5vh 5vw;
+  margin-bottom: 10vh;
+  color: var(--light);
+  background-color: var(--secondaryLight);
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.5);
+  cursor: default;
+  transition-duration: 0.5s;
+  :hover {
+    transform: scale(1.1);
+    box-shadow: 0, 5px, 10px rgba(0, 0, 0, 0.6);
+  }
+  @media (max-width: 1200px) {
+    margin: 5vh 15vw 15vh 15vw;
   }
 `
 const Grid = styled.div`
@@ -117,8 +139,8 @@ const PortfolioGrid = ({ data }) => {
     <MainLayout>
       <PageContent>
         <PageHeader>
-          <h3>Live Demos</h3>
-          <h4>Mouse over / tap any image to learn more</h4>
+          <h1>MY WORK</h1>
+          <h2>Live Demos & Designs</h2>
         </PageHeader>
         {!isServerRendered && (
           <Suspense
@@ -138,6 +160,18 @@ const PortfolioGrid = ({ data }) => {
               </div>
             }
           >
+            <DescriptionBox>
+              <h3>A Living Resume</h3>
+              <p>
+                This website serves not only as a medium to display my work, but
+                also as a living, breathing resume.
+              </p>
+              <p>
+                Click the "About" link to read the case-study for this website,
+                mouse over / tap any image below to learn more about my past
+                work, or keep scrolling to see my art design.
+              </p>
+            </DescriptionBox>
             <Grid>{portfolioItems}</Grid>
           </Suspense>
         )}
