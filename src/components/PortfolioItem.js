@@ -29,10 +29,6 @@ const CardPopup = styled.div`
   padding: 10px 20px;
   height: 100%;
   pointer-events: none;
-  background-color: ${props =>
-    props.colorMode === "dark" ? "var(--dark)" : "var(--light)"};
-  color: ${props =>
-    props.colorMode === "dark" ? "var(--light)" : "var(--dark)"};
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -96,12 +92,11 @@ const PortfolioItem = ({
   description,
   demoLink,
   codeLink,
-  colorMode,
 }) => {
   const [popup, setPopup] = useState(false)
   useEffect(() => {
     TweenLite.fromTo(
-      ".popup",
+      ".CardPopup",
       0.4,
       {
         scale: 0.01,
@@ -118,10 +113,14 @@ const PortfolioItem = ({
   }
 
   return (
-    <Card onMouseOver={() => animate()} onMouseLeave={() => setPopup(false)}>
+    <Card
+      onMouseOver={() => animate()}
+      onMouseLeave={() => setPopup(false)}
+      className="PortfolioItem"
+    >
       <Img className="bgImage" fluid={image} alt={imageAlt} />
       {popup && (
-        <CardPopup colorMode={colorMode} className="popup">
+        <CardPopup className="CardPopup">
           <Title>
             <h2>{title}</h2>
           </Title>

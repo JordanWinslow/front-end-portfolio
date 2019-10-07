@@ -35,6 +35,9 @@ STYLED-COMPONENT
   padding: 1rem;
   margin-bottom: 1rem;
 }
+html::-webkit-scrollbar {
+  display: none;
+}
 html {
   height: 100%;
   margin: 0;
@@ -705,7 +708,6 @@ pre tt:after {
   display: none;
 }
 @media (max-width: 1200px) {
-  
   #DesktopNav {
     display: none;
   }

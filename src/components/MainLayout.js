@@ -16,6 +16,12 @@ const Color = createGlobalStyle`
       props.theme === "dark" ? "var(--dark)" : "var(--light)"};
       transition: .8s ease-out;
   }
+  .CardPopup {
+    color: ${props =>
+      props.theme === "dark" ? "var(--dark)" : "var(--light)"};
+    background-color: ${props =>
+      props.theme === "dark" ? "var(--light)" : "var(--dark)"};
+  }
   `
 const Layout = ({ children, isHomePage, theme = "light" }) => {
   const [colorMode, setColorMode] = useState(theme) // SET PAGE THEME TO LIGHT MODE ON FIRST LOAD.

@@ -91,17 +91,19 @@ const DesktopNav = ({ colorMode }) => {
       </DesktopNavHeader>
       <NavigationContainer id="LinkContainerDesktop">
         <LinkContainer colorMode={colorMode}>
-          <NavLink
-            onMouseEnter={() => rotateDiamond(1)}
-            onMouseLeave={() => stopRotation(1)}
-          >
-            Portfolio
-            <img
-              id="diamond1"
-              src={getDiamond()}
-              alt="rotating diamond graphic during mouse hover"
-            />
-          </NavLink>
+          <Link to="/portfolio">
+            <NavLink
+              onMouseEnter={() => rotateDiamond(1)}
+              onMouseLeave={() => stopRotation(1)}
+            >
+              Portfolio
+              <img
+                id="diamond1"
+                src={getDiamond()}
+                alt="rotating diamond graphic during mouse hover"
+              />
+            </NavLink>
+          </Link>
           <NavLink
             onMouseEnter={() => rotateDiamond(2)}
             onMouseLeave={() => stopRotation(2)}
