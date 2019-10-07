@@ -9,6 +9,7 @@ const LightBulb = ({ colorMode, setColorMode }) => {
         alt="Hand Drawn Lightbulb Icon Which Turns on Night / Dark Mode"
         id="LightBulb"
         style={{
+          cursor: "pointer",
           backgroundColor:
             colorMode === "dark" ? "var(--dark)" : "var(--light)",
           border: `5px solid ${
