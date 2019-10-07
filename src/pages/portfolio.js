@@ -9,13 +9,14 @@ const PageContent = styled.div`
   display: flex;
   flex-direction: column;
   width: 84%;
+  margin-bottom: 15vh;
   @media (max-width: 1720px) {
     width: 60%;
-    margin: 0 12vw;
+    margin: 0 12vw 15vh 12vw;
   }
   @media (max-width: 1400px) {
     width: 70%;
-    margin: 0 5vw;
+    margin: 0 5vw 15vh 5vw;
   }
   @media (max-width: 1200px) {
     width: 100vw;
@@ -63,11 +64,19 @@ const DescriptionBox = styled.div`
   cursor: default;
   transition-duration: 0.5s;
   :hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     box-shadow: 0, 5px, 10px rgba(0, 0, 0, 0.6);
   }
   @media (max-width: 1200px) {
     margin: 5vh 15vw 15vh 15vw;
+  }
+  @media (max-width: 900px) {
+    margin: 5vh 0 15vh 0;
+  }
+  @media (max-width: 600px) {
+    h3 {
+      font-size: 8vw;
+    }
   }
 `
 const Grid = styled.div`
