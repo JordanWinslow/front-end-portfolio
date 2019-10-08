@@ -57,7 +57,7 @@ const PageHeader = styled.div`
 `
 const DescriptionBox = styled.div`
   padding: 5vh 5vw;
-  margin-bottom: 10vh;
+  margin: 0 7vw 10vh 7vw;
   color: var(--light);
   background-color: var(--secondaryLight);
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.5);
@@ -65,7 +65,9 @@ const DescriptionBox = styled.div`
   transition-duration: 0.5s;
   :hover {
     transform: scale(1.05);
-    box-shadow: 0, 5px, 10px rgba(0, 0, 0, 0.6);
+  }
+  @media (max-width: 1720px) {
+    margin: 0 0 10vh 0;
   }
   @media (max-width: 1200px) {
     margin: 5vh 15vw 15vh 15vw;
@@ -120,6 +122,8 @@ export const query = graphql`
           image {
             childImageSharp {
               fluid {
+                #Creates a series of images for every screen-size
+                # and dynamically renders them when they enter the viewport
                 ...GatsbyImageSharpFluid
               }
             }

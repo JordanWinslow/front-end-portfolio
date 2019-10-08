@@ -11,8 +11,12 @@ const Card = styled.div`
   height: 300px;
   border-radius: 20px;
   overflow: hidden;
-  transition: 1s ease-out;
+  transition: 0.5s ease-out;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
+  :hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.8);
+  }
   .bgImage {
     height: 100%;
     object-fit: cover;

@@ -39,6 +39,11 @@ const Logo = styled.div`
   background-position: center;
   width: 75px;
   height: 70px;
+  transition-duration: 0.5s;
+  cursor: pointer;
+  :hover {
+    transform: scale(1.1);
+  }
 `
 const MobileNavHeader = styled.div`
   position: fixed;
@@ -59,7 +64,7 @@ const NavigationContainer = styled.div`
   position: fixed; /*to prevent page scrolling while nav is open*/
   top: 0;
   z-index: 4;
-  background-color: var(${props => (props.colorMode === "dark" ? "--light" : "--dark")});
+  background-color: var(${props => props.colorMode === "dark" ? "--light" : "--dark"});
   background-image: url("${props => props.colorMode === "dark" ? lightPatternSvg : darkPatternSvg}");
   display: flex;
   flex-direction: column;
@@ -123,7 +128,9 @@ const MobileNav = ({ colorMode }) => {
         colorMode={colorMode}
         className={colorMode === "dark" ? "fadeIn" : "fadeOutIn"}
       >
-        <Logo />
+        <Link to="/" style={{ cursor: "pointer" }}>
+          <Logo />
+        </Link>
         {!open && <OpenButton colorMode={colorMode} onClick={rotateOut} />}
         {open && <CloseButton colorMode={colorMode} onClick={rotateOut} />}
       </MobileNavHeader>

@@ -12,6 +12,11 @@ const Logo = styled.div`
   background-position: center;
   width: 75px;
   height: 70px;
+  transition-duration: 0.5s;
+  cursor: pointer;
+  :hover {
+    transform: scale(1.1);
+  }
 `
 const DesktopNavHeader = styled.div`
   position: absolute;
@@ -87,7 +92,9 @@ const DesktopNav = ({ colorMode }) => {
   return (
     <div id="DesktopNav">
       <DesktopNavHeader>
-        <Logo />
+        <Link to="/">
+          <Logo />
+        </Link>
       </DesktopNavHeader>
       <NavigationContainer id="LinkContainerDesktop">
         <LinkContainer colorMode={colorMode}>
