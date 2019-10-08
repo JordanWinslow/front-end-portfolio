@@ -164,15 +164,15 @@ const MobileNav = ({ colorMode }) => {
                 />
               </NavLink>
             </Link>
-            <NavLink>
-              <Link to="/blog" style={{ cursor: "pointer" }}>
+            <Link to="/blog" style={{ cursor: "pointer" }}>
+              <NavLink>
                 Blog
-              </Link>
-              <img
-                src={getDiamond()}
-                alt="rotating diamond graphic during mouse hover"
-              />
-            </NavLink>
+                <img
+                  src={getDiamond()}
+                  alt="rotating diamond graphic during mouse hover"
+                />
+              </NavLink>
+            </Link>
           </LinkContainer>
         </NavigationContainer>
       )}
