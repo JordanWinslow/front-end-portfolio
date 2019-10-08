@@ -1,10 +1,12 @@
-import React, { Suspense, Fragment } from "react"
+import React, { Suspense } from "react"
 import { graphql } from "gatsby"
 import styled from "styled-components"
 import MainLayout from "../components/MainLayout"
-import PortfolioItem from "../components/PortfolioItem"
-import PhoneStack from "../components/PhoneStack"
+import ControlModal from "../components/ControlModal"
 import Loading from "../images/Loading.svg"
+
+const PortfolioItem = React.lazy(() => import("../components/PortfolioItem"))
+const PhoneStack = React.lazy(() => import("../components/PhoneStack"))
 
 const PageContent = styled.div`
   display: flex;
@@ -150,7 +152,6 @@ const Portfolio = ({ data }) => {
   })
   const isServerRendered = typeof window === "undefined"
   return (
-    <Fragment>
     <MainLayout>
       <PageContent>
         <PageHeader>
@@ -191,11 +192,37 @@ const Portfolio = ({ data }) => {
           </Suspense>
         )}
       </PageContent>
+      {!isServerRendered && (
+        <Suspense
+          fallback={
+            <div
+              style={{
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+              }}
+            >
+              <img
+                src={Loading}
+                alt="Animated Dark Pink Square Grid Loading Animation"
+              />
+            </div>
+          }
+        >
+          <PageContent>
+            <PageHeader>
+              <h3>DESIGNS</h3>
+              <h4>Mobile-First Responsive Designs</h4>
+            </PageHeader>
+          </PageContent>
+          <div id="PhoneStack" style={{ width: "100%", height: "100vh" }}>
+            <PhoneStack />
+            <ControlModal text="click & drag to fling the phones" />
+          </div>
+        </Suspense>
+      )}
     </MainLayout>
-    <div id="PhoneStack" style={{ width: "100%", height: "100vh" }}>
-          <PhoneStack />
-        </div>
-        </Fragment>
   )
 }
 
