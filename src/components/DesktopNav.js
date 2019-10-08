@@ -111,28 +111,32 @@ const DesktopNav = ({ colorMode }) => {
               />
             </NavLink>
           </Link>
-          <NavLink
-            onMouseEnter={() => rotateDiamond(2)}
-            onMouseLeave={() => stopRotation(2)}
-          >
-            Contact
-            <img
-              id="diamond2"
-              src={getDiamond()}
-              alt="rotating diamond graphic during mouse hover"
-            />
-          </NavLink>
-          <NavLink
-            onMouseEnter={() => rotateDiamond(3)}
-            onMouseLeave={() => stopRotation(3)}
-          >
-            About
-            <img
-              id="diamond3"
-              src={getDiamond()}
-              alt="rotating diamond graphic during mouse hover"
-            />
-          </NavLink>
+          <Link to="/contact">
+            <NavLink
+              onMouseEnter={() => rotateDiamond(2)}
+              onMouseLeave={() => stopRotation(2)}
+            >
+              Contact
+              <img
+                id="diamond2"
+                src={getDiamond()}
+                alt="rotating diamond graphic during mouse hover"
+              />
+            </NavLink>
+          </Link>
+          <Link to="/about">
+            <NavLink
+              onMouseEnter={() => rotateDiamond(3)}
+              onMouseLeave={() => stopRotation(3)}
+            >
+              About
+              <img
+                id="diamond3"
+                src={getDiamond()}
+                alt="rotating diamond graphic during mouse hover"
+              />
+            </NavLink>
+          </Link>
           <Link to="/blog">
             <NavLink
               onMouseEnter={() => rotateDiamond(4)}

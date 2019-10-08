@@ -10,7 +10,6 @@ const ResponsiveNavLinks = styled.div`
   padding: 0 30vw;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
   h4 {
     /* Implementing the gradient this way because on safari browser,
     using a background gradient on a div across 2 elements breaks
@@ -31,12 +30,14 @@ const ResponsiveNavLinks = styled.div`
     padding: 5px 1.3rem;
     border-radius: 50px;
     text-transform: uppercase;
-    box-shadow: 0px 0px 4px black;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.6);
     transition-duration: 1s;
     :hover {
       box-shadow: 0px 4px 5px black;
     }
   }
+  /*A completely unnecessary method of aligning the buttons, but I wanted
+  to experiment*/
   @media (max-width: 1500px) {
     top: 14vw;
     padding: 0 24vw;
@@ -60,8 +61,9 @@ const ResponsiveNavLinks = styled.div`
     font-size: 1rem;
     padding: 0;
   }
-  @media (max-width: 350px) {
+  @media (max-width: 400px) {
     h4 {
+      font-size: 0.9rem;
       padding: 3px 8px;
     }
   }
@@ -71,7 +73,7 @@ const Navigation = () => {
   return (
     <ResponsiveNavLinks className="fadeIn">
       <h4>
-        <Link to="/" className="first">
+        <Link to="/blog" className="first">
           Blog Home
         </Link>
       </h4>

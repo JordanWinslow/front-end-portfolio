@@ -3,16 +3,17 @@ import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import Layout from "../components/Layout"
 import SEO from "../components/Seo"
+import Navigation from "../components/Navigation"
 import Loading from "../images/Loading.svg"
 
 const PostTitle = React.lazy(() => import("../components/PostTitle"))
 const BlogPost = React.lazy(() => import("../components/BlogPost"))
 
 export default ({ data }) => {
-  console.log("data: ", data)
   const isServerRendered = typeof window === "undefined"
   return (
     <Layout>
+      <Navigation />
       <SEO title="Jordan Winslow | Front-End Responsive Web & UI Designer Specializing in React" />
       {!isServerRendered && (
         <Suspense
@@ -50,15 +51,23 @@ export default ({ data }) => {
                 />
                 <br />
                 <br />
-                This image was dynamically rendered from a markdown file at
-                build-time with a GraphQL query!
+                <p>
+                  This image was dynamically rendered from a markdown file at
+                  build-time with a GraphQL query!
+                </p>
               </div>
             }
           />
+          <div className="bgPrimaryLight" style={{ marginBottom: "15vh" }}>
+            <p>
+              Blog posts coming soon, for now, try resizing the browser window
+              and watching the header change!!
+            </p>
+            You can click the "JW" logo to return home.
+          </div>
+          {/*<div className="bgSecondaryLight"></div>*/}
         </Suspense>
       )}
-      {/*<div className="bgPrimaryLight">This is a success message</div>
-    <div className="bgSecondaryLight">This is a warning message</div>*/}
     </Layout>
   )
 }

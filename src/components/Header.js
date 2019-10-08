@@ -1,11 +1,27 @@
 import React from "react"
 import styled from "styled-components"
+import { Link } from "gatsby"
 import headerSvgDark from "../images/BlogHeaderDark.svg"
 import headerSvgLight from "../images/BlogHeaderLight.svg"
 import headerSvgMobileDark from "../images/BlogHeaderMobileDark.svg"
 import headerSvgMobileLight from "../images/BlogHeaderMobileLight.svg"
-import Navigation from "./Navigation"
+import JWLogo from "../images/JWLogo.svg"
 
+const Logo = styled.div`
+  position: absolute;
+  z-index: 3;
+  margin: 3vh 0 0 3vw;
+  background-image: url(${JWLogo});
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 75px;
+  height: 70px;
+  transition-duration: 0.5s;
+  cursor: pointer;
+  :hover {
+    transform: scale(1.1);
+  }
+`
 const ImageWrapper = styled.div`
   background-image: url(${props => props.colorMode === "dark" ? headerSvgDark : headerSvgLight});
   background-size: cover;
@@ -33,11 +49,13 @@ const ImageWrapper = styled.div`
 const Header = ({ colorMode }) => {
   return (
     <header>
+      <Link to="/">
+        <Logo />
+      </Link>
       <ImageWrapper
         colorMode={colorMode}
         className={colorMode === "dark" ? "fadeOutIn" : "fadeIn"}
       />
-      <Navigation />
     </header>
   )
 }
