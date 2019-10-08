@@ -1,8 +1,9 @@
-import React, { Suspense } from "react"
+import React, { Suspense, Fragment } from "react"
 import { graphql } from "gatsby"
 import styled from "styled-components"
 import MainLayout from "../components/MainLayout"
 import PortfolioItem from "../components/PortfolioItem"
+import PhoneStack from "../components/PhoneStack"
 import Loading from "../images/Loading.svg"
 
 const PageContent = styled.div`
@@ -133,7 +134,7 @@ export const query = graphql`
     }
   }
 `
-const PortfolioGrid = ({ data }) => {
+const Portfolio = ({ data }) => {
   const portfolioItems = data.allMarkdownRemark.nodes.map(item => {
     return (
       <PortfolioItem
@@ -149,6 +150,7 @@ const PortfolioGrid = ({ data }) => {
   })
   const isServerRendered = typeof window === "undefined"
   return (
+    <Fragment>
     <MainLayout>
       <PageContent>
         <PageHeader>
@@ -190,7 +192,11 @@ const PortfolioGrid = ({ data }) => {
         )}
       </PageContent>
     </MainLayout>
+    <div id="PhoneStack" style={{ width: "100%", height: "100vh" }}>
+          <PhoneStack />
+        </div>
+        </Fragment>
   )
 }
 
-export default PortfolioGrid
+export default Portfolio

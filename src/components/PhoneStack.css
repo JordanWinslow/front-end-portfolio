@@ -1,0 +1,27 @@
+#PhoneLocation {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  will-change: transform;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#PhoneScreen {
+  background: rgb(36, 36, 36);
+  background-size: auto 86%;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 32vh; /* Experiment with changing this value to get the phone you want */
+  height: 64vh; /* Experiment with changing this value to get the phone you want */
+  will-change: transform;
+  border-radius: 40px;
+  box-shadow: 20px 10px 5px rgba(0, 0, 0, 0.4), 4px 10px 0px rgb(14, 14, 14);
+}
+@media (max-height: 600px) {
+  #PhoneScreen {
+    width: 35vh; /* Experiment with changing this value to get the phone you want */
+    height: 70vh; /* Experiment with changing this value to get the phone you want */
+    background-size: auto 80%;
+  }
+}
