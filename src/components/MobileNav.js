@@ -146,20 +146,24 @@ const MobileNav = ({ colorMode }) => {
                 />
               </NavLink>
             </Link>
-            <NavLink>
-              Contact
-              <img
-                src={getDiamond()}
-                alt="rotating diamond graphic during mouse hover"
-              />
-            </NavLink>
-            <NavLink>
-              About
-              <img
-                src={getDiamond()}
-                alt="rotating diamond graphic during mouse hover"
-              />
-            </NavLink>
+            <Link to="/contact" style={{ cursor: "pointer" }}>
+              <NavLink>
+                Contact
+                <img
+                  src={getDiamond()}
+                  alt="rotating diamond graphic during mouse hover"
+                />
+              </NavLink>
+            </Link>
+            <Link to="/about" style={{ cursor: "pointer" }}>
+              <NavLink>
+                About
+                <img
+                  src={getDiamond()}
+                  alt="rotating diamond graphic during mouse hover"
+                />
+              </NavLink>
+            </Link>
             <NavLink>
               <Link to="/blog" style={{ cursor: "pointer" }}>
                 Blog
