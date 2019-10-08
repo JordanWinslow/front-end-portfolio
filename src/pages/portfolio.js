@@ -214,6 +214,7 @@ const Portfolio = ({ data }) => {
             <PageHeader>
               <h3>DESIGNS</h3>
               <h4>Mobile-First Responsive Designs</h4>
+              <i>Pick up the phones and toss them!</i>
             </PageHeader>
           </PageContent>
           <div id="PhoneStack" style={{ width: "100%", height: "100vh" }}>
