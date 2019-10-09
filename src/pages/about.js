@@ -5,6 +5,7 @@ import DesktopNav from "../components/DesktopNav"
 import Loading from "../images/Loading.svg"
 
 const PostTitle = React.lazy(() => import("../components/PostTitle"))
+const BlogPost = React.lazy(() => import("../components/BlogPost"))
 
 export default () => {
   const isServerRendered = typeof window === "undefined"
@@ -35,7 +36,17 @@ export default () => {
             heading="Coming Soon!"
             subHeading="This Website is Still in-Development"
           />
-          {/*<BlogList />*/}
+          <BlogPost
+            content={
+              /*TODO: Replace content with dynamically loaded markdown files */
+              <div>
+                <p>Business Contact: admin@jordanwinslow.me</p>
+                <p>Github: https://github.com/JordanWinslow</p>
+                <p>Twitter: https://twitter.com/JordanDWinslow</p>
+                <p>Instagram: https://instagram.com/JordanDWinslow/</p>
+              </div>
+            }
+          />
         </Suspense>
       )}
     </Fragment>
