@@ -6,8 +6,7 @@ import headerSvgMobileDark from "../images/BlogHeaderMobileDark.svg"
 import headerSvgMobileLight from "../images/BlogHeaderMobileLight.svg"
 
 const ImageWrapper = styled.div`
-  background-image: url(${props =>
-    props.colorMode === "dark" ? headerSvgDark : headerSvgLight});
+  background-image: url(${props => props.colorMode === "dark" ? headerSvgDark : headerSvgLight});
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -25,8 +24,7 @@ const ImageWrapper = styled.div`
     margin-bottom: 7vw;
   }
   @media (max-width: 720px) {
-    background-image: url(${props =>
-      props.colorMode === "dark" ? headerSvgMobileDark : headerSvgMobileLight});
+    background-image: url(${props => props.colorMode === "dark" ? headerSvgMobileDark : headerSvgMobileLight});
     height: 48vw;
     margin-bottom: 10vw;
   }
