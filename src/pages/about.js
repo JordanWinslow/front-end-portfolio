@@ -38,13 +38,34 @@ export default () => {
           />
           <BlogPost
             content={
-              /*TODO: Replace content with dynamically loaded markdown files */
-              <div>
-                <p>Business Contact: admin@jordanwinslow.me</p>
-                <p>Github: https://github.com/JordanWinslow</p>
-                <p>Twitter: https://twitter.com/JordanDWinslow</p>
-                <p>Instagram: https://instagram.com/JordanDWinslow/</p>
-              </div>
+              <center>
+                <div>
+                  <p>
+                    Business Contact:{" "}
+                    <a href="mailto:admin@jordanwinslow.me?subject=Hello%20Jordan!">
+                      <b>admin@jordanwinslow.me</b>
+                    </a>
+                  </p>
+                  <p>
+                    Github:{" "}
+                    <a href="https://github.com/JordanWinslow">
+                      <b>https://github.com/JordanWinslow</b>
+                    </a>
+                  </p>
+                  <p>
+                    Twitter:{" "}
+                    <a href="https://twitter.com/JordanDWinslow">
+                      <b>https://twitter.com/JordanDWinslow</b>
+                    </a>
+                  </p>
+                  <p>
+                    Instagram:{" "}
+                    <a href="https://instagram.com/JordanDWinslow/">
+                      <b>https://instagram.com/JordanDWinslow/</b>
+                    </a>
+                  </p>
+                </div>
+              </center>
             }
           />
         </Suspense>
