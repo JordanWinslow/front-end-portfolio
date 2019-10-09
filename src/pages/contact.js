@@ -1,19 +1,45 @@
 import React, { Suspense, Fragment } from "react"
+import styled from "styled-components"
 import DesktopNav from "../components/DesktopNav"
+import MobileNav from "../components/MobileNav"
 import SEO from "../components/Seo"
 import Header from "../components/Header"
 import Loading from "../images/Loading.svg"
 
-const PostTitle = React.lazy(() => import("../components/PostTitle"))
-const BlogPost = React.lazy(() => import("../components/BlogPost"))
+const ContactInfo = React.lazy(() => import("../components/ContactInfo"))
+
+const PageContent = styled.div`
+margin-bottom: 10vh;
+`
+
+const Spacer = styled.div`
+@media (max-width: 1200px) {
+  margin-top: 110px;
+}
+`
 
 export default () => {
   const isServerRendered = typeof window === "undefined"
-  return (
+  const text = (
     <Fragment>
-      <Header />
-      <DesktopNav />
-      <SEO title="Contact | Front-End Responsive Web & UI Designer Specializing in React" />
+      <p>
+        I’m currently seeking a great Front-End Designer & Developer position
+        with a company who wants to improve the world!
+      </p>
+      <p>
+        I am also available for freelance work. Click the icons below to be
+        redirected to my social media, email or phone number!
+      </p>
+    </Fragment>
+  )
+  return (
+    <PageContent>
+      <MobileNav />
+      <Spacer>
+        <Header />
+      </Spacer>
+      <DesktopNav location="bottom" />
+      <SEO title="Contact & Social Media | Front-End Responsive Web & UI Developer Specializing in React" />
       {!isServerRendered && (
         <Suspense
           fallback={
@@ -32,44 +58,9 @@ export default () => {
             </div>
           }
         >
-          <PostTitle
-            heading="Coming Soon!"
-            subHeading="This Website is Still in-Development"
-          />
-          <BlogPost
-            content={
-              <center>
-                <div>
-                  <p>
-                    Business Contact:{" "}
-                    <a href="mailto:admin@jordanwinslow.me?subject=Hello%20Jordan!">
-                      <b>admin@jordanwinslow.me</b>
-                    </a>
-                  </p>
-                  <p>
-                    Github:{" "}
-                    <a href="https://github.com/JordanWinslow">
-                      <b>https://github.com/JordanWinslow</b>
-                    </a>
-                  </p>
-                  <p>
-                    Twitter:{" "}
-                    <a href="https://twitter.com/JordanDWinslow">
-                      <b>https://twitter.com/JordanDWinslow</b>
-                    </a>
-                  </p>
-                  <p>
-                    Instagram:{" "}
-                    <a href="https://instagram.com/JordanDWinslow/">
-                      <b>https://instagram.com/JordanDWinslow/</b>
-                    </a>
-                  </p>
-                </div>
-              </center>
-            }
-          />
+          <ContactInfo heading="Let’s Be Friends" paragraph={text} />
         </Suspense>
       )}
-    </Fragment>
+    </PageContent>
   )
 }

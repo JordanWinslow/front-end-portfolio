@@ -39,6 +39,7 @@ const NavigationContainer = styled.div`
   /*padding-top: 10vh;*/
   padding-right: 2.4vw;
   pointer-events: none;
+  ${props => props.location === "bottom" ? "padding-bottom: 30vh; padding-right: 1vw; justify-content: start;" : ""}
 `
 const LinkContainer = styled.div`
   color: var(${props => (props.colorMode === "dark" ? "--light" : "--dark")});
@@ -48,6 +49,7 @@ const LinkContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  
 `
 const NavLink = styled.h4`
   width: 100%;
@@ -64,10 +66,10 @@ const NavLink = styled.h4`
   }
   :hover {
     transform: translateY(-3px);
-    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
   }
 `
-const DesktopNav = ({ colorMode }) => {
+const DesktopNav = ({ colorMode, location }) => {
   useEffect(() => {
     TweenMax.to("#LinkContainerDesktop", 1, {
       x: 0,
@@ -96,7 +98,7 @@ const DesktopNav = ({ colorMode }) => {
           <Logo />
         </Link>
       </DesktopNavHeader>
-      <NavigationContainer id="LinkContainerDesktop">
+      <NavigationContainer id="LinkContainerDesktop" location={location}>
         <LinkContainer colorMode={colorMode}>
           <Link to="/portfolio">
             <NavLink
