@@ -23,17 +23,18 @@ const PageContent = styled.div`
   }
   @media (max-width: 1200px) {
     width: 100vw;
-    margin: 15vh 0;
+    margin: 110px 0 15vh 0;
   }
   @media (max-width: 1200px) and (max-height: 700px) {
-    margin: 20vh 0;
+    margin: 110px 0 20vh 0;
+    padding: 5vh 0;
   }
 `
 const PageHeader = styled.div`
   position: relative;
   align-self: flex-end;
   width: 86%;
-  margin: 4vh 0;
+  margin: 3vh 0;
   cursor: default;
   h1 {
     margin-bottom: 0;
@@ -60,17 +61,21 @@ const PageHeader = styled.div`
 `
 const DescriptionBox = styled.div`
   padding: 5vh 5vw;
-  margin: 0 7vw 10vh 7vw;
-  color: var(--light);
-  background-color: var(--secondaryLight);
+  margin: 10vh 7vw 15vh 7vw;
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.5);
   cursor: default;
   transition-duration: 0.5s;
+  p {
+    margin-right: 15vw;
+  }
   :hover {
     transform: scale(1.05);
   }
   @media (max-width: 1720px) {
-    margin: 0 0 10vh 0;
+    margin: 10vh 0 10vh 0;
+    p{
+      margin-right: 0;
+    }
   }
   @media (max-width: 1200px) {
     margin: 5vh 15vw 15vh 15vw;
@@ -108,6 +113,16 @@ const Grid = styled.div`
   @media (max-width: 1000px) {
     grid-template-columns: 1fr;
     gap: 5vh;
+  }
+`
+const FullWidth = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: center;
+  width: 100vw;
+  padding: 15vh 0;
+  div {
+    margin: 0 0 0 5vw;
   }
 `
 export const query = graphql`
@@ -176,7 +191,7 @@ const Portfolio = ({ data }) => {
               </div>
             }
           >
-            <DescriptionBox>
+            <DescriptionBox className="ColorProvider">
               <h3>A Living Resume</h3>
               <p>
                 This website serves not only as a medium to display my work, but
@@ -210,6 +225,7 @@ const Portfolio = ({ data }) => {
             </div>
           }
         >
+        <FullWidth className="ColorProvider">
           <PageContent>
             <PageHeader>
               <h3>DESIGNS</h3>
@@ -217,6 +233,7 @@ const Portfolio = ({ data }) => {
               <i>Pick up the phones and toss them!</i>
             </PageHeader>
           </PageContent>
+          </FullWidth>
           <div id="PhoneStack" style={{ width: "100%", height: "100vh" }}>
             <PhoneStack />
             <ControlModal text="click & drag to fling the phones" />

@@ -124,7 +124,7 @@ const PortfolioItem = ({
     >
       <Img className="bgImage" fluid={image} alt={imageAlt} />
       {popup && (
-        <CardPopup className="CardPopup">
+        <CardPopup className="CardPopup ColorProvider">
           <Title>
             <h2>{title}</h2>
           </Title>
