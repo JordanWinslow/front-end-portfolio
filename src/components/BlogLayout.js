@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { createGlobalStyle } from "styled-components"
-import Header from "./Header"
+import Header from "./BlogHeader"
 import Footer from "./Footer"
 import LightBulb from "./LightBulb"
 import "./layout.css"

@@ -1,4 +1,4 @@
-import React, { Suspense } from "react"
+import React, { Suspense, Fragment } from "react"
 import { graphql } from "gatsby"
 import styled from "styled-components"
 import MainLayout from "../components/MainLayout"
@@ -137,7 +137,9 @@ const FullWidth = styled.div`
       margin: 0;
     }
   }
+  }
 `
+
 export const query = graphql`
   query getPortfolio {
     allMarkdownRemark(
@@ -180,12 +182,47 @@ const Portfolio = ({ data }) => {
   })
   const isServerRendered = typeof window === "undefined"
   return (
-    <MainLayout>
-      <PageContent>
-        <PageHeader>
-          <h1>MY WORK</h1>
-          <h2>Live Demos & Designs</h2>
-        </PageHeader>
+    <Fragment>
+      <MainLayout>
+        <PageContent className="fadeIn">
+          <PageHeader>
+            <h1>MY WORK</h1>
+            <h2>Live Demos & Designs</h2>
+          </PageHeader>
+          {!isServerRendered && (
+            <Suspense
+              fallback={
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -50%)",
+                  }}
+                >
+                  <img
+                    src={Loading}
+                    alt="Animated Dark Pink Square Grid Loading Animation"
+                  />
+                </div>
+              }
+            >
+              <DescriptionBox className="ColorProvider">
+                <h3>A Living Resume</h3>
+                <p>
+                  This website serves not only as a medium to display my work,
+                  but also as a living, breathing resume.
+                </p>
+                <p>
+                  Click the "About" link to read the case-study for this
+                  website, mouse over / tap any image below to learn more about
+                  my past work, or keep scrolling to see my art design.
+                </p>
+              </DescriptionBox>
+              <Grid>{portfolioItems}</Grid>
+            </Suspense>
+          )}
+        </PageContent>
         {!isServerRendered && (
           <Suspense
             fallback={
@@ -204,56 +241,26 @@ const Portfolio = ({ data }) => {
               </div>
             }
           >
-            <DescriptionBox className="ColorProvider">
-              <h3>A Living Resume</h3>
-              <p>
-                This website serves not only as a medium to display my work, but
-                also as a living, breathing resume.
-              </p>
-              <p>
-                Click the "About" link to read the case-study for this website,
-                mouse over / tap any image below to learn more about my past
-                work, or keep scrolling to see my art design.
-              </p>
-            </DescriptionBox>
-            <Grid>{portfolioItems}</Grid>
+            <FullWidth className="ColorProvider fadeIn">
+              <PageContent>
+                <PageHeader>
+                  <h3>DESIGNS</h3>
+                  <h4>Mobile-First Responsive Designs</h4>
+                  <i>Pick up the phones and toss them!</i>
+                </PageHeader>
+              </PageContent>
+            </FullWidth>
+            <div id="PhoneStack" style={{ width: "100%", height: "100vh" }}>
+              <PhoneStack />
+            </div>
+            <ControlModal
+              text="click & drag to fling the phones"
+              position="relative"
+            />
           </Suspense>
         )}
-      </PageContent>
-      {!isServerRendered && (
-        <Suspense
-          fallback={
-            <div
-              style={{
-                position: "absolute",
-                top: "50%",
-                left: "50%",
-                transform: "translate(-50%, -50%)",
-              }}
-            >
-              <img
-                src={Loading}
-                alt="Animated Dark Pink Square Grid Loading Animation"
-              />
-            </div>
-          }
-        >
-        <FullWidth className="ColorProvider">
-          <PageContent>
-            <PageHeader>
-              <h3>DESIGNS</h3>
-              <h4>Mobile-First Responsive Designs</h4>
-              <i>Pick up the phones and toss them!</i>
-            </PageHeader>
-          </PageContent>
-          </FullWidth>
-          <div id="PhoneStack" style={{ width: "100%", height: "100vh" }}>
-            <PhoneStack />
-            <ControlModal text="click & drag to fling the phones" />
-          </div>
-        </Suspense>
-      )}
-    </MainLayout>
+      </MainLayout>
+    </Fragment>
   )
 }
 

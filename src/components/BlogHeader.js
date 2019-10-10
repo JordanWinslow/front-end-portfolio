@@ -13,19 +13,20 @@ const ImageWrapper = styled.div`
   height: 17vw;
   @media (max-width: 1500px) {
     height: 19vw;
-    
+    margin-bottom: 3vw;
   }
   @media (max-width: 1300px) {
     height: 20vw;
-    
+    margin-bottom: 5vw;
   }
   @media (max-width: 1000px) {
     height: 21vw;
-    
+    margin-bottom: 7vw;
   }
   @media (max-width: 720px) {
     background-image: url(${props => props.colorMode === "dark" ? headerSvgMobileDark : headerSvgMobileLight});
     height: 48vw;
+    margin-bottom: 10vw;
   }
 `
 const Header = ({ colorMode }) => {
@@ -43,7 +44,6 @@ export default Header
 
 /*
 THIS CODE ACCOMPLISHES THE SAME FEAT AS ABOVE BUT WITH JAVASCRIPT INSTEAD OF CSS MEDIA QUERIES.
-THE ONLY PROBLEM IS, THIS CODE DOES NOT WORK WITH GATSBY SINCE GATSBY RENDERS ON THE SERVER SIDE.
 
 import React, { useEffect, useState } from "react"
 import { window } from "browser-monads" // fallback for Gatsby SSR
