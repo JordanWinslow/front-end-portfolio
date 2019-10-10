@@ -121,7 +121,7 @@ const MobileNav = ({ colorMode }) => {
     }, 200)
   }
   const getDiamond = () => {
-    return colorMode === "dark" ? DiamondDark : DiamondLight
+    return colorMode === "dark" ? DiamondLight : DiamondDark
   }
   return (
     <div id="MobileNav">
