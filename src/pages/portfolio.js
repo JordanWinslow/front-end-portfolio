@@ -84,7 +84,11 @@ const DescriptionBox = styled.div`
     margin: 5vh 0 15vh 0;
   }
   @media (max-width: 600px) {
+    p {
+      padding: 10px
+    }
     h3 {
+      padding: 10px;
       font-size: 8vw;
     }
   }
@@ -116,13 +120,22 @@ const Grid = styled.div`
   }
 `
 const FullWidth = styled.div`
-display: flex;
-flex-direction: column;
-justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 100vw;
   padding: 15vh 0;
   div {
     margin: 0 0 0 5vw;
+  }
+  @media (max-width: 1720px) {
+    div {
+      margin: 0 0 0 5vw;
+    }
+    @media (max-width: 1200px) {
+    div {
+      margin: 0;
+    }
   }
 `
 export const query = graphql`
