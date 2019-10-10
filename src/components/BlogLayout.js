@@ -32,8 +32,8 @@ const Layout = ({ children }) => {
         id="PageContent"
       >
         <main>{children}</main>
-        <Footer />
       </div>
+      <Footer colorMode={colorMode} />
     </>
   )
 }
