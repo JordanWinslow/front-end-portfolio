@@ -48,7 +48,7 @@ const Layout = ({ children, isHomePage, theme = "light" }) => {
       <LightBulb colorMode={colorMode} setColorMode={setColorMode} />
       <PageContainer colorMode={colorMode}>
         <main>{children}</main>
-        !isHomePage && (<Footer colorMode={colorMode}/>)
+        {!isHomePage && (<Footer colorMode={colorMode}/>)}
       </PageContainer>
     </>
   )
