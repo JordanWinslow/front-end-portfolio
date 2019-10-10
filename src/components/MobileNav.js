@@ -88,6 +88,7 @@ const NavLink = styled.h4`
   background: linear-gradient(170deg, #d54274 20%, #33dada 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  -webkit-mask-clip: text;
   background-clip: text;
   text-transform: uppercase;
   text-align: right;
