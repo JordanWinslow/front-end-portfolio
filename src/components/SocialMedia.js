@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react"
 import styled from "styled-components"
 import twitter from "../images/icon-twitter.svg"
 import facebook from "../images/icon-facebook.svg"
@@ -35,47 +35,47 @@ const IconBox = styled.div`
   }
 `
 
-const SocialMedia = ({colorMode = "light"}) => {
- return (
-   <IconBox>
-     <a href="https://github.com/JordanWinslow">
-       <img
-         src={colorMode === "dark" ? darkgithub : github}
-         alt="Github Icon Link"
-       />
-     </a>
-     <a href="https://twitter.com/JordanDWinslow">
-       <img
-         src={colorMode === "dark" ? darktwitter : twitter}
-         alt="Twitter Icon Link"
-       />
-     </a>
-     <a href="https://www.facebook.com/JordanDWinslow/">
-       <img
-         src={colorMode === "dark" ? darkfacebook : facebook}
-         alt="Facebook Icon Link"
-       />
-     </a>
-     <a href="https://www.behance.net/jordanwinslow">
-       <img
-         src={colorMode === "dark" ? darkbehance : behance}
-         alt="Behance Icon Link"
-       />
-     </a>
-     <a href="mailto:admin@jordanwinslow.me?subject=Hello%20Jordan!">
-       <img
-         src={colorMode === "dark" ? darkemail : email}
-         alt="Email Icon Link"
-       />
-     </a>
-     <a href="tel:+1-661-388-9913">
-       <img
-         src={colorMode === "dark" ? darkphone : phone}
-         alt="Phone Call Button"
-       />
-     </a>
-   </IconBox>
- )
+const SocialMedia = ({ colorMode = "light"}) => {
+  return (
+    <IconBox>
+      <a href="https://github.com/JordanWinslow">
+        <img
+          src={colorMode === "dark" ? github : darkgithub}
+          alt="Github Icon Link"
+        />
+      </a>
+      <a href="https://twitter.com/JordanDWinslow">
+        <img
+          src={colorMode === "dark" ? twitter : darktwitter}
+          alt="Twitter Icon Link"
+        />
+      </a>
+      <a href="https://www.facebook.com/JordanDWinslow/">
+        <img
+          src={colorMode === "dark" ? facebook : darkfacebook}
+          alt="Facebook Icon Link"
+        />
+      </a>
+      <a href="https://www.behance.net/jordanwinslow">
+        <img
+          src={colorMode === "dark" ? behance : darkbehance}
+          alt="Behance Icon Link"
+        />
+      </a>
+      <a href="mailto:admin@jordanwinslow.me?subject=Hello%20Jordan!">
+        <img
+          src={colorMode === "dark" ? email : darkemail}
+          alt="Email Icon Link"
+        />
+      </a>
+      <a href="tel:+1-661-388-9913">
+        <img
+          src={colorMode === "dark" ? phone : darkphone}
+          alt="Phone Call Button"
+        />
+      </a>
+    </IconBox>
+  )
 }
 
 export default SocialMedia

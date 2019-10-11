@@ -1,23 +1,32 @@
 import React from "react"
+import styled from "styled-components"
 import SocialMedia from "./SocialMedia"
+
+const FooterContainer = styled.div`
+  background-color: ${props =>
+    props.colorMode === "dark" ? "var(--dark)" : "var(--light)"};
+  color: ${props =>
+    props.colorMode === "dark" ? "var(--light)" : "var(--dark)"};
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 15vh 20vw;
+  margin-bottom: 0;
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  @media (max-width: 700px) {
+    padding: 10vh 5vw;
+  }
+`
+
 const Footer = ({ colorMode }) => {
   return (
-    <footer
-      className="fadeIn"
-      style={{
-        backgroundColor: colorMode === "dark" ? "var(--light)" : "var(--dark",
-        color: colorMode === "dark" ? "var(--dark)" : "var(--light",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        padding: "15vh 20vw",
-        marginBottom: 0,
-        textAlign: "center",
-        position: "relative",
-        bottom: 0,
-        right: 0,
-        left: 0,
-      }}
+    <FooterContainer
+      className={colorMode === "dark" ? "fadeOutIn" : "fadeIn"}
+      colorMode={colorMode}
     >
       <p style={{ marginBottom: "5vh" }}>
         © {new Date().getFullYear()}, All code, vector graphics, icons & assets
@@ -27,7 +36,7 @@ const Footer = ({ colorMode }) => {
         <a href="https://www.gatsbyjs.org">&nbsp;Gatsby</a>
       </p>
       <SocialMedia colorMode={colorMode} />
-    </footer>
+    </FooterContainer>
   )
 }
 

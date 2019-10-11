@@ -7,17 +7,17 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: space-between;
   background-color: ${props =>
-    props.colorMode === "dark"
-      ? "var(--secondaryLight)"
-      : "var(--primaryDark)"};
-  color: ${props =>
-    props.colorMode === "dark" ? "var(--dark)" : "var(--light)"};
+    props.colorMode === "dark" ? "var(--primaryDark)" : "var(--primaryLight)"};
+  color: var(--light);
   width: 40%;
   height: 550px;
   margin: auto;
   padding: 7vh 5vw;
   h1 {
     margin: 0;
+  }
+  p {
+    color: var(--light);
   }
   @media (max-width: 1550px) {
     width: 45%;
@@ -41,7 +41,7 @@ const ContactInfo = ({ heading, paragraph, colorMode }) => {
     <Container colorMode={colorMode}>
       <h1>{heading}</h1>
       <div>{paragraph}</div>
-      <SocialMedia />
+      <SocialMedia colorMode={colorMode} />
     </Container>
   )
 }

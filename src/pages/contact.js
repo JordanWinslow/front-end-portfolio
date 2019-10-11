@@ -30,7 +30,7 @@ const Spacer = styled.div`
 `
 
 export default () => {
-  const [colorMode, setColorMode] = useState("light") // SET PAGE THEME TO LIGHT MODE ON FIRST LOAD.
+  const [colorMode, setColorMode] = useState("dark") // SET PAGE THEME TO LIGHT MODE ON FIRST LOAD.
 
   const isServerRendered = typeof window === "undefined"
   const text = (

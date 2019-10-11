@@ -1,5 +1,5 @@
 import React, { Suspense, Fragment } from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import styled from "styled-components"
 import MainLayout from "../components/MainLayout"
 import ControlModal from "../components/ControlModal"
@@ -61,19 +61,22 @@ const PageHeader = styled.div`
 `
 const DescriptionBox = styled.div`
   padding: 5vh 5vw;
-  margin: 10vh 7vw 15vh 7vw;
+  margin: 10vh 17vw 15vh 17vw;
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.5);
   cursor: default;
   transition-duration: 0.5s;
-  p {
-    margin-right: 15vw;
-  }
   :hover {
     transform: scale(1.05);
   }
+  .link {
+    color: var(--primaryLight);
+    :hover {
+      color: var(--secondaryLight);
+    }
+  }
   @media (max-width: 1720px) {
     margin: 10vh 0 10vh 0;
-    p{
+    p {
       margin-right: 0;
     }
   }
@@ -85,7 +88,7 @@ const DescriptionBox = styled.div`
   }
   @media (max-width: 600px) {
     p {
-      padding: 10px
+      padding: 10px;
     }
     h3 {
       padding: 10px;
@@ -133,10 +136,10 @@ const FullWidth = styled.div`
       margin: 0 0 0 5vw;
     }
     @media (max-width: 1200px) {
-    div {
-      margin: 0;
+      div {
+        margin: 0;
+      }
     }
-  }
   }
 `
 
@@ -208,15 +211,26 @@ const Portfolio = ({ data }) => {
               }
             >
               <DescriptionBox className="ColorProvider">
-                <h3>A Living Resume</h3>
+                <h3>Instructions:</h3>
                 <p>
-                  This website serves not only as a medium to display my work,
-                  but also as a living, breathing resume.
+                  Hover your mouse over or tap any project below to learn how it
+                  was programmed. You will also be provided with links to the
+                  live demo and the complete open-source code for each project.
                 </p>
                 <p>
-                  Click the "About" link to read the case-study for this
-                  website, mouse over / tap any image below to learn more about
-                  my past work, or keep scrolling to see my art design.
+                  I design with <b>Figma</b>, code with <b>JavaScript</b>,{" "}
+                  <b>React</b>, <b>CSS & HTML</b> and animate with <b>GSAP</b> &{" "}
+                  <b>React-Spring</b>.
+                </p>
+                <p>
+                  I designed & programmed this website from scratch to showcase
+                  the technologies I am proficient in.{" "}
+                  <b>
+                    <Link to="/about" className="link">
+                      To view this website's source code or read its case study,
+                      click here.
+                    </Link>
+                  </b>
                 </p>
               </DescriptionBox>
               <Grid>{portfolioItems}</Grid>
