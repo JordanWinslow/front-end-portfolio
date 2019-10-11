@@ -18,7 +18,7 @@ const FooterContainer = styled.div`
   right: 0;
   left: 0;
   @media (max-width: 700px) {
-    padding: 10vh 5vw;
+    padding: 10vh 4vw;
   }
 `
 
@@ -35,6 +35,7 @@ const Footer = ({ colorMode }) => {
         Programmed from scratch with React, GraphQL, GSAP &
         <a href="https://www.gatsbyjs.org">&nbsp;Gatsby</a>
       </p>
+      <br />
       <SocialMedia colorMode={colorMode} />
     </FooterContainer>
   )

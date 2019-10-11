@@ -7,6 +7,7 @@ import Loading from "../images/Loading.svg"
 
 const PortfolioItem = React.lazy(() => import("../components/PortfolioItem"))
 const PhoneStack = React.lazy(() => import("../components/PhoneStack"))
+const FigmaIframes = React.lazy(() => import("../components/FigmaIframes"))
 
 const PageContent = styled.div`
   display: flex;
@@ -28,6 +29,11 @@ const PageContent = styled.div`
   @media (max-width: 1200px) and (max-height: 700px) {
     margin: 110px 0 20vh 0;
     padding: 5vh 0;
+  }
+  @media (max-width: 500px){
+    iframe {
+      width: 100vw;
+    }
   }
 `
 const PageHeader = styled.div`
@@ -195,23 +201,25 @@ const Portfolio = ({ data }) => {
           {!isServerRendered && (
             <Suspense
               fallback={
-                <div
-                  style={{
-                    position: "absolute",
-                    top: "50%",
-                    left: "50%",
-                    transform: "translate(-50%, -50%)",
-                  }}
-                >
-                  <img
-                    src={Loading}
-                    alt="Animated Dark Pink Square Grid Loading Animation"
-                  />
+                <div style={{ width: "100vw", height: "100vh" }}>
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: "50%",
+                      left: "50%",
+                      transform: "translate(-50%, -50%)",
+                    }}
+                  >
+                    <img
+                      src={Loading}
+                      alt="Animated Dark Pink Square Grid Loading Animation"
+                    />
+                  </div>
                 </div>
               }
             >
               <DescriptionBox className="ColorProvider">
-                <h3>Instructions:</h3>
+                <h3 style={{marginTop: "5vh"}}>Instructions:</h3>
                 <p>
                   Hover your mouse over or tap any project below to learn how it
                   was programmed. You will also be provided with links to the
@@ -258,19 +266,56 @@ const Portfolio = ({ data }) => {
             <FullWidth className="ColorProvider fadeIn">
               <PageContent>
                 <PageHeader>
-                  <h3>DESIGNS</h3>
-                  <h4>Mobile-First Responsive Designs</h4>
-                  <i>Pick up the phones and toss them!</i>
+                  <h3>MOBILE FIRST</h3>
+                  <h4>Beyond Responsive. Try Resizing This Website!</h4>
+                  <i>Pick up the phones below and toss them!</i>
                 </PageHeader>
               </PageContent>
             </FullWidth>
             <div id="PhoneStack" style={{ width: "100%", height: "100vh" }}>
               <PhoneStack />
+              <ControlModal
+                text="click & drag to fling the phones"
+                position="relative"
+              />
             </div>
-            <ControlModal
-              text="click & drag to fling the phones"
-              position="relative"
-            />
+            <FullWidth className="ColorProvider fadeIn">
+              <PageContent>
+                <PageHeader>
+                  <h3>FIGMA PROTOTYPES</h3>
+                  <h4>Design Systems, Logos, Icons & Prototypes</h4>
+                  <i>
+                    Interact With Each Design By Zooming In & Scrolling Inside
+                    the Frame
+                  </i>
+                </PageHeader>
+              </PageContent>
+            </FullWidth>
+          </Suspense>
+        )}
+        {!isServerRendered && (
+          <Suspense
+            fallback={
+              <div
+                style={{
+                  position: "absolute",
+                  top: "50%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%)",
+                }}
+              >
+                <img
+                  src={Loading}
+                  alt="Animated Dark Pink Square Grid Loading Animation"
+                />
+              </div>
+            }
+          >
+            <PageContent>
+              <center>
+                <FigmaIframes />
+              </center>
+            </PageContent>
           </Suspense>
         )}
       </MainLayout>

@@ -40,9 +40,8 @@ const stackOfPhones = [
 // BACKGROUND GRADIENT & SECTION CONTAINER
 const PhoneSection = styled.div`
   position: absolute;
-  overflow: hidden;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   cursor: url("https://img.icons8.com/office/16/000000/0-percents.png") 39 39,
     auto;
   background: linear-gradient(71deg, #77c1ff, #4f0095, #ff89ab, #52ebac);
@@ -50,6 +49,7 @@ const PhoneSection = styled.div`
   -webkit-animation: LuxuryGradientBG 43s ease infinite;
   -moz-animation: LuxuryGradientBG 43s ease infinite;
   animation: LuxuryGradientBG 43s ease infinite;
+  overflow: hidden;
   @-webkit-keyframes LuxuryGradientBG {
     0% {
       background-position: 0% 63%;
