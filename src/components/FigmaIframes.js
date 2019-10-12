@@ -6,7 +6,7 @@ const FigmaIframes = () => {
   const loadingCounter = () => {
     ++counter
     console.log("Count: " + counter)
-    if (counter === 4) {
+    if (counter === 5) {
       setAllLoaded(true)
       console.log("All Loaded: " + allLoaded)
     }
@@ -48,6 +48,14 @@ const FigmaIframes = () => {
           width="500"
           height="450"
           src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fyxa7Qd01CS7wQCLtuxROJ3%2FJordan-Winslow-Portfolio-Website%3Fnode-id%3D106%253A927"
+          onLoad={loadingCounter}
+          allowFullScreen
+        ></iframe>
+        <iframe
+          style={{ border: "none" }}
+          width="500"
+          height="450"
+          src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fyxa7Qd01CS7wQCLtuxROJ3%2FJordan-Winslow-Portfolio-Website%3Fnode-id%3D895%253A358"
           onLoad={loadingCounter}
           allowFullScreen
         ></iframe>
