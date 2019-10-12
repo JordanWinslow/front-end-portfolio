@@ -6,6 +6,7 @@ import playIcon from "../images/portfolio/PlayIcon.svg"
 import githubIcon from "../images/portfolio/GithubIcon.svg"
 
 const Card = styled.div`
+  opacity: 0; /*for starting animation*/
   position: relative;
   width: 466px;
   height: 300px;
@@ -88,7 +89,6 @@ const Icon = styled.img`
 const IconLabel = styled.p`
   pointer-events: all;
 `
-
 const PortfolioItem = ({
   image,
   imageAlt,
@@ -98,6 +98,7 @@ const PortfolioItem = ({
   codeLink,
 }) => {
   const [popup, setPopup] = useState(false)
+  /* popup animation */
   useEffect(() => {
     TweenLite.fromTo(
       ".CardPopup",
@@ -111,9 +112,16 @@ const PortfolioItem = ({
       { scale: 1, opacity: 1, borderRadius: 0 }
     )
   })
+  /* grid starting animation */
+  useEffect(() => {
+    TweenLite.to(".PortfolioItem", 1, {
+      opacity: 1,
+      ease: Power3.easeIn,
+    })
+  }, [])
   const animate = () => {
     setPopup(true)
-    // triggers a re-render which triggers the animation.
+    // triggers a re-render which triggers the useEffect animation.
   }
 
   return (

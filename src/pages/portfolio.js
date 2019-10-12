@@ -1,12 +1,12 @@
-import React, { Suspense, Fragment } from "react"
+import React, { Suspense, Fragment, useState, useEffect, useRef } from "react"
 import { graphql, Link } from "gatsby"
 import styled from "styled-components"
 import MainLayout from "../components/MainLayout"
+import PhoneStack from "../components/PhoneStack"
 import ControlModal from "../components/ControlModal"
 import Loading from "../images/Loading.svg"
 
 const PortfolioItem = React.lazy(() => import("../components/PortfolioItem"))
-const PhoneStack = React.lazy(() => import("../components/PhoneStack"))
 const FigmaIframes = React.lazy(() => import("../components/FigmaIframes"))
 
 const PageContent = styled.div`
@@ -30,9 +30,9 @@ const PageContent = styled.div`
     margin: 110px 0 20vh 0;
     padding: 5vh 0;
   }
-  @media (max-width: 500px){
+  @media (max-width: 500px) {
     iframe {
-      width: 100vw;
+      width: 85vw;
     }
   }
 `
@@ -110,12 +110,14 @@ const Grid = styled.div`
   gap: 3vw;
   justify-items: center;
   align-self: center;
+  height: 70vh; /* Without a set height, intersection observer doesn't function properly */
   @media (max-width: 1800px) {
     column-gap: 1vw;
   }
   @media (max-width: 1720px) {
     gap: 5vw;
     grid-template-columns: 1fr 1fr;
+    height: 1000px;
   }
   @media (max-width: 1380px) {
     column-gap: 2vw;
@@ -126,6 +128,7 @@ const Grid = styled.div`
   @media (max-width: 1000px) {
     grid-template-columns: 1fr;
     gap: 5vh;
+    height: 2000px;
   }
 `
 const FullWidth = styled.div`
@@ -148,7 +151,7 @@ const FullWidth = styled.div`
     }
   }
 `
-
+/* This query fetches all the portfolio titles, descriptions, images, etc. from markdown files */
 export const query = graphql`
   query getPortfolio {
     allMarkdownRemark(
@@ -189,6 +192,11 @@ const Portfolio = ({ data }) => {
       />
     )
   })
+  /* Set up intersection observer for phone stack so it doesn't animate until inside viewport */
+  const phoneStackRef = useRef()
+  const isPhoneStackVisible = useVisible(phoneStackRef)
+  const portfolioGridRef = useRef()
+  const isGridVisible = useVisible(portfolioGridRef, "-100px")
   const isServerRendered = typeof window === "undefined"
   return (
     <Fragment>
@@ -198,101 +206,93 @@ const Portfolio = ({ data }) => {
             <h1>MY WORK</h1>
             <h2>Live Demos & Designs</h2>
           </PageHeader>
+          <DescriptionBox className="ColorProvider">
+            <h3 style={{ marginTop: "5vh" }}>Instructions:</h3>
+            <p>
+              Hover your mouse over or tap any project below to learn how it was
+              programmed. You will also be provided with links to the live demo
+              and the complete open-source code for each project.
+            </p>
+            <p>
+              I design with <b>Figma</b>, code with <b>JavaScript</b>,{" "}
+              <b>React</b>, <b>CSS & HTML</b> and animate with <b>GSAP</b> &{" "}
+              <b>React-Spring</b>.
+            </p>
+            <p>
+              I designed & programmed this website from scratch to showcase the
+              technologies I am proficient in.{" "}
+              <b>
+                <Link to="/about" className="link">
+                  To view this website's source code or read its case study,
+                  click here.
+                </Link>
+              </b>
+            </p>
+          </DescriptionBox>
           {!isServerRendered && (
             <Suspense
               fallback={
-                <div style={{ width: "100vw", height: "100vh" }}>
-                  <div
-                    style={{
-                      position: "absolute",
-                      top: "50%",
-                      left: "50%",
-                      transform: "translate(-50%, -50%)",
-                    }}
-                  >
-                    <img
-                      src={Loading}
-                      alt="Animated Dark Pink Square Grid Loading Animation"
-                    />
-                  </div>
+                <div
+                  style={{
+                    position: "absolute",
+                    bottom: "-50vh",
+                    left: "50%",
+                    transform: "translate(-50%, -50%)",
+                  }}
+                >
+                  <img
+                    src={Loading}
+                    alt="Animated Dark Pink Square Grid Loading Animation"
+                  />
                 </div>
               }
             >
-              <DescriptionBox className="ColorProvider">
-                <h3 style={{marginTop: "5vh"}}>Instructions:</h3>
-                <p>
-                  Hover your mouse over or tap any project below to learn how it
-                  was programmed. You will also be provided with links to the
-                  live demo and the complete open-source code for each project.
-                </p>
-                <p>
-                  I design with <b>Figma</b>, code with <b>JavaScript</b>,{" "}
-                  <b>React</b>, <b>CSS & HTML</b> and animate with <b>GSAP</b> &{" "}
-                  <b>React-Spring</b>.
-                </p>
-                <p>
-                  I designed & programmed this website from scratch to showcase
-                  the technologies I am proficient in.{" "}
-                  <b>
-                    <Link to="/about" className="link">
-                      To view this website's source code or read its case study,
-                      click here.
-                    </Link>
-                  </b>
-                </p>
-              </DescriptionBox>
-              <Grid>{portfolioItems}</Grid>
+              <Grid ref={portfolioGridRef}>
+                {isGridVisible && portfolioItems}
+              </Grid>
             </Suspense>
           )}
         </PageContent>
-        {!isServerRendered && (
-          <Suspense
-            fallback={
-              <div
-                style={{
-                  position: "absolute",
-                  top: "50%",
-                  left: "50%",
-                  transform: "translate(-50%, -50%)",
-                }}
-              >
-                <img
-                  src={Loading}
-                  alt="Animated Dark Pink Square Grid Loading Animation"
-                />
-              </div>
-            }
-          >
-            <FullWidth className="ColorProvider fadeIn">
-              <PageContent>
-                <PageHeader>
-                  <h3>MOBILE FIRST</h3>
-                  <h4>Beyond Responsive. Try Resizing This Website!</h4>
-                  <i>Pick up the phones below and toss them!</i>
-                </PageHeader>
-              </PageContent>
-            </FullWidth>
-            <div id="PhoneStack" style={{ width: "100%", height: "100vh" }}>
+        <FullWidth className="ColorProvider">
+          <PageContent>
+            <PageHeader>
+              <h3>MOBILE FIRST</h3>
+              <h4>Beyond Responsive. Try Resizing This Website!</h4>
+              <i>Pick up the phones below and toss them!</i>
+            </PageHeader>
+          </PageContent>
+        </FullWidth>
+
+        <div
+          id="PhoneStack"
+          ref={
+            phoneStackRef /*To ensure this div doesn't load until it is visible*/
+          }
+          style={{ width: "100%", height: "100vh" }}
+        >
+          {isPhoneStackVisible && (
+            <Fragment>
               <PhoneStack />
               <ControlModal
                 text="click & drag to fling the phones"
                 position="relative"
               />
-            </div>
-            <FullWidth className="ColorProvider fadeIn">
-              <PageContent>
-                <PageHeader>
-                  <h3>FIGMA PROTOTYPES</h3>
-                  <h4>Design Systems, Logos, Icons & Prototypes</h4>
-                  <i>
-                    Interact With Each Design By Zooming In & Scrolling Inside
-                    the Frame
-                  </i>
-                </PageHeader>
-              </PageContent>
-            </FullWidth>
-          </Suspense>
-        )}
+            </Fragment>
+          )}
+        </div>
+
+        <FullWidth className="ColorProvider fadeIn">
+          <PageContent>
+            <PageHeader>
+              <h3>FIGMA PROTOTYPES</h3>
+              <h4>Design Systems, Logos, Icons & Prototypes</h4>
+              <i>
+                Interact With Each Design By Zooming In & Scrolling Inside the
+                Frame
+              </i>
+            </PageHeader>
+          </PageContent>
+        </FullWidth>
         {!isServerRendered && (
           <Suspense
             fallback={
@@ -311,7 +311,7 @@ const Portfolio = ({ data }) => {
               </div>
             }
           >
-            <PageContent>
+            <PageContent style={{ marginTop: "10vh" }}>
               <center>
                 <FigmaIframes />
               </center>
@@ -323,4 +323,25 @@ const Portfolio = ({ data }) => {
   )
 }
 
+/* custom hook for determining an element's visibility with intersection observer API */
+function useVisible(ref, rootMargin = "0px") {
+  const [isIntersecting, setIntersecting] = useState(false)
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIntersecting(entry.isIntersecting)
+      },
+      {
+        rootMargin,
+      }
+    )
+    if (ref.current) {
+      observer.observe(ref.current)
+    }
+    return () => {
+      observer.unobserve(ref.current)
+    }
+  }, []) // only run on mount/unmount
+  return isIntersecting
+}
 export default Portfolio

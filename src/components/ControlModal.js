@@ -8,9 +8,9 @@ const TransparentBox = styled.div`
   justify-content: space-between;
   background-color: rgba(0, 0, 0, 0.6);
   color: var(--light);
-  position: ${props=>props.position};
+  position: ${props => props.position};
   z-index: 2;
-  bottom: 0;
+  bottom: ${props => (props.position === "relative" ? "-91vh" : 0)};
   left: 0;
   width: 215px;
   height: 84px;
