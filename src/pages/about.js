@@ -1,75 +1,72 @@
-import React, { Suspense, Fragment } from "react"
+import React, { Fragment } from "react"
+import { Link } from "gatsby"
+import styled from "styled-components"
 import SEO from "../components/Seo"
-import Header from "../components/Header"
-import DesktopNav from "../components/DesktopNav"
-import Loading from "../images/Loading.svg"
+import JWLogo from "../images/JWLogo.svg"
+import value1Image from "../images/value1Image.jpg"
+import value2Image from "../images/value2Image.jpg"
+import value3Image from "../images/value3Image.jpg"
+import Value from "../components/JordansValues"
+import CircleSection from "../components/CircleSection"
 
-const PostTitle = React.lazy(() => import("../components/PostTitle"))
-const BlogPost = React.lazy(() => import("../components/BlogPost"))
+const Logo = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  margin: 3vh 0 0 3vw;
+  background-image: url(${JWLogo});
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 75px;
+  height: 70px;
+  transition-duration: 0.5s;
+  cursor: pointer;
+  :hover {
+    transform: scale(1.1);
+  }
+`
 
-export default () => {
-  const isServerRendered = typeof window === "undefined"
+const about = () => {
+  const value1 = (
+    <Fragment>
+      <p>
+        As a lifelong artist who spent over a decade in sales, I recognize how
+        important art design is in every personal or business interaction.
+      </p>
+      <p>
+        From the words we speak to the imagry we use in our marketing campaigns,{" "}
+        <b>people ignore designs that ignore people.</b>
+      </p>
+    </Fragment>
+  )
   return (
     <Fragment>
-      <Header />
-      <DesktopNav />
-      <SEO title="About | Front-End Responsive Web & UI Designer Specializing in React" />
-      {!isServerRendered && (
-        <Suspense
-          fallback={
-            <div
-              style={{
-                position: "absolute",
-                top: "50%",
-                left: "50%",
-                transform: "translate(-50%, -50%)",
-              }}
-            >
-              <img
-                src={Loading}
-                alt="Animated Dark Pink Square Grid Loading Animation"
-              />
-            </div>
-          }
-        >
-          <PostTitle
-            heading="Coming Soon!"
-            subHeading="This Website is Still in-Development"
-          />
-          <BlogPost
-            content={
-              <center>
-                <div>
-                  <p>
-                    Business Contact:{" "}
-                    <a href="mailto:admin@jordanwinslow.me?subject=Hello%20Jordan!">
-                      <b>admin@jordanwinslow.me</b>
-                    </a>
-                  </p>
-                  <p>
-                    Github:{" "}
-                    <a href="https://github.com/JordanWinslow">
-                      <b>https://github.com/JordanWinslow</b>
-                    </a>
-                  </p>
-                  <p>
-                    Twitter:{" "}
-                    <a href="https://twitter.com/JordanDWinslow">
-                      <b>https://twitter.com/JordanDWinslow</b>
-                    </a>
-                  </p>
-                  <p>
-                    Instagram:{" "}
-                    <a href="https://instagram.com/JordanDWinslow/">
-                      <b>https://instagram.com/JordanDWinslow/</b>
-                    </a>
-                  </p>
-                </div>
-              </center>
-            }
-          />
-        </Suspense>
-      )}
+      <Link to="/">
+        <Logo />
+      </Link>
+      <SEO title="About Jordan Winslow | Front-End Responsive Web & UI Designer Specializing in React" />
+      <Value
+        image={value1Image}
+        title="DESIGN IS NOT AN OPTION"
+        accentColor="rgba(31, 31, 37, 0.9)"
+        description={value1}
+      />
+      <Value
+        image={value2Image}
+        title="People Come First"
+        accentColor="rgba(170, 75, 107, 0.93)"
+        description={value1}
+      />
+      <Value
+        image={value3Image}
+        title="lazy ingenuity"
+        accentColor="rgba(35, 148, 148, 0.93)"
+        description={value1}
+      />
+      <CircleSection />
     </Fragment>
   )
 }
+
+export default about
