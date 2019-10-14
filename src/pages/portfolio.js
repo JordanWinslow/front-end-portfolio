@@ -1,13 +1,14 @@
 import React, { Suspense, Fragment, useState, useEffect, useRef } from "react"
+import { useInView } from "react-intersection-observer"
 import { graphql, Link } from "gatsby"
 import styled from "styled-components"
 import MainLayout from "../components/MainLayout"
-import PhoneStack from "../components/PhoneStack"
 import ControlModal from "../components/ControlModal"
 import Loading from "../images/Loading.svg"
 
 const PortfolioItem = React.lazy(() => import("../components/PortfolioItem"))
 const FigmaIframes = React.lazy(() => import("../components/FigmaIframes"))
+const PhoneStack = React.lazy(() => import("../components/PhoneStack"))
 
 const PageContent = styled.div`
   display: flex;
@@ -151,6 +152,10 @@ const FullWidth = styled.div`
     }
   }
 `
+const PlaceHolder = styled.div`
+  width: 100vw;
+  height: 100vh;
+`
 /* This query fetches all the portfolio titles, descriptions, images, etc. from markdown files */
 export const query = graphql`
   query getPortfolio {
@@ -192,11 +197,18 @@ const Portfolio = ({ data }) => {
       />
     )
   })
-  /* Set up intersection observer for phone stack so it doesn't animate until inside viewport */
+
+  /* CUSTOM INTERSECTION OBSERVER HOOK CREATED FROM SCRATCH */
   const phoneStackRef = useRef()
   const isPhoneStackVisible = useVisible(phoneStackRef)
   const portfolioGridRef = useRef()
   const isGridVisible = useVisible(portfolioGridRef, "-100px")
+
+  /* 3RD PARTY REACT-INTERSECTION-OBSERVER HOOK */
+  const [figmaRef, figmaInView] = useInView({
+    triggerOnce: true,
+  })
+
   const isServerRendered = typeof window === "undefined"
   return (
     <Fragment>
@@ -262,25 +274,43 @@ const Portfolio = ({ data }) => {
             </PageHeader>
           </PageContent>
         </FullWidth>
-
-        <div
-          id="PhoneStack"
-          ref={
-            phoneStackRef /*To ensure this div doesn't load until it is visible*/
-          }
-          style={{ width: "100%", height: "100vh" }}
-        >
-          {isPhoneStackVisible && (
-            <Fragment>
-              <PhoneStack />
-              <ControlModal
-                text="click & drag to fling the phones"
-                position="relative"
-              />
-            </Fragment>
-          )}
-        </div>
-
+        {!isServerRendered && (
+          <Suspense
+            fallback={
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: "-50vh",
+                  left: "50%",
+                  transform: "translate(-50%, -50%)",
+                }}
+              >
+                <img
+                  src={Loading}
+                  alt="Animated Dark Pink Square Grid Loading Animation"
+                />
+              </div>
+            }
+          >
+            <div
+              id="PhoneStack"
+              ref={
+                phoneStackRef /*To ensure this div doesn't load until it is visible*/
+              }
+              style={{ width: "100%", height: "100vh" }}
+            >
+              {isPhoneStackVisible && (
+                <Fragment>
+                  <PhoneStack />
+                  <ControlModal
+                    text="click & drag to fling the phones"
+                    position="relative"
+                  />
+                </Fragment>
+              )}
+            </div>
+          </Suspense>
+        )}
         <FullWidth className="ColorProvider fadeIn">
           <PageContent>
             <PageHeader>
@@ -293,31 +323,33 @@ const Portfolio = ({ data }) => {
             </PageHeader>
           </PageContent>
         </FullWidth>
-        {!isServerRendered && (
-          <Suspense
-            fallback={
-              <div
-                style={{
-                  position: "absolute",
-                  top: "50%",
-                  left: "50%",
-                  transform: "translate(-50%, -50%)",
-                }}
+
+        <PageContent style={{ marginTop: "10vh" }} ref={figmaRef}>
+          {figmaInView &&
+            (!isServerRendered && (
+              <Suspense
+                fallback={
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: "50%",
+                      left: "50%",
+                      transform: "translate(-50%, -50%)",
+                    }}
+                  >
+                    <img
+                      src={Loading}
+                      alt="Animated Dark Pink Square Grid Loading Animation"
+                    />
+                  </div>
+                }
               >
-                <img
-                  src={Loading}
-                  alt="Animated Dark Pink Square Grid Loading Animation"
-                />
-              </div>
-            }
-          >
-            <PageContent style={{ marginTop: "10vh" }}>
-              <center>
-                <FigmaIframes />
-              </center>
-            </PageContent>
-          </Suspense>
-        )}
+                <center>
+                  <FigmaIframes />
+                </center>
+              </Suspense>
+            ))}
+        </PageContent>
       </MainLayout>
     </Fragment>
   )
