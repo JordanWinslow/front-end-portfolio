@@ -152,10 +152,23 @@ const FullWidth = styled.div`
     }
   }
 `
-const PlaceHolder = styled.div`
-  width: 100vw;
-  height: 100vh;
-`
+const PlaceHolder = (
+  <div style={{ height: "100vh" }}>
+    <div
+      style={{
+        position: "absolute",
+        bottom: "-50vh",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+      }}
+    >
+      <img
+        src={Loading}
+        alt="Animated Dark Pink Square Grid Loading Animation"
+      />
+    </div>
+  </div>
+)
 /* This query fetches all the portfolio titles, descriptions, images, etc. from markdown files */
 export const query = graphql`
   query getPortfolio {
@@ -242,23 +255,7 @@ const Portfolio = ({ data }) => {
             </p>
           </DescriptionBox>
           {!isServerRendered && (
-            <Suspense
-              fallback={
-                <div
-                  style={{
-                    position: "absolute",
-                    bottom: "-50vh",
-                    left: "50%",
-                    transform: "translate(-50%, -50%)",
-                  }}
-                >
-                  <img
-                    src={Loading}
-                    alt="Animated Dark Pink Square Grid Loading Animation"
-                  />
-                </div>
-              }
-            >
+            <Suspense fallback={PlaceHolder}>
               <Grid ref={portfolioGridRef}>
                 {isGridVisible && portfolioItems}
               </Grid>
@@ -275,23 +272,7 @@ const Portfolio = ({ data }) => {
           </PageContent>
         </FullWidth>
         {!isServerRendered && (
-          <Suspense
-            fallback={
-              <div
-                style={{
-                  position: "absolute",
-                  bottom: "-50vh",
-                  left: "50%",
-                  transform: "translate(-50%, -50%)",
-                }}
-              >
-                <img
-                  src={Loading}
-                  alt="Animated Dark Pink Square Grid Loading Animation"
-                />
-              </div>
-            }
-          >
+          <Suspense fallback={PlaceHolder}>
             <div
               id="PhoneStack"
               ref={
@@ -327,23 +308,7 @@ const Portfolio = ({ data }) => {
         <PageContent style={{ marginTop: "10vh" }} ref={figmaRef}>
           {figmaInView &&
             (!isServerRendered && (
-              <Suspense
-                fallback={
-                  <div
-                    style={{
-                      position: "absolute",
-                      top: "50%",
-                      left: "50%",
-                      transform: "translate(-50%, -50%)",
-                    }}
-                  >
-                    <img
-                      src={Loading}
-                      alt="Animated Dark Pink Square Grid Loading Animation"
-                    />
-                  </div>
-                }
-              >
+              <Suspense fallback={PlaceHolder}>
                 <center>
                   <FigmaIframes />
                 </center>
