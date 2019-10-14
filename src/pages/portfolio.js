@@ -1,3 +1,13 @@
+/* 
+Portfolio page utilizing intersection observer to only display certain content when it is in the viewport as
+well as lazy loading to only load content when it enters the viewport.
+
+This page also uses a graphQL query at build time to parse 6 markdown files in the /data folder into a dynamic grid 
+with images, titles, descriptions and links to each portfolio item.
+
+This query also creates a series of images for different screen sizes and only loads the image relevant to the
+user's screen, speeding up page-load times and automating my image-optimization process.
+*/
 import React, { Suspense, Fragment, useState, useEffect, useRef } from "react"
 import { useInView } from "react-intersection-observer"
 import { graphql, Link } from "gatsby"
@@ -196,6 +206,28 @@ export const query = graphql`
     }
   }
 `
+/* demonstration of a custom hook I created for determining an element's visibility with intersection observer API */
+function useVisible(ref, rootMargin = "0px") {
+  const [isIntersecting, setIntersecting] = useState(false)
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIntersecting(entry.isIntersecting)
+      },
+      {
+        rootMargin,
+      }
+    )
+    if (ref.current) {
+      observer.observe(ref.current)
+    }
+    return () => {
+      observer.unobserve(ref.current)
+    }
+  }, []) // only run on mount/unmount
+  return isIntersecting
+}
+
 const Portfolio = ({ data }) => {
   const portfolioItems = data.allMarkdownRemark.nodes.map(item => {
     return (
@@ -234,9 +266,8 @@ const Portfolio = ({ data }) => {
           <DescriptionBox className="ColorProvider">
             <h3 style={{ marginTop: "5vh" }}>Instructions:</h3>
             <p>
-              Hover your mouse over or tap any project below to learn how it was
-              programmed. You will also be provided with links to the live demo
-              and the complete open-source code for each project.
+              Mouse over or tap any project below for more info. You may also
+              view the live demo or the open-source code for each project.
             </p>
             <p>
               I design with <b>Figma</b>, code with <b>JavaScript</b>,{" "}
@@ -244,12 +275,11 @@ const Portfolio = ({ data }) => {
               <b>React-Spring</b>.
             </p>
             <p>
-              I designed & programmed this website from scratch to showcase the
-              technologies I am proficient in.{" "}
+              This website is also a demonstration of what I am capable of.{" "}
               <b>
                 <Link to="/about" className="link">
-                  To view this website's source code or read its case study,
-                  click here.
+                  To view the source code for this website or learn more about
+                  my values, click here.
                 </Link>
               </b>
             </p>
@@ -292,7 +322,7 @@ const Portfolio = ({ data }) => {
             </div>
           </Suspense>
         )}
-        <FullWidth className="ColorProvider fadeIn">
+        <FullWidth className="ColorProvider">
           <PageContent>
             <PageHeader>
               <h3>FIGMA PROTOTYPES</h3>
@@ -308,7 +338,11 @@ const Portfolio = ({ data }) => {
         <PageContent style={{ marginTop: "10vh" }} ref={figmaRef}>
           {figmaInView &&
             (!isServerRendered && (
-              <Suspense fallback={PlaceHolder}>
+              <Suspense
+                fallback={
+                  "..." /*no fallback necessary, loading image is inside FigmaIframes component*/
+                }
+              >
                 <center>
                   <FigmaIframes />
                 </center>
@@ -320,25 +354,4 @@ const Portfolio = ({ data }) => {
   )
 }
 
-/* custom hook for determining an element's visibility with intersection observer API */
-function useVisible(ref, rootMargin = "0px") {
-  const [isIntersecting, setIntersecting] = useState(false)
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIntersecting(entry.isIntersecting)
-      },
-      {
-        rootMargin,
-      }
-    )
-    if (ref.current) {
-      observer.observe(ref.current)
-    }
-    return () => {
-      observer.unobserve(ref.current)
-    }
-  }, []) // only run on mount/unmount
-  return isIntersecting
-}
 export default Portfolio

@@ -1,14 +1,20 @@
+/*
+This component displays a loading indicator until all 5 iFrames have been loaded.
+This prevents the user from seeing an empty box when they first scroll to the iFrame section.
+*/
+
 import React, { Fragment, useState } from "react"
 import Loading from "../images/Loading.svg"
 let counter = 0
 const FigmaIframes = () => {
   const [allLoaded, setAllLoaded] = useState(false)
+  console.log("Loading Figma iFrames...")
   const loadingCounter = () => {
     ++counter
     console.log("Count: " + counter)
     if (counter === 5) {
       setAllLoaded(true)
-      console.log("All Loaded: " + allLoaded)
+      console.log("All Loaded. Initializing component.")
     }
   }
   return (

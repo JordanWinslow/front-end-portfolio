@@ -1,3 +1,7 @@
+/*
+This component creates a massive gradient circle with a centered heading, subheading and a scroll indicator.
+Text is pre-populated instead of passed in as props because I do not use this component anywhere else on the website.
+*/
 import React from "react"
 import styled from "styled-components"
 import GradientCircle from "../images/GradientCircle.svg"
@@ -28,7 +32,17 @@ const Heading = styled.h3`
     width: 55%;
   }
   @media (max-width: 1200px) {
-    font-size: 3vw;
+    width: 65%;
+  }
+  @media (max-width: 1000px) {
+    width: 80%;
+  }
+  @media (max-width: 800px) {
+    font-size: 6vw;
+  }
+  @media (max-width: 600px) {
+    width: 95%;
+    font-size: 7vw;
   }
 `
 const SubHeading = styled.h4`
@@ -43,7 +57,17 @@ const SubHeading = styled.h4`
     width: 55%;
   }
   @media (max-width: 1200px) {
-    font-size: 2vw;
+    width: 65%;
+  }
+  @media (max-width: 1000px) {
+    width: 80%;
+  }
+  @media (max-width: 800px) {
+    font-size: 4vw;
+  }
+  @media (max-width: 600px) {
+    width: 95%;
+    font-size: 5vw;
   }
 `
 const ScrollIndicator = styled.div`
@@ -59,12 +83,11 @@ const ScrollIndicator = styled.div`
     }
   }
 `
-
 const CircleSection = () => {
   return (
     <FullWidthSection>
       <Heading>
-        This Website Was Designed and Coded From Scratch to Show you Exactly
+        This Website Was Designed and Coded From Scratch to Demonstrate Exactly
         What I’m Capable of.
       </Heading>
       <SubHeading>

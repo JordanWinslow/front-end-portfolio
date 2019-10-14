@@ -9,6 +9,7 @@ const FullWidthSection = styled.div`
   @media (max-width: 1200px) {
     max-height: unset;
     height: unset;
+    margin: 15vh 0;
   }
 `
 const CenteredContentBox = styled.div`
@@ -51,7 +52,7 @@ const ValuesImage = styled.div`
   @media (max-width: 800px) {
     width: 80%;
   }
-  @media (max-width: 500px) {
+  @media (max-width: 600px) {
     border-radius: 33px;
     width: 95%;
   }
@@ -75,7 +76,7 @@ const ImageTitle = styled.h1`
   @media (max-width: 800px) {
     font-size: 8vw;
   }
-  @media (max-width: 500px) {
+  @media (max-width: 600px) {
     border-radius: 30px;
     font-size: 10vw;
     width: 80%;
@@ -94,12 +95,18 @@ const Description = styled.div`
   }
   @media (max-width: 1200px) {
     width: 50%;
+    p {
+      line-height: 200%;
+    }
   }
   @media (max-width: 1000px) {
     width: 70%;
   }
-  @media (max-width: 500px) {
+  @media (max-width: 600px) {
     width: 92%;
+    p {
+      line-height: 180%;
+    }
   }
 `
 

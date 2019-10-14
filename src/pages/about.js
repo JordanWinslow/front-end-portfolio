@@ -26,51 +26,51 @@ const Logo = styled.div`
     transform: scale(1.1);
   }
 `
+const value1 = (
+  <Fragment>
+    <p>
+      As a lifelong artist who has spent over a decade in sales & marketing, I
+      recognize how important art design is in human interaction.
+    </p>
+    <p>
+      From the words we speak to the imagery we use in our campaigns,{" "}
+      <b>people ignore designs that ignore people.</b>
+    </p>
+  </Fragment>
+)
+const value2 = (
+  <Fragment>
+    <p>
+      <b>
+        I believe we earn our success based on service to others, not at the
+        expense of others.
+      </b>
+    </p>
+    <p>
+      Therefore I refuse to work for organizations who value profit over human
+      kindness or the evolution of our species.
+    </p>
+    <p>
+      <i>I have been known to work for free for the right cause.</i>
+    </p>
+  </Fragment>
+)
+const value3 = (
+  <Fragment>
+    <p>
+      I’m not interested in wasting your time or mine. I believe in doing things
+      the <b>easiest way possible.</b>
+    </p>
+    <p>
+      <i>
+        “Laziness drives innovation. How else do you think we got power
+        steering?”
+      </i>
+    </p>
+  </Fragment>
+)
 
 const about = () => {
-  const value1 = (
-    <Fragment>
-      <p>
-        As a lifelong artist who spent over a decade in sales, I recognize how
-        important art design is in every personal or business interaction.
-      </p>
-      <p>
-        From the words we speak to the imagry we use in our marketing campaigns,{" "}
-        <b>people ignore designs that ignore people.</b>
-      </p>
-    </Fragment>
-  )
-  const value2 = (
-    <Fragment>
-      <p>
-        I refuse to work for organizations or people who value profit over human
-        kindness or the evolution of our species.
-      </p>
-      <p>
-        <b>
-          I believe we earn our success based on service to others, not at the
-          expense of others.
-        </b>
-      </p>
-      <p>
-        <i>I have even been known to work for free for the right cause.</i>
-      </p>
-    </Fragment>
-  )
-  const value3 = (
-    <Fragment>
-      <p>
-        I’m not interested in wasting your time or mine. I believe in doing
-        things the <b>easiest way possible.</b>
-      </p>
-      <p>
-        <i>
-          “Laziness drives innovation. How else do you think we got power
-          steering?”
-        </i>
-      </p>
-    </Fragment>
-  )
   return (
     <Fragment>
       <Link to="/">

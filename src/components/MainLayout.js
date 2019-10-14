@@ -23,19 +23,21 @@ const Color = createGlobalStyle`
       props.theme === "dark" ? "var(--light)" : "var(--dark)"};
     background-color: ${props =>
       props.theme === "dark" ? "var(--dark)" : "var(--light)"};
-      transition: .8s ease-out;
+    transition: .8s ease-out;
   }
   .InverseColorProvider {
     color: ${props =>
       props.theme === "dark" ? "var(--dark)" : "var(--light)"};
     background-color: ${props =>
       props.theme === "dark" ? "var(--light)" : "var(--dark)"};
+    transition: .8s ease-out;
   }
   .ColorProvider {
     color: ${props =>
       props.theme === "dark" ? "var(--light)" : "var(--dark)"};
     background-color: ${props =>
       props.theme === "dark" ? "var(--dark)" : "var(--light)"};
+    transition: .8s ease-out;
   }
   `
 const Layout = ({ children, isHomePage, theme = "dark" }) => {

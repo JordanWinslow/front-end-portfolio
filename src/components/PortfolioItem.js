@@ -132,7 +132,12 @@ const PortfolioItem = ({
     >
       <Img className="bgImage" fluid={image} alt={imageAlt} />
       {popup && (
-        <CardPopup className="CardPopup ColorProvider">
+        <CardPopup
+          className="CardPopup ColorProvider"
+          style={{
+            transition: "unset",
+          }} /* The portfolio item card popup can not apply transition duration with CSS because it is using GSAP*/
+        >
           <Title>
             <h2>{title}</h2>
           </Title>
