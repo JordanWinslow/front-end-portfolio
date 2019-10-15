@@ -114,7 +114,7 @@ const PortfolioItem = ({
   })
   /* grid starting animation */
   useEffect(() => {
-    TweenLite.to(".PortfolioItem", 1, {
+    TweenLite.to(".PortfolioItem", 0.5, {
       opacity: 1,
       ease: Power3.easeIn,
     })

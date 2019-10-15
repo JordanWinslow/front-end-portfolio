@@ -13,11 +13,12 @@ import { useInView } from "react-intersection-observer"
 import { graphql, Link } from "gatsby"
 import styled from "styled-components"
 import MainLayout from "../components/MainLayout"
+import SEO from "../components/Seo"
+import PortfolioItem from "../components/PortfolioItem"
 import ControlModal from "../components/ControlModal"
+import FigmaIframes from "../components/FigmaIframes"
 import Loading from "../images/Loading.svg"
 
-const PortfolioItem = React.lazy(() => import("../components/PortfolioItem"))
-const FigmaIframes = React.lazy(() => import("../components/FigmaIframes"))
 const PhoneStack = React.lazy(() => import("../components/PhoneStack"))
 
 const PageContent = styled.div`
@@ -25,6 +26,9 @@ const PageContent = styled.div`
   flex-direction: column;
   width: 84%;
   margin-bottom: 15vh;
+  iframe {
+    width: 60vw;
+  }
   @media (max-width: 1720px) {
     width: 60%;
     margin: 0 12vw 15vh 12vw;
@@ -187,6 +191,7 @@ export const query = graphql`
     ) {
       nodes {
         frontmatter {
+          id
           codeLink
           demoLink
           description
@@ -194,7 +199,7 @@ export const query = graphql`
           title
           image {
             childImageSharp {
-              fluid {
+              fluid(maxWidth: 466) {
                 #Creates a series of images for every screen-size
                 # and dynamically renders them when they enter the viewport
                 ...GatsbyImageSharpFluid
@@ -222,9 +227,10 @@ function useVisible(ref, rootMargin = "0px") {
       observer.observe(ref.current)
     }
     return () => {
+      // eslint-disable-next-line
       observer.unobserve(ref.current)
     }
-  }, []) // only run on mount/unmount
+  }, [ref, rootMargin]) // only run on mount/unmount
   return isIntersecting
 }
 
@@ -242,7 +248,6 @@ const Portfolio = ({ data }) => {
       />
     )
   })
-
   /* CUSTOM INTERSECTION OBSERVER HOOK CREATED FROM SCRATCH */
   const phoneStackRef = useRef()
   const isPhoneStackVisible = useVisible(phoneStackRef)
@@ -258,11 +263,15 @@ const Portfolio = ({ data }) => {
   return (
     <Fragment>
       <MainLayout>
+        <SEO title="Front-End Development Portfolio | Jordan Winslow Responsive React Web & UI Designer" />
         <PageContent className="fadeIn">
+          {/* HEADING */}
           <PageHeader>
             <h1>MY WORK</h1>
             <h2>Live Demos & Designs</h2>
           </PageHeader>
+
+          {/* PAGE INSTRUCTIONS COMPONENT */}
           <DescriptionBox className="ColorProvider">
             <h3 style={{ marginTop: "5vh" }}>Instructions:</h3>
             <p>
@@ -284,14 +293,12 @@ const Portfolio = ({ data }) => {
               </b>
             </p>
           </DescriptionBox>
-          {!isServerRendered && (
-            <Suspense fallback={PlaceHolder}>
-              <Grid ref={portfolioGridRef}>
-                {isGridVisible && portfolioItems}
-              </Grid>
-            </Suspense>
-          )}
+
+          {/* PORTFOLIO GRID COMPONENT */}
+          <Grid ref={portfolioGridRef}>{isGridVisible && portfolioItems}</Grid>
         </PageContent>
+
+        {/* DIVIDER */}
         <FullWidth className="ColorProvider">
           <PageContent>
             <PageHeader>
@@ -301,27 +308,28 @@ const Portfolio = ({ data }) => {
             </PageHeader>
           </PageContent>
         </FullWidth>
-        {!isServerRendered && (
-          <Suspense fallback={PlaceHolder}>
-            <div
-              id="PhoneStack"
-              ref={
-                phoneStackRef /*To ensure this div doesn't load until it is visible*/
-              }
-              style={{ width: "100%", height: "100vh" }}
-            >
-              {isPhoneStackVisible && (
-                <Fragment>
-                  <PhoneStack />
-                  <ControlModal
-                    text="click & drag to fling the phones"
-                    position="relative"
-                  />
-                </Fragment>
-              )}
-            </div>
-          </Suspense>
-        )}
+
+        {/* PHONE STACK COMPONENT */}
+        <div
+          id="PhoneStack"
+          ref={
+            phoneStackRef /*To ensure this div doesn't load until it is visible*/
+          }
+          style={{ width: "100%", height: "100vh" }}
+        >
+          {isPhoneStackVisible &&
+            (!isServerRendered && (
+              <Suspense fallback={PlaceHolder}>
+                <PhoneStack />
+                <ControlModal
+                  text="click & drag to fling the phones"
+                  position="relative"
+                />
+              </Suspense>
+            ))}
+        </div>
+
+        {/* DIVIDER */}
         <FullWidth className="ColorProvider">
           <PageContent>
             <PageHeader>
@@ -335,19 +343,13 @@ const Portfolio = ({ data }) => {
           </PageContent>
         </FullWidth>
 
+        {/* FIGMA PROTOTYPES COMPONENT */}
         <PageContent style={{ marginTop: "10vh" }} ref={figmaRef}>
-          {figmaInView &&
-            (!isServerRendered && (
-              <Suspense
-                fallback={
-                  "..." /*no fallback necessary, loading image is inside FigmaIframes component*/
-                }
-              >
-                <center>
-                  <FigmaIframes />
-                </center>
-              </Suspense>
-            ))}
+          {figmaInView && (
+            <center>
+              <FigmaIframes />
+            </center>
+          )}
         </PageContent>
       </MainLayout>
     </Fragment>

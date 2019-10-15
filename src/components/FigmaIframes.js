@@ -1,7 +1,29 @@
+import React from "react"
+import Loading from "../images/Loading.svg"
+
+const FigmaIframes = () => {
+  return (
+    <iframe
+      title="Jordan Winslow's Web Design Prototypes, Icons & Graphic Designs"
+      style={{
+        border: "none",
+        backgroundImage: `url(${Loading})`,
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+      }}
+      width="500"
+      height="900"
+      src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FxcQsOsdVwSjXUrNleDwNoo%2FPROTOTYPES-AND-GRAPHIC-DESIGN%3Fnode-id%3D3%253A1435"
+      allowFullScreen
+    />
+  )
+}
+export default FigmaIframes
+
 /*
-This component displays a loading indicator until all 5 iFrames have been loaded.
-This prevents the user from seeing an empty box when they first scroll to the iFrame section.
-*/
+This component displays a loading indicator until 5 iFrames have been loaded. I chose not to use
+this because I thought it looked better all in one frame, and the code is much more simple.
+This code prevents the user from seeing an empty box when they first scroll to the iFrame section.
 
 import React, { Fragment, useState } from "react"
 import Loading from "../images/Loading.svg"
@@ -71,3 +93,4 @@ const FigmaIframes = () => {
 }
 
 export default FigmaIframes
+*/
