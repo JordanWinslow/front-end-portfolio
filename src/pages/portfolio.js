@@ -199,9 +199,10 @@ export const query = graphql`
           title
           image {
             childImageSharp {
-              fluid(maxWidth: 466) {
+              fluid(maxWidth: 1000, quality: 70) {
                 #Creates a series of images for every screen-size
                 # and dynamically renders them when they enter the viewport
+                # the default quality is quality: 50
                 ...GatsbyImageSharpFluid
               }
             }
