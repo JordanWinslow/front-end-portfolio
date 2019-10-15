@@ -6,6 +6,7 @@ import JWLogo from "../images/JWLogo.svg"
 import value1Image from "../images/value1Image.jpg"
 import value2Image from "../images/value2Image.jpg"
 import value3Image from "../images/value3Image.jpg"
+import codeExample1 from "../images/codeExample1.jpg"
 import Value from "../components/JordansValues"
 import CircleSection from "../components/CircleSection"
 
@@ -25,6 +26,11 @@ const Logo = styled.div`
   :hover {
     transform: scale(1.1);
   }
+`
+const CodeHeading = styled.h2`
+  text-align: center;
+  width: 60vw;
+  margin: auto;
 `
 const value1 = (
   <Fragment>
@@ -69,6 +75,23 @@ const value3 = (
     </p>
   </Fragment>
 )
+const aboutPortfolioPage = (
+  <Fragment>
+    <p>
+      First I write utilities such as my “useVisible” hook from scratch to learn
+      how things like the Intersection Observer API work.
+    </p>
+    <p>
+      Then I find the most popular third party libraries that accomplish the
+      same task and use them instead. <i>1000 minds are better than 1!</i>.
+    </p>
+    <p>In this example, I use react-intersection-observer.</p>
+    <p>
+      This way I know how everything functions under the hood and if I ever need
+      to make custom modifications, I can!
+    </p>
+  </Fragment>
+)
 
 const about = () => {
   return (
@@ -99,6 +122,15 @@ const about = () => {
         description={value3}
       />
       <CircleSection />
+      <CodeHeading>
+        HOW DID I CODE THE PORTFOLIO PAGE ON THIS WEBSITE?
+      </CodeHeading>
+      <Value
+        image={codeExample1}
+        title=""
+        accentColor="rgba(0,0,0,0)"
+        description={aboutPortfolioPage}
+      />
     </Fragment>
   )
 }
