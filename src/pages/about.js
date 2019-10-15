@@ -75,7 +75,7 @@ const value3 = (
     </p>
   </Fragment>
 )
-const aboutPortfolioPage = (
+const portfolioCode = (
   <Fragment>
     <p>
       First I write utilities such as my “useVisible” hook from scratch to learn
@@ -129,7 +129,7 @@ const about = () => {
         image={codeExample1}
         title=""
         accentColor="rgba(0,0,0,0)"
-        description={aboutPortfolioPage}
+        description={portfolioCode}
       />
     </Fragment>
   )
