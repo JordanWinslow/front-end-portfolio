@@ -76,10 +76,18 @@ const ScrollIndicator = styled.div`
   align-self: center;
   justify-content: center;
   color: var(--light);
-  @media (max-height: 800px) {
+  img {
+    margin-top: 20px;
+    align-self: center;
+  }
+  @media (max-width: 800px) {
     img {
-      align-self: center;
       width: 2.5vw;
+    }
+  }
+  @media (max-width: 600px) {
+    img {
+      width: 5vw;
     }
   }
 `

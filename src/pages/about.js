@@ -30,7 +30,13 @@ const Logo = styled.div`
 const CodeHeading = styled.h2`
   text-align: center;
   width: 60vw;
-  margin: auto;
+  margin: 20vh auto auto auto;
+  @media (max-width: 1500px) {
+    margin: 0 auto;
+  }
+  @media (max-width: 1200px) {
+    margin: auto;
+  }
 `
 const value1 = (
   <Fragment>

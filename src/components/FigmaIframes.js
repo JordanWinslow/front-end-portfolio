@@ -12,7 +12,7 @@ const FigmaIframes = () => {
         backgroundPosition: "center",
       }}
       width="500"
-      height="900"
+      height="600"
       src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FxcQsOsdVwSjXUrNleDwNoo%2FPROTOTYPES-AND-GRAPHIC-DESIGN%3Fnode-id%3D3%253A1435"
       allowFullScreen
     />
