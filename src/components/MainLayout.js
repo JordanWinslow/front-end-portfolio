@@ -58,6 +58,8 @@ const Layout = ({ children, isHomePage, theme = "dark" }) => {
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  isHomePage: PropTypes.bool.isRequired,
+  theme: PropTypes.string.isRequired,
 }
 
 export default Layout

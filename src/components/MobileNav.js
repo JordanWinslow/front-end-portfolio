@@ -96,7 +96,7 @@ const NavLink = styled.h4`
     margin: 0 8px;
   }
 `
-const MobileNav = ({ colorMode }) => {
+const MobileNav = ({ colorMode, alwaysDisplay = false }) => {
   const [open, setOpen] = useState(false) // navigation is closed on page load
   const rotateOut = e => {
     TweenLite.to(e.target, 0.2, {
@@ -124,7 +124,7 @@ const MobileNav = ({ colorMode }) => {
     return colorMode === "dark" ? DiamondLight : DiamondDark
   }
   return (
-    <div id="MobileNav">
+    <div id={!alwaysDisplay && "MobileNav" /*unset to make it never disappear*/}>
       <MobileNavHeader
         colorMode={colorMode}
         className={colorMode === "dark" ? "fadeIn" : "fadeOutIn"}

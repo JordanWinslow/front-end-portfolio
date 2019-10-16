@@ -5,7 +5,7 @@ Text is pre-populated instead of passed in as props because I do not use this co
 import React from "react"
 import styled from "styled-components"
 import GradientCircle from "../images/GradientCircle.svg"
-import DownArrow from "../images/DownArrow.svg"
+import ScrollIndicator from "./ScrollIndicator"
 
 const FullWidthSection = styled.div`
   width: 100vw;
@@ -70,27 +70,6 @@ const SubHeading = styled.h4`
     font-size: 5vw;
   }
 `
-const ScrollIndicator = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-self: center;
-  justify-content: center;
-  color: var(--light);
-  img {
-    margin-top: 20px;
-    align-self: center;
-  }
-  @media (max-width: 800px) {
-    img {
-      width: 2.5vw;
-    }
-  }
-  @media (max-width: 600px) {
-    img {
-      width: 5vw;
-    }
-  }
-`
 const CircleSection = () => {
   return (
     <FullWidthSection>
@@ -102,10 +81,7 @@ const CircleSection = () => {
         If you’re still not sure I can bring your designs to life, take a look
         under the hood and you will be convinced!
       </SubHeading>
-      <ScrollIndicator>
-        <i>keep scrolling</i>{" "}
-        <img src={DownArrow} alt="Down Arrow Keep Scrolling" />
-      </ScrollIndicator>
+      <ScrollIndicator />
     </FullWidthSection>
   )
 }

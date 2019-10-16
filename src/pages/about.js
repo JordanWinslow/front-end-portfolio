@@ -1,8 +1,12 @@
-import React, { Fragment } from "react"
-import { Link } from "gatsby"
-import styled from "styled-components"
+import React, { Fragment, useState, useRef } from "react"
+import styled, { createGlobalStyle } from "styled-components"
 import SEO from "../components/Seo"
-import JWLogo from "../images/JWLogo.svg"
+import MobileNav from "../components/MobileNav"
+import Header from "../components/Header"
+import LightBulb from "../components/LightBulb"
+import Button from "../components/Button"
+import ScrollIndicator from "../components/ScrollIndicator"
+import portfolioPicture from "../images/JordanWinslow.jpg"
 import value1Image from "../images/value1Image.jpg"
 import value2Image from "../images/value2Image.jpg"
 import value3Image from "../images/value3Image.jpg"
@@ -10,32 +14,117 @@ import codeExample1 from "../images/codeExample1.jpg"
 import Value from "../components/JordansValues"
 import CircleSection from "../components/CircleSection"
 
-const Logo = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 3;
-  margin: 3vh 0 0 3vw;
-  background-image: url(${JWLogo});
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 75px;
-  height: 70px;
-  transition-duration: 0.5s;
-  cursor: pointer;
-  :hover {
-    transform: scale(1.1);
+// DARK MODE IMPLEMENTATION
+const Color = createGlobalStyle`
+  body {
+    color: ${props =>
+      props.theme === "dark" ? "var(--light)" : "var(--dark)"};
+    background-color: ${props =>
+      props.theme === "dark" ? "var(--dark)" : "var(--light)"};
+      transition: .8s ease-out;
+  }
+  .InverseColorProvider {
+    color: ${props =>
+      props.theme === "dark" ? "var(--dark)" : "var(--light)"};
+    background-color: ${props =>
+      props.theme === "dark" ? "var(--light)" : "var(--dark)"};
+    transition: .8s ease-out;
+  }
+  `
+/* on mobile the header image should drop down 110px to make room 
+for the navigation bar */
+const Spacer = styled.div`
+  margin-top: 110px;
+`
+const IntroductionBox = styled.div`
+  width: 100vw;
+  padding: 0 16vw;
+  display: flex;
+  justify-content: space-between;
+  align-self: center;
+  img {
+    width: 27vw;
+    height: 27vw;
+    margin-right: 50px;
+    border-radius: 100%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+  }
+  @media (max-width: 1400px) {
+    padding: 0 10vw;
+  }
+  @media (max-width: 1200px) {
+    padding: 0 5vw;
+    img {
+      width: 35vw;
+      height: 35vw;
+    }
+  }
+  @media (max-width: 800px) {
+    padding: 0 1vw;
+    img {
+      margin-right: 2vw;
+    }
+  }
+  @media (max-width: 720px) {
+    flex-direction: column;
+    width: 70vw;
+    margin: 0 auto;
+    img {
+      width: 50vw;
+      height: 50vw;
+      margin: 0 auto 40px auto;
+    }
+  }
+`
+const ScrollBox = styled.div`
+width: 40vw;
+display: flex;
+justify-content: center;
+align-content: center;
+margin: 15vh auto;
+@media (max-width: 720px) {
+  margin: 0 auto 10vh auto;
+}
+`
+const IntroductionText = styled.div`
+  width: 50vw;
+  h1 {
+    font-weight: bold;
+    font-size: 47.0946px;
+    line-height: 124.4%;
+    text-transform: lowercase;
+  }
+  h2 {
+    font-weight: normal;
+    font-size: 31.3964px;
+    line-height: 125.9%;
+    text-transform: lowercase;
+    margin-bottom: 60px;
+  }
+  @media (max-width: 1200px) {
+    h1{
+      font-size: 4vw;
+    }
+    h2 {
+      font-size: 3vw;
+    }
+  }
+  @media (max-width: 800px) {
+    width: 60vw;
+  }
+  @media (max-width: 720px) {
+    width: 100%;
   }
 `
 const CodeHeading = styled.h2`
   text-align: center;
   width: 60vw;
-  margin: 20vh auto auto auto;
+  margin: 20vh auto 50px auto;
   @media (max-width: 1500px) {
-    margin: 0 auto;
+    margin: 0 auto 50px auto;
   }
   @media (max-width: 1200px) {
-    margin: auto;
+    margin: auto auto 50px auto;
   }
 `
 const value1 = (
@@ -83,32 +172,61 @@ const value3 = (
 )
 const portfolioCode = (
   <Fragment>
+    <h4>
+      <b>CORE</b>
+    </h4>
+    <p>React, Gatsby, GraphQL</p>
+
+    <h4>
+      <b>STYLING & ANIMATION</b>
+    </h4>
+    <p>Styled-Components, CSS Keyframes, GSAP, React-Spring</p>
+
+    <h4>
+      <b>ADVANCED CODE, ELEGANT IMPLEMENTATION</b>
+    </h4>
     <p>
-      First I write utilities such as my “useVisible” hook from scratch to learn
-      how things like the Intersection Observer API work.
-    </p>
-    <p>
-      Then I find the most popular third party libraries that accomplish the
-      same task and use them instead. <i>1000 minds are better than 1!</i>.
-    </p>
-    <p>In this example, I use react-intersection-observer.</p>
-    <p>
-      This way I know how everything functions under the hood and if I ever need
-      to make custom modifications, I can!
+      Functional OOP, Higher-Order Functions, Atomic Design, Intersection
+      Observer, React Hooks, React.lazy, CSS Feature Queries
     </p>
   </Fragment>
 )
 
-const about = () => {
+const About = () => {
+  const [colorMode, setColorMode] = useState("light") // SET PAGE THEME TO LIGHT MODE ON FIRST LOAD.
+  const codeRef = useRef(null)
+  const isServerRendered = typeof window === "undefined"
   return (
     <Fragment>
-      <Link to="/">
-        <Logo />
-      </Link>
+      <Color theme={colorMode} />
+      <LightBulb colorMode={colorMode} setColorMode={setColorMode} />
+      <MobileNav colorMode={colorMode} alwaysDisplay={true} />
+      <Spacer>
+        <Header colorMode={colorMode} />
+      </Spacer>
       <SEO title="About Jordan Winslow | Front-End Responsive Web & UI Designer Specializing in React" />
-      <center>
-        <h2>This page is still in active development so expect bugs!</h2>
-      </center>
+      <IntroductionBox>
+        <img
+          src={portfolioPicture}
+          alt="Portfolio of Jordan Winslow, Front End Web Developer & Designer"
+        />
+        <IntroductionText>
+          <h1>
+            Front-End Developer, Designer, Music Producer & Advocate of Humanity
+          </h1>
+          <h2>Hello, I’m jordan winslow, and these are my values:</h2>
+          <Button
+            text="no thanks, take me to the code!"
+            onClick={() =>
+              !isServerRendered &&
+              window.scrollTo(0, codeRef.current.offsetTop - 130)
+            }
+          />
+        </IntroductionText>
+      </IntroductionBox>
+      <ScrollBox>
+        <ScrollIndicator />
+      </ScrollBox>
       <Value
         image={value1Image}
         title="DESIGN IS NOT AN OPTION"
@@ -128,9 +246,14 @@ const about = () => {
         description={value3}
       />
       <CircleSection />
-      <CodeHeading>
-        HOW DID I CODE THE PORTFOLIO PAGE ON THIS WEBSITE?
+      <CodeHeading ref={codeRef}>
+        So, What’s Running Under the Hood?
       </CodeHeading>
+      <center>
+        <a href="https://github.com/JordanWinslow/front-end-portfolio">
+          <Button text="VIEW CODE ON GITHUB" />
+        </a>
+      </center>
       <Value
         image={codeExample1}
         title=""
@@ -141,4 +264,4 @@ const about = () => {
   )
 }
 
-export default about
+export default About
