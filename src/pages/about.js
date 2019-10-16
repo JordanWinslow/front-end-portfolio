@@ -75,7 +75,7 @@ const IntroductionBox = styled.div`
       margin: 0 auto 40px auto;
     }
   }
-` // rye3a2csa!#GpBXZk
+`
 const ScrollBox = styled.div`
 width: 40vw;
 display: flex;
