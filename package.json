@@ -1,8 +1,8 @@
 {
   "name": "front-end-portfolio",
   "private": true,
-  "description": "Jordan Winslow's Front-End Development Portfolio for 2020 and beyond",
-  "version": "0.2.0",
+  "description": "Jordan Winslow's Front-End Development Portfolio for 2020 and beyond | React, JavaScript, CSS & More",
+  "version": "0.3.0",
   "author": "Jordan Winslow <admin@jordanwinslow.me>",
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.6",

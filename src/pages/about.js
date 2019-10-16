@@ -3,6 +3,7 @@ import styled, { createGlobalStyle } from "styled-components"
 import SEO from "../components/Seo"
 import MobileNav from "../components/MobileNav"
 import Header from "../components/Header"
+import Footer from "../components/Footer"
 import LightBulb from "../components/LightBulb"
 import Button from "../components/Button"
 import ScrollIndicator from "../components/ScrollIndicator"
@@ -21,7 +22,7 @@ const Color = createGlobalStyle`
       props.theme === "dark" ? "var(--light)" : "var(--dark)"};
     background-color: ${props =>
       props.theme === "dark" ? "var(--dark)" : "var(--light)"};
-      transition: .8s ease-out;
+    transition: .8s ease-out;
   }
   .InverseColorProvider {
     color: ${props =>
@@ -29,6 +30,16 @@ const Color = createGlobalStyle`
     background-color: ${props =>
       props.theme === "dark" ? "var(--light)" : "var(--dark)"};
     transition: .8s ease-out;
+  }
+  .ColorProvider {
+    color: ${props =>
+      props.theme === "dark" ? "var(--light)" : "var(--dark)"};
+    background-color: ${props =>
+      props.theme === "dark" ? "var(--dark)" : "var(--light)"};
+    transition: .8s ease-out;
+    img {
+      ${props => (props.theme === "dark" ? "" : "filter: invert(1);")};
+    }
   }
   `
 /* on mobile the header image should drop down 110px to make room 
@@ -75,16 +86,23 @@ const IntroductionBox = styled.div`
       margin: 0 auto 40px auto;
     }
   }
+  @media (max-width: 500px) {
+    width: 90vw;
+    img {
+      width: 65vw;
+      height: 65vw;
+    }
+  }
 `
 const ScrollBox = styled.div`
-width: 40vw;
-display: flex;
-justify-content: center;
-align-content: center;
-margin: 15vh auto;
-@media (max-width: 720px) {
-  margin: 0 auto 10vh auto;
-}
+  width: 40vw;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin: 10vh auto;
+  @media (max-width: 720px) {
+    margin: 12vh auto 10vh auto;
+  }
 `
 const IntroductionText = styled.div`
   width: 50vw;
@@ -102,7 +120,7 @@ const IntroductionText = styled.div`
     margin-bottom: 60px;
   }
   @media (max-width: 1200px) {
-    h1{
+    h1 {
       font-size: 4vw;
     }
     h2 {
@@ -111,9 +129,23 @@ const IntroductionText = styled.div`
   }
   @media (max-width: 800px) {
     width: 60vw;
+    h1 {
+      font-size: 5vw;
+    }
+    h2 {
+      font-size: 4vw;
+    }
   }
   @media (max-width: 720px) {
     width: 100%;
+  }
+  @media (max-width: 500px) {
+    h1 {
+      font-size: 5.5vw;
+    }
+    h2 {
+      font-size: 4.5vw;
+    }
   }
 `
 const CodeHeading = styled.h2`
@@ -125,6 +157,10 @@ const CodeHeading = styled.h2`
   }
   @media (max-width: 1200px) {
     margin: auto auto 50px auto;
+  }
+  @media (max-width: 500px) {
+    width: 80vw;
+    font-size: 7vw;
   }
 `
 const value1 = (
@@ -214,18 +250,22 @@ const About = () => {
           <h1>
             Front-End Developer, Designer, Music Producer & Advocate of Humanity
           </h1>
-          <h2>Hello, I’m jordan winslow, and these are my values:</h2>
+          <h2>
+            Hello, I’m jordan winslow, and below are my 3 core values which set
+            me apart from other developers:
+          </h2>
           <Button
             text="no thanks, take me to the code!"
             onClick={() =>
               !isServerRendered &&
               window.scrollTo(0, codeRef.current.offsetTop - 130)
             }
+            style={{ fontSize: "calc(12px + .6vw)" }}
           />
         </IntroductionText>
       </IntroductionBox>
       <ScrollBox>
-        <ScrollIndicator />
+        <ScrollIndicator className="ColorProvider" />
       </ScrollBox>
       <Value
         image={value1Image}
@@ -251,15 +291,57 @@ const About = () => {
       </CodeHeading>
       <center>
         <a href="https://github.com/JordanWinslow/front-end-portfolio">
-          <Button text="VIEW CODE ON GITHUB" />
+          <Button
+            text="VIEW CODE ON GITHUB"
+            style={{ fontSize: "calc(12px + .6vw)" }}
+          />
         </a>
       </center>
       <Value
         image={codeExample1}
+        imageWidth="35vw"
         title=""
         accentColor="rgba(0,0,0,0)"
         description={portfolioCode}
+        descriptionWidth="50vw"
       />
+      <center>
+        <h3>Features:</h3>
+        <div
+          style={{
+            textAlign: "left",
+            width: "90vw",
+            padding: "5vw",
+            borderRadius: "50px",
+          }}
+          className="InverseColorProvider"
+        >
+          <ul>
+            <li>
+              Interactive, Animated Homepage With Randomly Generated Background
+              & Catch-Phrases on Each Page Load
+            </li>
+            <li>
+              Beyond Responsive: Dynamic Text, Images & Conditional Component
+              Loading. Looks Great on ALL Screen Sizes
+            </li>
+            <li>Site-Wide Day/Night Mode</li>
+            <li>Blazing Fast Load Times + Component Lazy-Loading</li>
+            <li>
+              Cutting-Edge Component CSS With Styled-Components & Feature
+              Queries
+            </li>
+            <li>
+              Custom Designed Vector Graphic Icons, Logo & Page Header (About,
+              Contact & Blog Page)
+            </li>
+            <li>
+              Interactive Mobile Mockups You Can Pick up And Toss Off-Screen
+            </li>
+          </ul>
+        </div>
+      </center>
+      <Footer colorMode={colorMode} />
     </Fragment>
   )
 }

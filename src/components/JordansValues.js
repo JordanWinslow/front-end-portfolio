@@ -27,7 +27,7 @@ const CenteredContentBox = styled.div`
   }
 `
 const ValuesImage = styled.div`
-  width: 45vw;
+  width: ${props => props.imageWidth};
   height: 100%;
   background-image: url(${props => props.image});
   background-size: cover;
@@ -85,7 +85,7 @@ const ImageTitle = styled.h1`
 /*Description should be JSX to support multiple paragraphs*/
 const Description = styled.div`
   align-self: center;
-  width: 30vw;
+  width: ${props => props.descriptionWidth};
   p {
     font-size: 18px;
     line-height: 235%;
@@ -110,14 +110,23 @@ const Description = styled.div`
   }
 `
 
-const JordansValues = ({ image, title, accentColor, description }) => {
+const JordansValues = ({
+  image,
+  imageWidth = "45vw",
+  title,
+  accentColor,
+  description,
+  descriptionWidth = "30vw",
+}) => {
   return (
     <FullWidthSection>
       <CenteredContentBox>
-        <ValuesImage image={image}>
+        <ValuesImage image={image} imageWidth={imageWidth}>
           <ImageTitle accent={accentColor}>{title}</ImageTitle>
         </ValuesImage>
-        <Description>{description}</Description>
+        <Description descriptionWidth={descriptionWidth}>
+          {description}
+        </Description>
       </CenteredContentBox>
     </FullWidthSection>
   )

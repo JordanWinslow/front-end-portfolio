@@ -20,9 +20,9 @@ const Box = styled.div`
   }
 `
 
-const Button = ({ text, onClick }) => {
+const Button = ({ text, onClick, style }) => {
   return (
-    <Box className="InverseColorProvider" onClick={onClick}>
+    <Box style={style} className="InverseColorProvider" onClick={onClick}>
       {text}
     </Box>
   )
@@ -30,5 +30,7 @@ const Button = ({ text, onClick }) => {
 
 Button.propTypes = {
   text: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
+  style: PropTypes.object,
 }
 export default Button

@@ -64,8 +64,10 @@ const NavigationContainer = styled.div`
   position: fixed; /*to prevent page scrolling while nav is open*/
   top: 0;
   z-index: 4;
-  background-color: var(${props => props.colorMode === "dark" ? "--dark" : "--light"});
-  background-image: url("${props => props.colorMode === "dark" ? lightPatternSvg : darkPatternSvg}");
+  background-color: var(${props =>
+    props.colorMode === "dark" ? "--dark" : "--light"});
+  background-image: url("${props =>
+    props.colorMode === "dark" ? lightPatternSvg : darkPatternSvg}");
   display: flex;
   flex-direction: column;
   width: 100vw;
@@ -124,7 +126,13 @@ const MobileNav = ({ colorMode, alwaysDisplay = false }) => {
     return colorMode === "dark" ? DiamondLight : DiamondDark
   }
   return (
-    <div id={!alwaysDisplay && "MobileNav" /*unset to make it never disappear*/}>
+    <div
+      id={
+        !alwaysDisplay
+          ? "MobileNav"
+          : undefined /*unset to make it never disappear*/
+      }
+    >
       <MobileNavHeader
         colorMode={colorMode}
         className={colorMode === "dark" ? "fadeIn" : "fadeOutIn"}

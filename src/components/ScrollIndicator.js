@@ -7,7 +7,6 @@ const Scroll = styled.div`
   flex-direction: column;
   align-self: center;
   justify-content: center;
-  color: var(--light);
   img {
     margin-top: 20px;
     align-self: center;
@@ -23,9 +22,9 @@ const Scroll = styled.div`
     }
   }
 `
-const ScrollIndicator = () => {
+const ScrollIndicator = ({ className, style }) => {
   return (
-    <Scroll>
+    <Scroll className={className} style={style}>
       <i>keep scrolling</i>{" "}
       <img src={DownArrow} alt="Down Arrow Keep Scrolling" />
     </Scroll>

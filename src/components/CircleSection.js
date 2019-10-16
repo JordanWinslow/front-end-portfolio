@@ -81,7 +81,10 @@ const CircleSection = () => {
         If you’re still not sure I can bring your designs to life, take a look
         under the hood and you will be convinced!
       </SubHeading>
-      <ScrollIndicator />
+      <ScrollIndicator
+        className="InverseColorProvider"
+        style={{ background: "none", color: "var(--light)" }}
+      />
     </FullWidthSection>
   )
 }
