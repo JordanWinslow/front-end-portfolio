@@ -1,7 +1,7 @@
 {
-  "name": "react-graphql-front-end-development-blog",
+  "name": "front-end-portfolio",
   "private": true,
-  "description": "A blog about modern Front-End web development techniques in 2020 and beyond. By Jordan Winslow.",
+  "description": "Jordan Winslow's Front-End Development Portfolio for 2020 and beyond",
   "version": "0.2.0",
   "author": "Jordan Winslow <admin@jordanwinslow.me>",
   "dependencies": {
@@ -52,9 +52,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jordanwinslow/react-graphql-gatsby-blog"
+    "url": "https://github.com/jordanwinslow/front-end-portfolio"
   },
   "bugs": {
-    "url": "https://github.com/jordanwinslow/react-graphql-gatsby-blog/issues"
+    "url": "https://github.com/jordanwinslow/front-end-portfolio/issues"
   }
 }
