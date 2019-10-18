@@ -1,5 +1,5 @@
 # Modern Front End Web Development Portfolio & Design Blog
-
+![](https://media.giphy.com/media/LmsBGGkd3zo7i3JnpT/giphy.gif)
 ## Powered by React, GraphQL, GSAP, & Gatsby
 
 Incredibly responsive design prototyped and drawn from scratch in Figma then programmed with JavaScript.
