@@ -7,13 +7,7 @@ import MobileNavClosed from "../images/MobileNavClosed.svg"
 import MobileNavOpened from "../images/MobileNavOpened.svg"
 import DiamondLight from "../images/DiamondLight.svg"
 import DiamondDark from "../images/DiamondDark.svg"
-/* 
-svg pattern provided by https://www.heropatterns.com and
-licensed under Attribution 4.0 International (CC BY 4.0) 
-https://creativecommons.org/licenses/by/4.0/
-*/
-const darkPatternSvg = `data:image/svg+xml,%3Csvg width='48' height='64' viewBox='0 0 48 64' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M48 28v-4L36 12 24 24 12 12 0 24v4l4 4-4 4v4l12 12 12-12 12 12 12-12v-4l-4-4 4-4zM8 32l-6-6 10-10 10 10-6 6 6 6-10 10L2 38l6-6zm12 0l4-4 4 4-4 4-4-4zm12 0l-6-6 10-10 10 10-6 6 6 6-10 10-10-10 6-6zM0 16L10 6 4 0h4l4 4 4-4h4l-6 6 10 10L34 6l-6-6h4l4 4 4-4h4l-6 6 10 10v4L36 8 24 20 12 8 0 20v-4zm0 32l10 10-6 6h4l4-4 4 4h4l-6-6 10-10 10 10-6 6h4l4-4 4 4h4l-6-6 10-10v-4L36 56 24 44 12 56 0 44v4z' fill='%23fcfcfc' fill-opacity='0.01' fill-rule='evenodd'/%3E%3C/svg%3E`
-const lightPatternSvg = `data:image/svg+xml,%3Csvg width='48' height='64' viewBox='0 0 48 64' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M48 28v-4L36 12 24 24 12 12 0 24v4l4 4-4 4v4l12 12 12-12 12 12 12-12v-4l-4-4 4-4zM8 32l-6-6 10-10 10 10-6 6 6 6-10 10L2 38l6-6zm12 0l4-4 4 4-4 4-4-4zm12 0l-6-6 10-10 10 10-6 6 6 6-10 10-10-10 6-6zM0 16L10 6 4 0h4l4 4 4-4h4l-6 6 10 10L34 6l-6-6h4l4 4 4-4h4l-6 6 10 10v4L36 8 24 20 12 8 0 20v-4zm0 32l10 10-6 6h4l4-4 4 4h4l-6-6 10-10 10 10-6 6h4l4-4 4 4h4l-6-6 10-10v-4L36 56 24 44 12 56 0 44v4z' fill='%231f1f25' fill-opacity='0.01' fill-rule='evenodd'/%3E%3C/svg%3E`
+
 const OpenButton = styled.div`
   background-color: var(
     ${props => (props.colorMode === "dark" ? "--light" : "--dark")}
@@ -77,10 +71,6 @@ const NavigationContainer = styled.div`
   z-index: 4;
   background-color: ${props =>
     props.colorMode === "dark" ? "var(--dark)" : "var(--light)"};
-  background-image: ${props =>
-    props.colorMode === "dark"
-      ? "url(lightPatternSvg)"
-      : "url(darkPatternSvg)"};
   display: flex;
   flex-direction: column;
   width: 100vw;
