@@ -18,6 +18,7 @@ const FullWidthSection = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  /*TODO - Fix display on devices with low heights but wide screens */
   @media (max-height: 800px) {
     margin-top: -10vh;
     height: 150vh;

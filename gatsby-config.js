@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Front End Development With React, GraphQL in 2020`,
-    description: `Jordan Winslow's development blog talking about CSS3, HTML5, JavaScript, React, GraphQL and everything else Front-End!`,
+    title: `Jordan Winslow: Front End Specialist Developer & Design Portfolio for 2020`,
+    description: `Featuring Cutting Edge React, GraphQL, Gatsby, Greensock Animation, Night Mode & Much More!`,
     author: `@jordanwinslow <admin@jordanwinslow.me>`,
   },
   plugins: [
@@ -44,8 +44,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `react-graphql-front-end-development-blog`,
-        short_name: `react-graphql-gatsby-blog`,
+        name: `front-end-portfolio`,
+        short_name: `front-end-portfolio`,
         start_url: `/`,
         background_color: `#1F1F25`,
         theme_color: `#239494`,
