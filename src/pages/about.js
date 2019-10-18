@@ -163,6 +163,12 @@ const CodeHeading = styled.h2`
     font-size: 7vw;
   }
 `
+const Center = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+`
 const value1 = (
   <Fragment>
     <p>
@@ -289,14 +295,14 @@ const About = () => {
       <CodeHeading ref={codeRef}>
         So, What’s Running Under the Hood?
       </CodeHeading>
-      <center>
+      <Center>
         <a href="https://github.com/JordanWinslow/front-end-portfolio">
           <Button
             text="VIEW CODE ON GITHUB"
             style={{ fontSize: "calc(12px + .6vw)" }}
           />
         </a>
-      </center>
+      </Center>
       <Value
         image={codeExample1}
         imageWidth="35vw"
@@ -305,7 +311,7 @@ const About = () => {
         description={portfolioCode}
         descriptionWidth="50vw"
       />
-      <center>
+      <Center>
         <h3>Features:</h3>
         <div
           style={{
@@ -340,7 +346,7 @@ const About = () => {
             </li>
           </ul>
         </div>
-      </center>
+      </Center>
       <Footer colorMode={colorMode} />
     </Fragment>
   )

@@ -166,6 +166,12 @@ const FullWidth = styled.div`
     }
   }
 `
+const Center = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+`
 const PlaceHolder = (
   <div style={{ height: "100vh" }}>
     <div
@@ -347,9 +353,9 @@ const Portfolio = ({ data }) => {
         {/* FIGMA PROTOTYPES COMPONENT */}
         <PageContent style={{ marginTop: "10vh" }} ref={figmaRef}>
           {figmaInView && (
-            <center>
+            <Center>
               <FigmaIframes />
-            </center>
+            </Center>
           )}
         </PageContent>
       </MainLayout>

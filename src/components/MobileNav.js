@@ -114,7 +114,6 @@ const NavLink = styled.h4`
     color: ${props =>
       props.colorMode === "dark" ? "var(--light)" : "var(--dark)"};
   }
-
   img {
     margin: 0 8px;
   }
