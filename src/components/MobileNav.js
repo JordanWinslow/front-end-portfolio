@@ -22,6 +22,10 @@ const OpenButton = styled.div`
   width: 70px;
   height: 70px;
   cursor: pointer;
+  @supports not (mask-image: url(${MobileNavClosed})) {
+    background-color: var(--dark);
+    background-image: url(${MobileNavClosed});
+  }
 `
 const CloseButton = styled.div`
   background-color: var(
@@ -32,6 +36,10 @@ const CloseButton = styled.div`
   height: 70px;
   fill: var(${props => (props.colorMode === "dark" ? "--dark" : "--light")});
   cursor: pointer;
+  @supports not (mask-image: url(${MobileNavOpened})) {
+    background-color: var(--dark);
+    background-image: url(${MobileNavOpened});
+  }
 `
 const Logo = styled.div`
   background-image: url(${JWLogo});
@@ -56,6 +64,9 @@ const MobileNavHeader = styled.div`
   );
   display: flex;
   justify-content: space-between;
+  @supports not (mask-image: url(${MobileNavOpened})) {
+    background-color: var(--dark);
+  }
 `
 const NavigationContainer = styled.div`
   /*Set Animation Initial State*/
@@ -64,10 +75,12 @@ const NavigationContainer = styled.div`
   position: fixed; /*to prevent page scrolling while nav is open*/
   top: 0;
   z-index: 4;
-  background-color: var(${props =>
-    props.colorMode === "dark" ? "--dark" : "--light"});
-  background-image: url("${props =>
-    props.colorMode === "dark" ? lightPatternSvg : darkPatternSvg}");
+  background-color: ${props =>
+    props.colorMode === "dark" ? "var(--dark)" : "var(--light)"};
+  background-image: ${props =>
+    props.colorMode === "dark"
+      ? "url(lightPatternSvg)"
+      : "url(darkPatternSvg)"};
   display: flex;
   flex-direction: column;
   width: 100vw;
@@ -94,6 +107,12 @@ const NavLink = styled.h4`
   background-clip: text;
   text-transform: uppercase;
   text-align: right;
+  @supports not (background-clip: text) {
+    background-color: ${props =>
+      props.colorMode === "dark" ? "var(--dark)" : "var(--light)"};
+    color: ${props =>
+      props.colorMode === "dark" ? "var(--light)" : "var(--dark)"};
+  }
   img {
     margin: 0 8px;
   }
@@ -147,7 +166,7 @@ const MobileNav = ({ colorMode, alwaysDisplay = false }) => {
         <NavigationContainer colorMode={colorMode} id="LinkContainer">
           <LinkContainer>
             <Link to="/portfolio" style={{ cursor: "pointer" }}>
-              <NavLink>
+              <NavLink colorMode={colorMode}>
                 Portfolio
                 <img
                   src={getDiamond()}
@@ -156,7 +175,7 @@ const MobileNav = ({ colorMode, alwaysDisplay = false }) => {
               </NavLink>
             </Link>
             <Link to="/contact" style={{ cursor: "pointer" }}>
-              <NavLink>
+              <NavLink colorMode={colorMode}>
                 Contact
                 <img
                   src={getDiamond()}
@@ -165,7 +184,7 @@ const MobileNav = ({ colorMode, alwaysDisplay = false }) => {
               </NavLink>
             </Link>
             <Link to="/about" style={{ cursor: "pointer" }}>
-              <NavLink>
+              <NavLink colorMode={colorMode}>
                 About
                 <img
                   src={getDiamond()}
@@ -174,7 +193,7 @@ const MobileNav = ({ colorMode, alwaysDisplay = false }) => {
               </NavLink>
             </Link>
             <Link to="/blog" style={{ cursor: "pointer" }}>
-              <NavLink>
+              <NavLink colorMode={colorMode}>
                 Blog
                 <img
                   src={getDiamond()}
