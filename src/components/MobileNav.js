@@ -100,6 +100,7 @@ const NavLink = styled.h4`
   justify-content: flex-end;
   margin-right: 1rem;
   color: var(--light);
+  background: -o-linear-gradient(280deg, #d54274 20%, #33dada 100%);
   background: linear-gradient(170deg, #d54274 20%, #33dada 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -113,6 +114,7 @@ const NavLink = styled.h4`
     color: ${props =>
       props.colorMode === "dark" ? "var(--light)" : "var(--dark)"};
   }
+
   img {
     margin: 0 8px;
   }
