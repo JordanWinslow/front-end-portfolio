@@ -171,7 +171,7 @@ const MobileNav = ({ colorMode, alwaysDisplay = false }) => {
                 Portfolio
                 <img
                   src={getDiamond()}
-                  alt="rotating diamond graphic during mouse hover"
+                  alt="rotating diamond during mouse hover"
                 />
               </NavLink>
             </Link>
@@ -180,7 +180,7 @@ const MobileNav = ({ colorMode, alwaysDisplay = false }) => {
                 Contact
                 <img
                   src={getDiamond()}
-                  alt="rotating diamond graphic during mouse hover"
+                  alt="rotating diamond during mouse hover"
                 />
               </NavLink>
             </Link>
@@ -189,7 +189,7 @@ const MobileNav = ({ colorMode, alwaysDisplay = false }) => {
                 About
                 <img
                   src={getDiamond()}
-                  alt="rotating diamond graphic during mouse hover"
+                  alt="rotating diamond during mouse hover"
                 />
               </NavLink>
             </Link>
@@ -198,7 +198,7 @@ const MobileNav = ({ colorMode, alwaysDisplay = false }) => {
                 Blog
                 <img
                   src={getDiamond()}
-                  alt="rotating diamond graphic during mouse hover"
+                  alt="rotating diamond during mouse hover"
                 />
               </NavLink>
             </Link>

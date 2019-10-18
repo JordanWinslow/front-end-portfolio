@@ -2,6 +2,7 @@ import React, { Suspense } from "react"
 import MainLayout from "../components/MainLayout"
 import ControlModal from "../components/ControlModal"
 import Loading from "../images/Loading.svg"
+import SEO from "../components/Seo"
 const BokehBackground = React.lazy(() =>
   import("../components/BokehBackground")
 )
@@ -19,6 +20,7 @@ const HomePage = () => {
   const isServerRendered = typeof window === "undefined"
   return (
     <MainLayout theme="dark" isHomePage="true">
+      <SEO title="Jordan Winslow | Front-End Responsive Web & UI Designer Specializing in React" />
       {!isServerRendered && (
         <Suspense
           fallback={
