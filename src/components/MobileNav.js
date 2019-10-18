@@ -158,7 +158,7 @@ const MobileNav = ({ colorMode, alwaysDisplay = false }) => {
           <LinkContainer>
             <Link to="/portfolio" style={{ cursor: "pointer" }}>
               <NavLink colorMode={colorMode}>
-                Portfolio
+                <span>Portfolio</span>
                 <img
                   src={getDiamond()}
                   alt="rotating diamond during mouse hover"
@@ -167,7 +167,7 @@ const MobileNav = ({ colorMode, alwaysDisplay = false }) => {
             </Link>
             <Link to="/contact" style={{ cursor: "pointer" }}>
               <NavLink colorMode={colorMode}>
-                Contact
+                <span>Contact</span>
                 <img
                   src={getDiamond()}
                   alt="rotating diamond during mouse hover"
@@ -176,7 +176,7 @@ const MobileNav = ({ colorMode, alwaysDisplay = false }) => {
             </Link>
             <Link to="/about" style={{ cursor: "pointer" }}>
               <NavLink colorMode={colorMode}>
-                About
+                <span>About</span>
                 <img
                   src={getDiamond()}
                   alt="rotating diamond during mouse hover"
@@ -185,7 +185,7 @@ const MobileNav = ({ colorMode, alwaysDisplay = false }) => {
             </Link>
             <Link to="/blog" style={{ cursor: "pointer" }}>
               <NavLink colorMode={colorMode}>
-                Blog
+                <span>Blog</span>
                 <img
                   src={getDiamond()}
                   alt="rotating diamond during mouse hover"
