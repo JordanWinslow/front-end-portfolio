@@ -4,7 +4,7 @@
   </a>
 </p>
 
-# Modern Front End Web Development Portfolio & Design Blog
+# Modern Front End Web Development Portfolio & Blog
 
 <div align="center">
   
@@ -12,7 +12,7 @@
 
 </div>
 
-## Powered by React, GraphQL, GSAP, & Gatsby
+## Designed, Prototyped & Coded From Scratch to Demonstrate my Skillset. Powered by React, GraphQL, GSAP, & Gatsby
 
 Incredibly responsive design prototyped and drawn from scratch in Figma then programmed with JavaScript.
 
