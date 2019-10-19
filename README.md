@@ -3,12 +3,15 @@
     <img alt="Jordan Winslow Logo" src="https://gdurl.com/q7oI" />
   </a>
 </p>
+
 # Modern Front End Web Development Portfolio & Design Blog
+
 <div align="center">
   
 ![](https://media.giphy.com/media/LmsBGGkd3zo7i3JnpT/giphy.gif)
 
 </div>
+
 ## Powered by React, GraphQL, GSAP, & Gatsby
 
 Incredibly responsive design prototyped and drawn from scratch in Figma then programmed with JavaScript.
