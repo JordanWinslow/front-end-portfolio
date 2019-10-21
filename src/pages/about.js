@@ -252,7 +252,7 @@ const About = () => {
     <Fragment>
       <Color theme={colorMode} />
       <LightBulb colorMode={colorMode} setColorMode={setColorMode} />
-      <MobileNav colorMode={colorMode} alwaysDisplay={true} />
+      <MobileNav colorMode={colorMode} alwaysDisplay={true} /> {/*This page has no desktop navigation since it is a full-width page. So I set alwaysDisplay to true for the mobile nav component*/}
       <Spacer>
         <Header colorMode={colorMode} />
       </Spacer>
