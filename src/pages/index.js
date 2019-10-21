@@ -27,7 +27,7 @@ const HomePage = () => {
   const isServerRendered = typeof window === "undefined"
   return (
     <MainLayout theme="dark" isHomePage="true">
-      <SEO title="Jordan Winslow | Front-End Responsive Web & UI Designer Specializing in React" />
+      <SEO />
       {!isServerRendered && (
         <Suspense
           fallback={
