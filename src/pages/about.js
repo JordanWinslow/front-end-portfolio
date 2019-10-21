@@ -110,13 +110,13 @@ const IntroductionText = styled.div`
     font-weight: bold;
     font-size: 47.0946px;
     line-height: 124.4%;
-    text-transform: lowercase;
+    /*text-transform: lowercase;*/
   }
   h2 {
     font-weight: normal;
     font-size: 31.3964px;
     line-height: 125.9%;
-    text-transform: lowercase;
+    /*text-transform: lowercase;*/
     margin-bottom: 60px;
   }
   @media (max-width: 1200px) {
@@ -169,6 +169,15 @@ const Center = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
+`
+const YouTubePlayer = styled.div`
+width: 100vw;
+height: 100vh;
+padding: 15vh 15vw;
+margin-top: 10vh;
+@media (max-width: 600px) {
+  padding: 15vh 1vw;
+}
 `
 const value1 = (
   <Fragment>
@@ -234,7 +243,7 @@ const portfolioCode = (
     </p>
   </Fragment>
 )
-
+/*PAGE RENDER BEGINS HERE*/
 const About = () => {
   const [colorMode, setColorMode] = useState("light") // SET PAGE THEME TO LIGHT MODE ON FIRST LOAD.
   const codeRef = useRef(null)
@@ -258,8 +267,8 @@ const About = () => {
             Front-End Developer, Designer, Music Producer & Advocate of Humanity
           </h1>
           <h2>
-            Hello, I’m jordan winslow, and below are my 3 core values which set
-            me apart from other developers:
+            Hello, I’m Jordan Winslow! Below you can see a 60 second video on
+            the features of this site & learn more about my values:
           </h2>
           <Button
             text="no thanks, take me to the code!"
@@ -271,6 +280,18 @@ const About = () => {
           />
         </IntroductionText>
       </IntroductionBox>
+      <YouTubePlayer>
+      <iframe
+      style={{boxShadow: "3px 5px 5px rgba(0,0,0, .5)"}}
+      title="Features of Jordan Winslow's Beyond Responsive Portfolio Website"
+        width="100%"
+        height="100%"
+        src="https://www.youtube-nocookie.com/embed/VFTgGN0XGAM?rel=0&theme=dark&modestbranding=1"
+        frameborder="0"
+        allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      />
+      </YouTubePlayer>
       <ScrollBox>
         <ScrollIndicator className="ColorProvider" />
       </ScrollBox>
