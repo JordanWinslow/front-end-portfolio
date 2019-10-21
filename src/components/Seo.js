@@ -58,12 +58,20 @@ function SEO({ description, image, lang, meta, title }) {
           content: metaImage,
         },
         {
+          name: `twitter:image`,
+          content: metaImage,
+        },
+        {
           name: `twitter:card`,
-          content: `summary`,
+          content: `summary_large_image`,
+        },
+        {
+          name: `twitter:site`,
+          content: `@JordanDWinslow`,
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          content: `@JordanDWinslow`,
         },
         {
           name: `twitter:title`,
