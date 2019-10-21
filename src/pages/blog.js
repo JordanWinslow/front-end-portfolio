@@ -36,7 +36,7 @@ export default ({ data }) => {
         <Logo />
       </Link>
       <Navigation />
-      <SEO title="Jordan Winslow | Front-End Responsive Web & UI Designer Specializing in React" />
+      <SEO title="Web Design Blog" />
       {!isServerRendered && (
         <Suspense
           fallback={

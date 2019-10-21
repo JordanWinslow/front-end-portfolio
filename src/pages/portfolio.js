@@ -283,7 +283,7 @@ const Portfolio = ({ data }) => {
   return (
     <Fragment>
       <MainLayout>
-        <SEO title="Front-End Development Portfolio | Jordan Winslow Responsive React Web & UI Designer" />
+        <SEO title="Web Design Portfolio" />
         <PageContent className="fadeIn">
           {/* HEADING */}
           <PageHeader>

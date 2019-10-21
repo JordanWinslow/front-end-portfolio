@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Jordan Winslow | Front End Development & Design Portfolio for 2020`,
+    title: `Modern Front End Developer & Designer for Hire`,
     description: `Design-Oriented Developer Specializing in JavaScript, React, CSS3 & Responsive Design. Let's bring your ideas to life!`,
     author: `@jordanwinslow <admin@jordanwinslow.me>`,
   },

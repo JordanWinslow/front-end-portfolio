@@ -54,7 +54,7 @@ export default () => {
         <Header colorMode={colorMode} />
       </Spacer>
       <DesktopNav location="bottom" colorMode={colorMode} />
-      <SEO title="Contact & Social Media | Front-End Responsive Web & UI Developer Specializing in React" />
+      <SEO title="Contact & Social Media" />
       {!isServerRendered && (
         <Suspense
           fallback={

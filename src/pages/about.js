@@ -256,7 +256,7 @@ const About = () => {
       <Spacer>
         <Header colorMode={colorMode} />
       </Spacer>
-      <SEO title="About Jordan Winslow | Front-End Responsive Web & UI Designer Specializing in React" />
+      <SEO title="About Jordan" />
       <IntroductionBox>
         <img
           src={portfolioPicture}
