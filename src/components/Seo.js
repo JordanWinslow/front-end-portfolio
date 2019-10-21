@@ -2,6 +2,8 @@ import React from "react"
 import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
+
+import defaultMetaImage from "../images/metaImage.jpg"
 /*CUSTOM SEO COMPONENT
 Receives a series of optional meta information for any
 given page and creates the HTML meta tags for it.
@@ -17,7 +19,6 @@ function SEO({ description, image, lang, meta, title }) {
           siteMetadata {
             title
             description
-            image
             author
           }
         }
@@ -27,7 +28,7 @@ function SEO({ description, image, lang, meta, title }) {
 
   const metaDescription = description || site.siteMetadata.description
 
-  const metaImage = image || site.siteMetadata.image
+  const metaImage = image || defaultMetaImage
 
   return (
     <Helmet

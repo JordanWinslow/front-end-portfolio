@@ -1,8 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Jordan Winslow: Front End Specialist Developer & Design Portfolio for 2020`,
-    description: `Featuring Cutting Edge React, GraphQL, Gatsby, Greensock Animation, Night Mode & Much More!`,
-    image: `https://i.postimg.cc/2jQg8wf6/meta-Image.jpg`,
+    title: `Jordan Winslow: Front End Development & Design Portfolio for 2020`,
+    description: `Design-Oriented Developer Specializing in JavaScript, React, CSS3 & Responsive Design. Let's bring your ideas to life!`,
     author: `@jordanwinslow <admin@jordanwinslow.me>`,
   },
   plugins: [
