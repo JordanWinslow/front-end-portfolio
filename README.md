@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://jordans-portfolio.netlify.com/">
+  <a href="https://jordanwinslow.dev">
     <img alt="Jordan Winslow Logo" src="https://gdurl.com/q7oI" />
   </a>
 </p>
