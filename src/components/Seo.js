@@ -59,7 +59,7 @@ function SEO({ description, image, lang, meta, title }) {
         },
         {
           name: `twitter:image`,
-          content: metaImage,
+          content: `https://i.postimg.cc/2jQg8wf6/meta-Image.jpg`,
         },
         {
           name: `twitter:card`,
