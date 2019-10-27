@@ -38,6 +38,9 @@ const Text = styled.h1`
   @media (max-width: 500px) {
     padding: 2vh 5vw;
   }
+  /* CSS Blur is very CPU intensive so I only repeat this animation 2 times. Another method of reducing CPU load is to simply display
+  less text from this component. Keeping it to 1-3 words reduces CPU load tremendously. But for the purpose of this portfolio, I
+  am keeping it this way */
   @keyframes fadeIn {
     0% {
       opacity: 0;
@@ -52,7 +55,7 @@ const Text = styled.h1`
 `
 
 const LetterBox = styled.span`
-  animation: fadeIn 3s alternate infinite;
+  animation: fadeIn 3s alternate 2;
   animation-delay: ${props => props.delay}ms;
 `
 

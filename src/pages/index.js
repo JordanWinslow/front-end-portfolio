@@ -12,9 +12,6 @@ const css =
 
 const HomePage = () => {
   console.log("%cJordan Winslow %s", css, "Is a Cool Dude")
-  console.log(
-    "Gradient text links on mobile nav breaks on safari and microsoft edge. I decided to leave it in anyway because this isn't a production website"
-  )
 
   const phrases = [
     "Evoking Emotion Through Front-End Design",
@@ -27,7 +24,7 @@ const HomePage = () => {
   const isServerRendered = typeof window === "undefined"
   return (
     <MainLayout theme="dark" isHomePage="true">
-      <SEO title="Jordan Winslow"/>
+      <SEO title="Jordan Winslow" />
       {!isServerRendered && (
         <Suspense
           fallback={
