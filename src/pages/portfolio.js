@@ -258,16 +258,19 @@ user's screen, speeding up page-load times and automating my image-optimization 
 /* END JUST FOR FUN CONSOLE LOG STYLING */
 
 const Portfolio = ({ data }) => {
-  const portfolioItems = data.allMarkdownRemark.nodes.map(item => {
+  const frontMatter = data.allMarkdownRemark.nodes.frontmatter
+  const sortedData = {...frontMatter}.sort((a, b) => a.id < b.id ? -1 : 1) // sort portfolio items by id
+
+  const portfolioItems = sortedData.map(item => {
     return (
       <PortfolioItem
-        key={item.frontmatter.id}
-        image={item.frontmatter.image.childImageSharp.fluid}
-        imageAlt={item.frontmatter.imageAlt}
-        title={item.frontmatter.title}
-        description={item.frontmatter.description}
-        demoLink={item.frontmatter.demoLink}
-        codeLink={item.frontmatter.codeLink}
+        key={item.id}
+        image={item.image.childImageSharp.fluid}
+        imageAlt={item.imageAlt}
+        title={item.title}
+        description={item.description}
+        demoLink={item.demoLink}
+        codeLink={item.codeLink}
       />
     )
   })
