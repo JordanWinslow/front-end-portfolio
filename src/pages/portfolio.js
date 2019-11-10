@@ -258,19 +258,19 @@ user's screen, speeding up page-load times and automating my image-optimization 
 /* END JUST FOR FUN CONSOLE LOG STYLING */
 
 const Portfolio = ({ data }) => {
-  const frontMatter = data.allMarkdownRemark.nodes.frontmatter
-  const sortedData = frontMatter.sort((a, b) => a.id < b.id ? -1 : 1) // sort portfolio items by id
-
-  const portfolioItems = sortedData.map(item => {
+  const portfolioItems = data.allMarkdownRemark.nodes.sort((a, b)=>{
+    return a.frontmatter.id - b.frontmatter.id // Sorts portfolio by ID in the frontmatter
+  })
+  const sortedPortfolioItems = portfolioItems.map({frontmatter} => {
     return (
       <PortfolioItem
-        key={item.id}
-        image={item.image.childImageSharp.fluid}
-        imageAlt={item.imageAlt}
-        title={item.title}
-        description={item.description}
-        demoLink={item.demoLink}
-        codeLink={item.codeLink}
+        key={frontmatter.id}
+        image={frontmatter.image.childImageSharp.fluid}
+        imageAlt={frontmatter.imageAlt}
+        title={frontmatter.title}
+        description={frontmatter.description}
+        demoLink={frontmatter.demoLink}
+        codeLink={frontmatter.codeLink}
       />
     )
   })
@@ -321,7 +321,7 @@ const Portfolio = ({ data }) => {
           </DescriptionBox>
 
           {/* PORTFOLIO GRID COMPONENT */}
-          <Grid ref={portfolioGridRef}>{isGridVisible && portfolioItems}</Grid>
+          <Grid ref={portfolioGridRef}>{isGridVisible && sortedPortfolioItems}</Grid>
         </PageContent>
 
         {/* DIVIDER */}
