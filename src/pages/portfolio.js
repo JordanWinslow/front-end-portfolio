@@ -259,7 +259,7 @@ user's screen, speeding up page-load times and automating my image-optimization 
 
 const Portfolio = ({ data }) => {
   const frontMatter = data.allMarkdownRemark.nodes.frontmatter
-  const sortedData = {...frontMatter}.sort((a, b) => a.id < b.id ? -1 : 1) // sort portfolio items by id
+  const sortedData = [...frontMatter].sort((a, b) => a.id < b.id ? -1 : 1) // sort portfolio items by id
 
   const portfolioItems = sortedData.map(item => {
     return (
