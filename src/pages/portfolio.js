@@ -261,7 +261,7 @@ const Portfolio = ({ data }) => {
   const portfolioItems = data.allMarkdownRemark.nodes.sort((a, b)=>{
     return a.frontmatter.id - b.frontmatter.id // Sorts portfolio by ID in the frontmatter
   })
-  const sortedPortfolioItems = portfolioItems.map({frontmatter} => {
+  const sortedPortfolioItems = portfolioItems.map(({frontmatter}) => {
     return (
       <PortfolioItem
         key={frontmatter.id}
