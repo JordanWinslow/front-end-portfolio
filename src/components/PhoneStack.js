@@ -28,14 +28,18 @@ import MobileView2 from "../images/portfolio/MobileView2.png"
 import MobileView3 from "../images/portfolio/MobileView3.png"
 import MobileView4 from "../images/portfolio/MobileView4.png"
 import MobileView5 from "../images/portfolio/MobileView5.png"
+import MobileView6 from "../images/portfolio/MobileView6.png"
+import MobileView7 from "../images/portfolio/MobileView7.png"
 
 // Manually arrange your images here or create a helper method to randomize.
 const stackOfPhones = [
+  MobileView7,
+  MobileView6,
   MobileView3,
   MobileView4,
   MobileView2,
   MobileView5,
-  MobileView
+  MobileView,
 ]
 // BACKGROUND GRADIENT & SECTION CONTAINER
 const PhoneSection = styled.div`
@@ -92,7 +96,7 @@ const PhoneStack = () => {
     y: i * -30,
     scale: 1,
     rot: 10 + Math.random() * 30,
-    delay: i * 200
+    delay: i * 200,
   })
   const from = i => ({ x: 0, rot: 100, scale: 1.6, y: -1000 })
   const trans = (r, s) =>
@@ -103,7 +107,7 @@ const PhoneStack = () => {
   const [gone] = useState(() => new Set()) // When a phone is removed, it is stored here
   const [props, set] = useSprings(stackOfPhones.length, i => ({
     ...to(i),
-    from: from(i)
+    from: from(i),
   })) // create a spring for every Phone Item in the FILO stack (First In Last Out)
   const bind = useGesture(
     ({
@@ -112,7 +116,7 @@ const PhoneStack = () => {
       delta: [xDelta],
       distance,
       direction: [xDir],
-      velocity
+      velocity,
     }) => {
       const trigger = velocity > 0.9 // this number determines speed we have to "flick" to make the phone actually fly out
       const dir = xDir < 0 ? -1 : 1 // You can only flick left or right
@@ -128,7 +132,7 @@ const PhoneStack = () => {
           rot,
           scale,
           delay: undefined,
-          config: { friction: 50, tension: down ? 800 : isGone ? 200 : 500 }
+          config: { friction: 50, tension: down ? 800 : isGone ? 200 : 500 },
         }
       })
       if (!down && gone.size === stackOfPhones.length) {
@@ -140,7 +144,10 @@ const PhoneStack = () => {
     <animated.div
       key={i}
       style={{
-        transform: interpolate([x, y], (x, y) => `translate3d(${x}px,${y}px,0)`)
+        transform: interpolate(
+          [x, y],
+          (x, y) => `translate3d(${x}px,${y}px,0)`
+        ),
       }}
       id="PhoneLocation" // styling referenced in PhoneStack.css
     >
@@ -149,7 +156,7 @@ const PhoneStack = () => {
         {...bind(i)}
         style={{
           transform: interpolate([rot, scale], trans),
-          backgroundImage: `url(${stackOfPhones[i]})`
+          backgroundImage: `url(${stackOfPhones[i]})`,
         }}
         id="PhoneScreen" // styling referenced in PhoneStack.css
       />
