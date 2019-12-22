@@ -11,7 +11,8 @@ import { window } from "browser-monads"
 
 const BokehBackground = styled.div`
   overflow: hidden;
-  height: 100vh;
+  height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+  height: calc(var(--vh, 1vh) * 100);
   width: 100vw;
   background: linear-gradient(270deg, #582838, #1f1f25, #265b63);
   background-size: 600% 600%;
@@ -296,6 +297,9 @@ class LinkedAnimate extends React.Component {
 
   render() {
     const { data, tx, ty } = this.state
+    let vh = window.innerHeight * 0.01;
+    // This sets the value of the --vh custom property to the root of the document so I can fix the sizing of the website to adjust for the address bar on mobile
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
     return (
       <BokehBackground>
         <BokehFlare
