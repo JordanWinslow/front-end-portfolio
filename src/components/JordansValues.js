@@ -32,6 +32,7 @@ const ValuesImage = styled.div`
   background-image: url(${props => props.image});
   background-size: cover;
   border-radius: 83px;
+  box-shadow: 0 0 28px rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-self: center;
