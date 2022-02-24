@@ -62,13 +62,13 @@ const SocialMedia = ({ colorMode = "light"}) => {
           alt="Behance Icon Link"
         />
       </a>
-      <a href="mailto:admin@jordanwinslow.me?subject=Hello%20Jordan!">
+      <a href="mailto:jwinsemail@gmail.com?subject=Hello%20Jordan!">
         <img
           src={colorMode === "dark" ? email : darkemail}
           alt="Email Icon Link"
         />
       </a>
-      <a href="tel:+1-661-388-9913">
+      <a href="#">
         <img
           src={colorMode === "dark" ? phone : darkphone}
           alt="Phone Call Button"
