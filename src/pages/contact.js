@@ -39,7 +39,7 @@ export default () => {
         As of 03/27/2023 I am actively seeking employment as a Senior Front End Developer with a company working on bleeding-edge technology to help improve our world!
       </p>
       <p>
-        <a href='https://drive.google.com/file/d/1xuoAsfzobdR3BLB25O1TaObB1hOEbJiC/view?usp=sharing'>Click here</a> to check out my resume!
+        <a href='https://drive.google.com/file/d/1xuoAsfzobdR3BLB25O1TaObB1hOEbJiC/view?usp=sharing'>Click here to check out my resume!</a>
       </p>
       <p>
          Click the icons below to get in contact! <i>(Due to a high volume of calls from recruiters, I have temporarily removed my phone number! Please email me, thanks!)</i>
