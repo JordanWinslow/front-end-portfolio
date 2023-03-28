@@ -36,10 +36,10 @@ export default () => {
   const text = (
     <Fragment>
       <p>
-        I’m happily working full-time with Harmonize Health: an outcomes-driven remote patient monitoring company that is currently helping to revolutionize the healthcare space!
+        As of 03/27/2023 I am actively seeking employment as a Senior Front End Developer with a company working on bleeding-edge technology to help improve our world!
       </p>
       <p>
-         Click the icons below to be redirected to my social media where I post my video game projects, ramble about philosophy and share photographs of my travels
+         Click the icons below to get in contact! <i>(Due to a high volume of calls from recruiters, I have temporarily removed my phone number! Please email me, thanks!)</i>
       </p>
     </Fragment>
   )
