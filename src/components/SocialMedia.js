@@ -44,6 +44,7 @@ const SocialMedia = ({ colorMode = "light"}) => {
           alt="Github Icon Link"
         />
       </a>
+{/*
 //      I no longer have a twitter or facebook account and I am 30% more productive in my life! :-)
 //       <a href="https://twitter.com/JordanDWinslow">
 //         <img
@@ -57,6 +58,7 @@ const SocialMedia = ({ colorMode = "light"}) => {
 //           alt="Facebook Icon Link"
 //         />
 //       </a>
+*/}
       <a href="https://www.behance.net/jordanwinslow">
         <img
           src={colorMode === "dark" ? behance : darkbehance}
