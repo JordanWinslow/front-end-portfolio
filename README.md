@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://jordanwinslow.dev">
-    <img alt="Jordan Winslow Logo" src="https://gdurl.com/q7oI" />
+    View Live Demo!
   </a>
 </p>
 
@@ -15,6 +15,11 @@
 ## Designed, Prototyped & Coded From Scratch to Demonstrate my Skillset. Powered by React, GraphQL, GSAP, & Gatsby
 
 Incredibly responsive design prototyped and drawn from scratch in Figma then programmed with JavaScript.
+
+#### 2023 UPDATE NOTE: 
+Keep in mind this portfolio was created years ago and has received no functionality updates since then! 
+
+If I redesigned it today I would improve many things about how I managed props, state, CSS and of course update the project to TypeScript!
 
 ## Features:
 
