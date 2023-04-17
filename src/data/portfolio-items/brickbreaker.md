@@ -1,5 +1,5 @@
 ---
-id: 7
+id: 6
 image: "../../images/portfolio/BrickBreaker.jpg"
 imageAlt: "Yet Another Brick Breaking Game in Pure JavaScript"
 title: "Yet Another Brick Breaker"
