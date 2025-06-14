@@ -16,10 +16,10 @@
 
 Incredibly responsive design prototyped and drawn from scratch in Figma then programmed with JavaScript.
 
-#### 2023 UPDATE NOTE: 
-Keep in mind this portfolio was created years ago and has received no functionality updates since then! 
+#### 2025 UPDATE NOTE: 
+Keep in mind this portfolio was created 6 years ago and has received no functionality updates since then! 
 
-If I redesigned it today I would improve many things about how I managed props, state, CSS and of course update the project to TypeScript!
+If I redesigned it today I would improve many things about how I managed props, state, CSS, and of course update the project to TypeScript!
 
 ## Features:
 
