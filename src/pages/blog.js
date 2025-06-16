@@ -28,8 +28,11 @@ const Logo = styled.div`
     transform: scale(1.1);
   }
 `
+
 export default ({ data }) => {
   const isServerRendered = typeof window === "undefined"
+  const hasMarkdownContent = data.allMarkdownRemark.nodes.length > 0
+
   return (
     <Layout>
       <Link to="/">
@@ -60,33 +63,35 @@ export default ({ data }) => {
             subHeading="JavaScript, React, GraphQL & Friends"
           />
           {/*<BlogList />*/}
-          <BlogPost
-            content={
-              /*TODO: Replace content with dynamically loaded markdown files */
-              <div>
-                <Img
-                  alt="Dynamically-Loaded Random Image From Jordan's Blog"
-                  fluid={
-                    data.allMarkdownRemark.nodes[0].frontmatter.image
-                      .childImageSharp.fluid
-                  }
-                />
-                <br />
-                <br />
-                <p>
-                  This image was dynamically rendered from a markdown file at
-                  build-time with a GraphQL query!
-                </p>
-              </div>
-            }
-          />
-          <div className="bgPrimaryLight" style={{ marginBottom: "15vh" }}>
-            <p>
-              Blog posts coming soon, for now, try resizing the browser window
-              and watching the header change!!
-            </p>
-            You can click the "JW" logo to return home.
-          </div>
+          {hasMarkdownContent ? (
+            <BlogPost
+              content={
+                <div>
+                  <Img
+                    alt="Dynamically-Loaded Random Image From Jordan's Blog"
+                    fluid={
+                      data.allMarkdownRemark.nodes[0].frontmatter.image
+                        .childImageSharp.fluid
+                    }
+                  />
+                  <br />
+                  <br />
+                  <p>
+                    This image was dynamically rendered from a markdown file at
+                    build-time with a GraphQL query!
+                  </p>
+                </div>
+              }
+            />
+          ) : (
+            <div className="bgPrimaryLight" style={{ marginBottom: "15vh" }}>
+              <p>
+                Blog posts coming soon, for now, try resizing the browser window
+                and watching the header change!!
+              </p>
+              You can click the "JW" logo to return home.
+            </div>
+          )}
           {/*<div className="bgSecondaryLight"></div>*/}
         </Suspense>
       )}
@@ -98,8 +103,6 @@ export const query = graphql`
   query MyQuery {
     allMarkdownRemark {
       nodes {
-        html
-        excerpt
         frontmatter {
           date
           title

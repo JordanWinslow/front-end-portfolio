@@ -124,13 +124,20 @@ const PortfolioItem = ({
     // triggers a re-render which triggers the useEffect animation.
   }
 
+  const renderImage = () => {
+    if (typeof image === "string") {
+      return <img className="bgImage" src={image} alt={imageAlt} />
+    }
+    return <Img className="bgImage" fluid={image} alt={imageAlt} />
+  }
+
   return (
     <Card
       onMouseOver={() => animate()}
       onMouseLeave={() => setPopup(false)}
       className="PortfolioItem"
     >
-      <Img className="bgImage" fluid={image} alt={imageAlt} />
+      {renderImage()}
       {popup && (
         <CardPopup
           className="CardPopup ColorProvider"

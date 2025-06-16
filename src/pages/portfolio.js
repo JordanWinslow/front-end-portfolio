@@ -206,12 +206,10 @@ export const query = graphql`
           image {
             childImageSharp {
               fluid(maxWidth: 1000, quality: 70) {
-                #Creates a series of images for every screen-size
-                # and dynamically renders them when they enter the viewport
-                # the default quality is quality: 50
                 ...GatsbyImageSharpFluid
               }
             }
+            publicURL
           }
         }
       }
@@ -258,14 +256,17 @@ user's screen, speeding up page-load times and automating my image-optimization 
 /* END JUST FOR FUN CONSOLE LOG STYLING */
 
 const Portfolio = ({ data }) => {
-  const portfolioItems = data.allMarkdownRemark.nodes.sort((a, b)=>{
+  const portfolioItems = data.allMarkdownRemark.nodes.sort((a, b) => {
     return a.frontmatter.id - b.frontmatter.id // Sorts portfolio by ID in the frontmatter
   })
-  const sortedPortfolioItems = portfolioItems.map(({frontmatter}) => {
+  const sortedPortfolioItems = portfolioItems.map(({ frontmatter }) => {
     return (
       <PortfolioItem
         key={frontmatter.id}
-        image={frontmatter.image.childImageSharp.fluid}
+        image={
+          frontmatter.image?.childImageSharp?.fluid ||
+          frontmatter.image?.publicURL
+        }
         imageAlt={frontmatter.imageAlt}
         title={frontmatter.title}
         description={frontmatter.description}
@@ -321,7 +322,9 @@ const Portfolio = ({ data }) => {
           </DescriptionBox>
 
           {/* PORTFOLIO GRID COMPONENT */}
-          <Grid ref={portfolioGridRef}>{isGridVisible && sortedPortfolioItems}</Grid>
+          <Grid ref={portfolioGridRef}>
+            {isGridVisible && sortedPortfolioItems}
+          </Grid>
         </PageContent>
 
         {/* DIVIDER */}
@@ -343,16 +346,15 @@ const Portfolio = ({ data }) => {
           }
           style={{ width: "100%", height: "100vh" }}
         >
-          {isPhoneStackVisible &&
-            (!isServerRendered && (
-              <Suspense fallback={PlaceHolder}>
-                <PhoneStack />
-                <ControlModal
-                  text="click & drag to fling the phones"
-                  position="relative"
-                />
-              </Suspense>
-            ))}
+          {isPhoneStackVisible && !isServerRendered && (
+            <Suspense fallback={PlaceHolder}>
+              <PhoneStack />
+              <ControlModal
+                text="click & drag to fling the phones"
+                position="relative"
+              />
+            </Suspense>
+          )}
         </div>
 
         {/* DIVIDER */}
