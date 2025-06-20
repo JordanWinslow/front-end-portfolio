@@ -64,7 +64,7 @@ const SocialMedia = ({ colorMode = "light" }) => {
           alt="Email Icon Link"
         />
       </a>
-      <a href="#">
+      <a href="/resume">
         <img
           src={colorMode === "dark" ? phone : darkphone}
           alt="Phone Call Button"
