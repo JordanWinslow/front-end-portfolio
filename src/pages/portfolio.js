@@ -306,12 +306,23 @@ const Portfolio = ({ data }) => {
               view the live demo or the open-source code for each project.
             </p>
             <p>
-              I design with <b>Figma</b>, code with <b>JavaScript</b>,{" "}
-              <b>React</b>, <b>CSS & HTML</b> and animate with <b>GSAP</b> &{" "}
-              <b>React-Spring</b>.
+              This website is now 6 years old and has not been updated other
+              than the text and image content since then!
             </p>
             <p>
-              This website is also a demonstration of what I am capable of.{" "}
+              Most recently I have been working on a strategy/narrative horror
+              video game set in the SCP universe. Prior to that I have worked
+              the past decade primarily on extremely sensitive medical systems
+              and even some military technology.
+            </p>
+            <p>
+              For more detail on my history,{" "}
+              <Link to="/resume" className="link">
+                see my Resume!
+              </Link>{" "}
+              Otherwise please see my fun little projects below.
+            </p>
+            <p>
               <b>
                 <Link to="/about" className="link">
                   To view the source code for this website or learn more about

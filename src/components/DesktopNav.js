@@ -39,7 +39,10 @@ const NavigationContainer = styled.div`
   /*padding-top: 10vh;*/
   padding-right: 2.4vw;
   pointer-events: none;
-  ${props => props.location === "bottom" ? "padding-bottom: 30vh; padding-right: 1vw; justify-content: start;" : ""}
+  ${props =>
+    props.location === "bottom"
+      ? "padding-bottom: 30vh; padding-right: 1vw; justify-content: start;"
+      : ""}
 `
 const LinkContainer = styled.div`
   color: var(${props => (props.colorMode === "dark" ? "--light" : "--dark")});
@@ -49,7 +52,6 @@ const LinkContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  
 `
 const NavLink = styled.h4`
   width: 100%;
@@ -139,12 +141,12 @@ const DesktopNav = ({ colorMode, location }) => {
               />
             </NavLink>
           </Link>
-          <Link to="/blog">
+          <Link to="/resume">
             <NavLink
               onMouseEnter={() => rotateDiamond(4)}
               onMouseLeave={() => stopRotation(4)}
             >
-              Blog
+              Resume
               <img
                 id="diamond4"
                 src={getDiamond()}

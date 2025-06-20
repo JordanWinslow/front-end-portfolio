@@ -15,7 +15,7 @@ const HomePage = () => {
 
   const phrases = [
     "Evoking Emotion Through Front-End Design",
-    "I Create Elegant & Interactive Websites",
+    "I Create Elegant & Interactive Web Applications",
     "Driving Engagement With Inspiring Design",
     "Making First Impressions into Lifelong Memories",
   ]

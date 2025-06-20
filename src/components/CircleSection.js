@@ -75,12 +75,15 @@ const CircleSection = () => {
   return (
     <FullWidthSection>
       <Heading>
-        This Website Was Designed and Coded From Scratch to Demonstrate Exactly
-        What I’m Capable of.
+        This Website Was Designed and Coded From Scratch{" "}
+        <b>
+          <i>(6 years ago)</i>
+        </b>{" "}
+        to Demonstrate Exactly What I’m Capable of.
       </Heading>
       <SubHeading>
-        If you’re still not sure I can bring your designs to life, take a look
-        under the hood and you will be convinced!
+        Here are some of the features of this website that were ahead of their
+        time when it was created:
       </SubHeading>
       <ScrollIndicator
         className="InverseColorProvider"

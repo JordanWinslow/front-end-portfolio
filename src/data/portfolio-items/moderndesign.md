@@ -1,9 +1,8 @@
 ---
-id: 4
-image: "../../images/portfolio/ModernReact1.jpg"
-imageAlt: "Modern Front-End Website Design Featuring SVG Animation & Scroll-Handlers"
-title: "Modern React Website"
-description: "GraphQL + Contentful API, SVG Animation, Advanced CSS3, Responsive Design & Gatsby."
-demoLink: "https://modern-web-design-showcase-1.netlify.app/"
-codeLink: "https://github.com/JordanWinslow/ModernWebDesignShowcase1"
+id: 1
+image: "../../images/portfolio/containment-breach.gif"
+imageAlt: "Strategy Horror Game Created From Scratch"
+title: "Modern UI Horror Video Game"
+description: "Extremely complex project! Please watch the Tech Demo video!"
+demoLink: "https://youtu.be/ckLU5tGdlTM?si=yBGFAIl2cy6taF_O"
 ---

@@ -171,19 +171,19 @@ const Center = styled.div`
   width: 100%;
 `
 const YouTubePlayer = styled.div`
-width: 100vw;
-height: 100vh;
-padding: 15vh 15vw;
-margin-top: 10vh;
-@media (max-width: 600px) {
-  padding: 15vh 1vw;
-}
+  width: 100vw;
+  height: 100vh;
+  padding: 15vh 15vw;
+  margin-top: 10vh;
+  @media (max-width: 600px) {
+    padding: 15vh 1vw;
+  }
 `
 const value1 = (
   <Fragment>
     <p>
-      As a lifelong artist who has spent over a decade in sales & marketing, I
-      recognize how important art design is in human interaction.
+      As a lifelong creative who has founded multiple businesses, I recognize
+      how important art design is in human interaction.
     </p>
     <p>
       From the words we speak to the imagery we use in our campaigns,{" "}
@@ -200,8 +200,8 @@ const value2 = (
       </b>
     </p>
     <p>
-      Therefore I refuse to work for organizations who value profit over human
-      kindness or the evolution of our species.
+      I significantly favor organizations who bring more positivity into the
+      world.
     </p>
     <p>
       <i>I have been known to work for free for the right cause.</i>
@@ -212,7 +212,7 @@ const value3 = (
   <Fragment>
     <p>
       I’m not interested in wasting your time or mine. I believe in doing things
-      the <b>easiest way possible.</b>
+      the <b>simplest way possible.</b>
     </p>
     <p>
       <i>
@@ -252,7 +252,8 @@ const About = () => {
     <Fragment>
       <Color theme={colorMode} />
       <LightBulb colorMode={colorMode} setColorMode={setColorMode} />
-      <MobileNav colorMode={colorMode} alwaysDisplay={true} /> {/*This page has no desktop navigation since it is a full-width page. So I set alwaysDisplay to true for the mobile nav component*/}
+      <MobileNav colorMode={colorMode} alwaysDisplay={true} />{" "}
+      {/*This page has no desktop navigation since it is a full-width page. So I set alwaysDisplay to true for the mobile nav component*/}
       <Spacer>
         <Header colorMode={colorMode} />
       </Spacer>
@@ -263,9 +264,7 @@ const About = () => {
           alt="Portfolio of Jordan Winslow, Front End Web Developer & Designer"
         />
         <IntroductionText>
-          <h1>
-            Front-End Developer, Designer, Music Producer & Advocate of Humanity
-          </h1>
+          <h1>Software Engineer, Designer & Game Developer</h1>
           <h2>
             Hello, I’m Jordan Winslow! Below you can see a 60 second video on
             the features of this site & learn more about my values:
@@ -281,16 +280,16 @@ const About = () => {
         </IntroductionText>
       </IntroductionBox>
       <YouTubePlayer>
-      <iframe
-      style={{boxShadow: "3px 5px 5px rgba(0,0,0, .5)"}}
-      title="Features of Jordan Winslow's Beyond Responsive Portfolio Website"
-        width="100%"
-        height="100%"
-        src="https://www.youtube-nocookie.com/embed/VFTgGN0XGAM?rel=0&theme=dark&modestbranding=1"
-        frameborder="0"
-        allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      />
+        <iframe
+          style={{ boxShadow: "3px 5px 5px rgba(0,0,0, .5)" }}
+          title="Features of Jordan Winslow's Beyond Responsive Portfolio Website"
+          width="100%"
+          height="100%"
+          src="https://www.youtube-nocookie.com/embed/VFTgGN0XGAM?rel=0&theme=dark&modestbranding=1"
+          frameborder="0"
+          allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        />
       </YouTubePlayer>
       <ScrollBox>
         <ScrollIndicator className="ColorProvider" />

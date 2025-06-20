@@ -157,12 +157,14 @@ const PortfolioItem = ({
                 <IconLabel>live demo</IconLabel>
               </a>
             </LiveDemo>
-            <ViewCode>
-              <a href={codeLink}>
-                <Icon src={githubIcon} />
-                <IconLabel>view code</IconLabel>
-              </a>
-            </ViewCode>
+            {codeLink && (
+              <ViewCode>
+                <a href={codeLink}>
+                  <Icon src={githubIcon} />
+                  <IconLabel>view code</IconLabel>
+                </a>
+              </ViewCode>
+            )}
           </IconBox>
         </CardPopup>
       )}

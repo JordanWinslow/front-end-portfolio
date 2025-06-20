@@ -35,7 +35,7 @@ const IconBox = styled.div`
   }
 `
 
-const SocialMedia = ({ colorMode = "light"}) => {
+const SocialMedia = ({ colorMode = "light" }) => {
   return (
     <IconBox>
       <a href="https://github.com/JordanWinslow">
@@ -44,27 +44,20 @@ const SocialMedia = ({ colorMode = "light"}) => {
           alt="Github Icon Link"
         />
       </a>
-{/*
-//      I no longer have a twitter or facebook account and I am 30% more productive in my life! :-)
-//       <a href="https://twitter.com/JordanDWinslow">
-//         <img
-//           src={colorMode === "dark" ? twitter : darktwitter}
-//           alt="Twitter Icon Link"
-//         />
-//       </a>
-//       <a href="https://www.facebook.com/JordanDWinslow/">
-//         <img
-//           src={colorMode === "dark" ? facebook : darkfacebook}
-//           alt="Facebook Icon Link"
-//         />
-//       </a>
-*/}
-      <a href="https://www.behance.net/jordanwinslow">
+
+      <a href="https://x.com/LiminalFDN">
         <img
-          src={colorMode === "dark" ? behance : darkbehance}
-          alt="Behance Icon Link"
+          src={colorMode === "dark" ? twitter : darktwitter}
+          alt="Twitter Icon Link"
         />
       </a>
+      <a href="https://www.facebook.com/profile.php?id=61573754030578">
+        <img
+          src={colorMode === "dark" ? facebook : darkfacebook}
+          alt="Facebook Icon Link"
+        />
+      </a>
+
       <a href="mailto:jwinsemail@gmail.com?subject=Hello%20Jordan!">
         <img
           src={colorMode === "dark" ? email : darkemail}
