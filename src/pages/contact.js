@@ -36,13 +36,13 @@ export default () => {
   const text = (
     <Fragment>
       <p>
-        As of 03/27/2023 I am actively seeking employment as a Senior Front End Developer with a company working on bleeding-edge technology to help improve our world!
+        As of 06/19/2025 I am looking for an amazing team to join in the fields of Game Development, Medical, or other bleeding-edge technology!
       </p>
       <p>
-        <a href='https://drive.google.com/file/d/1xuoAsfzobdR3BLB25O1TaObB1hOEbJiC/view?usp=sharing'>Click here to check out my resume!</a>
+        Please take a look at my Resume and the Portfolio page for examples of my work.
       </p>
       <p>
-         Click the icons below to get in contact! <i>(Due to a high volume of calls from recruiters, I have temporarily removed my phone number! Please email me, thanks!)</i>
+         Click the icons below to get in contact! <i>(Due to a high volume of calls from recruiters, I have moved my phone number to the Resume exclusively.)</i>
       </p>
     </Fragment>
   )
