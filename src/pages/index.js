@@ -19,7 +19,7 @@ const HomePage = () => {
     "Driving Engagement With Inspiring Design",
     "Making First Impressions into Lifelong Memories",
   ]
-  let randomPhrase = Math.floor(Math.random() * Math.floor(4))
+  let randomPhrase = Math.floor(Math.random() * 4)
   let phrase = phrases[randomPhrase]
   const isServerRendered = typeof window === "undefined"
   return (

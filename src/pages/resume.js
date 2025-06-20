@@ -34,12 +34,51 @@ const PageContent = styled.div`
   }
 `
 
+const DownloadLink = styled.a`
+  display: inline-block;
+  background: linear-gradient(
+    135deg,
+    var(--primaryLight) 0%,
+    var(--primaryDark) 100%
+  );
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(
+      135deg,
+      var(--secondaryLight) 0%,
+      var(--secondaryDark) 100%
+    );
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+`
+
 const Resume = ({ data }) => {
   return (
     <Fragment>
       <MainLayout>
         <SEO title="Jordan Winslow Software Engineer Resume" />
         <PageContent className="fadeIn">
+          <DownloadLink
+            href="/resume.pdf"
+            download="JordanWinslow_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="InverseColorProvider"
+          >
+            Download Resume
+          </DownloadLink>
           <img src={resumePage1} alt="Jordan Winslow Resume Page 1" />
           <img src={resumePage2} alt="Jordan Winslow Resume Page 2" />
         </PageContent>
