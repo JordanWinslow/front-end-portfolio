@@ -7,7 +7,7 @@
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.6",
     "browser-monads": "^1.0.0",
-    "gatsby": "^2.32.13",
+    "gatsby": "^5.14.4",
     "gatsby-image": "^2.11.0",
     "gatsby-plugin-manifest": "^2.12.1",
     "gatsby-plugin-offline": "^3.10.2",
